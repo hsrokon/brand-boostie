@@ -1,2 +1,34 @@
 @import "tailwindcss";
-@plugin "daisyui";
+
+@plugin "daisyui" {
+  themes: false; /* Disable built-in themes */
+}
+
+@plugin "daisyui/theme" {
+  name: "brandboostie";
+  default: true;
+  color-scheme: light;
+
+  /* Final Recommended Brand Colors */
+  --color-primary: #1254A1;       /* Deep professional blue */
+  --color-secondary: #00B88A;     /* Fresh teal/green for success and accents */
+  --color-accent: #FFB300;        /* High contrast yellow (promos, highlights) */
+  --color-neutral: #8E5DEB;       /* Optional accent - use sparingly */
+  --color-base-100: #F4F3F1;      /* Soft off-white background */
+  --color-base-300: #E0DFDC;      /* Light grayish section backgrounds */
+  --color-base-content: #212121;  /* Main text color */
+}
+
+.active {
+  color: #1254A1;
+  border-bottom: 3px solid #1254A1;
+  /* Optional smooth effect */
+  transition: color 0.3s ease, border-bottom 0.2s ease;
+}
+
+/* Font Setup */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+@theme {
+  --font-poppins: "Poppins", sans-serif;
+}
