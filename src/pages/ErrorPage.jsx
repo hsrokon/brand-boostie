@@ -12,9 +12,9 @@ const ErrorPage = () => {
     return (
         <div className="min-h-screen flex flex-col justify-center items-center gap-2">
             <button className="flex items-center p-1 rounded-lg cursor-pointer hover:bg-blue-300" onClick={handleNavigate}><img className="h-12" src={'https://i.ibb.co/QjJ55qVd/tr-reduced.png'}/></button>
-            <p  className="text-xl text-primary font-semibold">{data}</p>
-            <h1 className="text-4xl text-base-content font-bold">- {status} -</h1>
-            <h2 className="text-3xl text-base-content font-semibold">{statusText}_</h2>
+            <p className="text-base md:text-xl text-primary font-semibold">{data}</p>
+            <h1 className="text-3xl md:text-4xl text-base-content font-bold">- {status} -</h1>
+            <h2 className="text-2xl md:text-3xl text-base-content font-semibold">{statusText}_</h2>
         </div>
     );
 };

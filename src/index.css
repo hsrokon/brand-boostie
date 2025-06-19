@@ -19,13 +19,6 @@
   --color-base-content: #212121;  /* Main text color */
 }
 
-.active {
-  color: #1254A1;
-  border-bottom: 3px solid #1254A1;
-  /* Optional smooth effect */
-  transition: color 0.3s ease, border-bottom 0.2s ease;
-}
-
 /* Font Setup */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 

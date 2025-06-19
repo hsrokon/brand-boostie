@@ -31,6 +31,12 @@ const Navbar = () => {
     })
   }
 
+  const navItemClasses = ({ isActive }) =>
+  `block py-2 px-2 rounded-md transition-all duration-150 ${
+    isActive ? 'bg-primary text-white' : 'hover:bg-blue-300'
+  }`;
+
+
   return (
     <nav className="bg-white border-gray-200 font-poppins">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -101,27 +107,27 @@ const Navbar = () => {
           <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-3 text-sm lg:text-base lg:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white">
             
             <NavLink to="/"
-              className="block py-2 px-3 rounded md:border-b-3 md:border-b-transparent md:hover:text-primary md:hover:border-b-primary md:py-0.5 md:px-0.5 transition-all duration-150 ease-in-out">
+              className={navItemClasses}>
               Home
             </NavLink>
             <NavLink to="/services"
-              className="block py-2 px-3 rounded md:border-b-3 md:border-b-transparent md:hover:text-primary md:hover:border-b-primary md:py-0.5 md:px-0.5 transition-all duration-150 ease-in-out">
+              className={navItemClasses}>
               Services
             </NavLink>
             <NavLink to="/pricing"
-              className="block py-2 px-3 rounded md:border-b-3 md:border-b-transparent md:hover:text-primary md:hover:border-b-primary md:py-0.5 md:px-0.5 transition-all duration-150 ease-in-out">
+              className={navItemClasses}>
               Pricing
             </NavLink>
             <NavLink to="/portfolio"
-              className="block py-2 px-3 rounded md:border-b-3 md:border-b-transparent md:hover:text-primary md:hover:border-b-primary md:py-0.5 md:px-0.5 transition-all duration-150 ease-in-out">
+              className={navItemClasses}>
               Portfolio
             </NavLink>
             <NavLink to="/blog"
-              className="block py-2 px-3 rounded md:border-b-3 md:border-b-transparent md:hover:text-primary md:hover:border-b-primary md:py-0.5 md:px-1 transition-all duration-150 ease-in-out">
+              className={navItemClasses}>
               Blog
             </NavLink>
             <NavLink to="/about"
-              className="block py-2 px-3 rounded md:border-b-3 md:border-b-transparent md:hover:text-primary md:hover:border-b-primary md:py-0.5 md:px-0.5 transition-all duration-150 ease-in-out">
+              className={navItemClasses}>
               About
             </NavLink>
           </ul>
