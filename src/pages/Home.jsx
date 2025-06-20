@@ -3,6 +3,7 @@ import MiniAbout from '../components/Home/MiniAbout';
 import MiniServices from '../components/Home/MIniServices';
 import MiniPricing from '../components/Home/MIniPricing';
 import Stats from '../components/Home/Stats';
+import Team from '../components/Team';
 
 const Home = () => {
     return (
@@ -21,6 +22,9 @@ const Home = () => {
             </section>
             <section className='w-11/12 mx-auto'>
                 <Stats></Stats>
+            </section>
+            <section className='w-11/12 mx-auto'>
+                <Team></Team>
             </section>
         </div>
     );
