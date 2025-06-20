@@ -1,6 +1,7 @@
 import { RiAdvertisementFill } from "react-icons/ri";
 import { PiRankingFill } from "react-icons/pi";
 import { FiGlobe, FiMail } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 const MiniServicesCards = () => {
   return (
@@ -35,10 +36,10 @@ const MiniServicesCards = () => {
   );
 };
 
-const Card = ({ title, subtitle, Icon, href }) => {
+const Card = ({ title, subtitle, Icon }) => {
   return (
-    <a
-      href={href}
+    <Link
+      to={'/services'}
       className="w-full p-6 h-56 rounded-2xl text-center border border-primary relative overflow-hidden group bg-gradient-to-tr from-base-100 via-base-100 to-base-300 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
     >
       {/* Hover gradient slide-up */}
@@ -64,7 +65,7 @@ const Card = ({ title, subtitle, Icon, href }) => {
       <p className="text-sm lg:text-base text-primary group-hover:text-base-100 relative z-10 transition-colors duration-300 px-2">
         {subtitle}
       </p>
-    </a>
+    </Link>
   );
 };
 

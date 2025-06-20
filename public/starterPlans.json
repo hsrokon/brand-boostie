@@ -1,0 +1,78 @@
+[
+  {
+    "id": "starter-001",
+    "category": "Social",
+    "slug": "social-media-setup",
+    "title": "Social Media Setup",
+    "tagline": "Kickstart your Meta ads presence.",
+    "price": 39.99,
+    "originalPrice": 49.99,
+    "currency": "USD",
+    "frequency": "Once",
+    "highlighted": true,
+    "planCategory": "Starter",
+    "features": [
+      "Meta Pixel Integration",
+      "Business Manager Setup",
+      "3 targeted Ad Campaigns"
+    ],
+    "cta": "Order Now"
+  },
+  {
+    "id": "starter-002",
+    "category": "Email",
+    "slug": "email-automation-setup",
+    "title": "Email Automation Setup",
+    "tagline": "Automate lead nurturing with strategic flows.",
+    "price": 39.99,
+    "originalPrice": 49.99,
+    "currency": "USD",
+    "frequency": "Once",
+    "highlighted": false,
+    "planCategory": "Starter",
+    "features": [
+      "Strategic Welcome Workflow (4–5 steps)",
+      "Engaging, Pre-written Templates",
+      "Seamless Automation Integration"
+    ],
+    "cta": "Order Now"
+  },
+  {
+    "id": "starter-003",
+    "category": "Web",
+    "slug": "landing-page-creation",
+    "title": "Landing Page Creation",
+    "tagline": "Build a high-converting sales or lead page.",
+    "price": 39.99,
+    "originalPrice": 59.99,
+    "currency": "USD",
+    "frequency": "Once",
+    "highlighted": false,
+    "planCategory": "Starter",
+    "features": [
+      "Conversion-Optimized Mobile friendly Design",
+      "Essential Sections Covered (About, Products, Contact etc.)",
+      "Product Showcase (up to 5 products)"
+    ],
+    "cta": "Order Now"
+  },
+  {
+    "id": "starter-004",
+    "category": "SEO",
+    "slug": "technical-seo",
+    "title": "Technical SEO for Websites",
+    "tagline": "Boost your site's performance and visibility.",
+    "price": 39.99,
+    "originalPrice": 49.99,
+    "currency": "USD",
+    "frequency": "Once",
+    "highlighted": false,
+    "planCategory": "Starter",
+    "features": [
+      "Site Health & Indexing Optimization",
+      "Speed & Performance Enhancements",
+      "SEO Foundation Setup (OnPage SEO up to 3 pages)"
+    ],
+    "cta": "Order Now"
+  }
+]
