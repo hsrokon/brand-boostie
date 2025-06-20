@@ -16,7 +16,7 @@ const BannerSlider = () => {
   ];
 
   return (
-    <div className="relative w-full h-48 md:h-96 lg:h-[31rem] xl:h-[40rem] overflow-hidden">
+    <div className="relative w-full h-44 md:h-96 lg:h-[31rem] xl:h-[40rem] overflow-hidden">
       {/* Swiper in background */}
       <Swiper
         modules={[Autoplay]}
