@@ -33,7 +33,7 @@ const MiniPricing = () => {
 
       {/* Starter Pricing Card Section */}
       <div className="w-full" data-aos="fade-up">
-        <h2 className="text-xl ml-4 text-center my-4 lg:text-3xl font-semibold text-primary">
+        <h2 className="text-xl ml-4 text-center my-6 lg:text-3xl font-semibold text-primary">
             &#10095; Starter Plans
         </h2>
         <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-4">
@@ -47,8 +47,8 @@ const MiniPricing = () => {
 
 
       {/* Professional Pricing Card Section */}
-    <div className="w-full" data-aos="fade-up">
-        <h2 className="text-xl ml-4 text-center my-4 lg:text-3xl font-semibold text-accent">
+    <div className="w-full mt-20" data-aos="fade-up">
+        <h2 className="text-xl ml-4 text-center my-6 lg:text-3xl font-semibold text-accent">
             &#10095; Professional Plans
         </h2>
         <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-4">

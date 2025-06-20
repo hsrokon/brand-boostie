@@ -56,7 +56,7 @@ const Card = ({ plan }) => {
           initial={{ scale: 0.85 }}
           variants={{ hover: { scale: 1 } }}
           transition={{ duration: 1, ease: "backInOut" }}
-          className="my-2 block origin-top-left font-mono text-xl sm:text-2xl font-black leading-tight"
+          className="my-2 block origin-top-left font-mono text-xl sm:text-2xl lg:text-3xl font-black leading-tight"
         >
           {title}
         </motion.span>
