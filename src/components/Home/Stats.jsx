@@ -23,7 +23,7 @@ const Stats = () => {
   return (
     <section
       ref={ref}
-      className="bg-base-100 py-6 md:py-12 lg:py-16 px-4 md:px-0"
+      className="bg-base-100 py-6 md:py-12 lg:py-20 px-4 md:px-0"
       data-aos="fade-up"
     >
       <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">

@@ -34,13 +34,23 @@ const Card = ({ plan }) => {
       className={`relative w-full h-full  min-h-[24rem] max-w-[16rem] md:max-w-[18rem] lg:md:max-w-[19.5rem] xl:max-w-sm mx-auto 
         overflow-hidden rounded-xl 
         ${planCategory === 'Professional' ? 'bg-accent' : 'bg-primary md:min-h-[25rem] lg:min-h-[24rem]'} 
+        ${id.split('-')[1]%2==0 ? 'md:mt-8 lg:mt-0 xl:mt-12' : ''}
         p-6 sm:p-8 shadow-lg`}
 
     >
       <div className="relative z-10 text-base-100">
-        <span className="mb-3 block w-fit rounded-full bg-white/20 px-3 py-0.5 text-sm font-light">
+        <div className="flex justify-between">
+          <span className="mb-3 block w-fit rounded-full bg-white/20 px-3 py-0.5 text-sm font-light">
           {category}
         </span>
+        
+        {
+          originalPrice && <span className="block w-fit rounded-full text-xl line-through font-medium">
+          ${originalPrice}
+        </span>
+        }
+      </div>
+        
 
         <motion.span
           initial={{ scale: 0.85 }}

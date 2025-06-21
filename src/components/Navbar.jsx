@@ -120,7 +120,7 @@ const Navbar = () => {
             </NavLink>
             <NavLink to="/portfolio"
               className={navItemClasses}>
-              Portfolio
+              Case Studies
             </NavLink>
             <NavLink to="/blog"
               className={navItemClasses}>
