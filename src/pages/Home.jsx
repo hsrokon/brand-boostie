@@ -5,6 +5,7 @@ import MiniPricing from '../components/Home/MIniPricing';
 import Stats from '../components/Home/Stats';
 import Team from '../components/Team';
 import Testimonials from '../components/Home/Testimonials';
+import MessageSection from '../components/Home/MessageSection';
 
 const Home = () => {
     return (
@@ -29,6 +30,9 @@ const Home = () => {
             </section>
             <section className='w-11/12 mx-auto'>
                 <Testimonials></Testimonials>
+            </section>
+            <section className='w-11/12 mx-auto'>
+                <MessageSection></MessageSection>
             </section>
 
         </div>
