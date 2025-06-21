@@ -1,0 +1,115 @@
+import { IoMailOutline } from "react-icons/io5";
+
+const Footer = () => {
+  return (
+    <footer className="bg-base-300 text-gray-700 pt-16 pb-8 px-6 font-poppins">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
+        {/* Brand Info */}
+        <div>
+          <div className="flex items-center gap-2 mb-4">
+            <img src="https://i.ibb.co/ynsqxBgL/logo.png" alt="Logo" className="w-6 h-6" />
+            <span className="text-xl text-primary font-semibold">BrandBoostie</span>
+          </div>
+          <p className="text-sm text-gray-600 mb-6">
+            Empowering businesses to launch, grow, and succeed.
+          </p>
+          <div className="flex gap-4">
+            {["facebook", "twitter", "youtube", "linkedin"].map((platform) => (
+              <a
+                key={platform}
+                href="#"
+                className="w-9 h-9 rounded-full bg-white shadow flex items-center justify-center hover:bg-gray-100 transition"
+              >
+                <img
+                  src={`https://cdn.jsdelivr.net/npm/simple-icons/icons/${platform}.svg`}
+                  alt={platform}
+                  className="w-4 h-4 opacity-70"
+                />
+              </a>
+            ))}
+          </div>
+        </div>
+
+        {/* Useful Links */}
+        <div className="grid grid-cols-2 gap-8 text-sm">
+          <div>
+            <h4 className="font-semibold mb-3">Company</h4>
+            <ul className="space-y-2 text-gray-600">
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Case Studies</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Blog</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-semibold mb-3">Support</h4>
+            <ul className="space-y-2 text-gray-600">
+              <li><a href="#">Contact</a></li>
+              <li><a href="#">FAQs</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms & Conditions</a></li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Newsletter */}
+        <div>
+          <h4 className="font-semibold text-sm mb-3">Subscribe to Updates</h4>
+          <p className="text-sm text-gray-600 mb-4">
+            Get the latest digital marketing insights, growth tips, and exclusive offers straight to your inbox.
+          </p>
+          <form className="flex rounded-md overflow-hidden bg-white border border-primary">
+            <input
+              type="email"
+              placeholder="Enter your email"
+              className="px-4 py-2 w-full text-sm focus:outline-none"
+            />
+            <button
+              type="submit"
+              className="px-4 text-sm lg:text-base  text-primary hover:text-accent transition flex items-center gap-1.5 cursor-pointer"
+              title="Subscribe"
+            >
+              <IoMailOutline /> Subscribe
+            </button>
+          </form>
+        </div>
+      </div>
+
+      {/* Bottom Section */}
+      <div className="mt-12 pt-6 max-w-7xl mx-auto border-t text-sm flex flex-col md:flex-row justify-between items-center gap-4">
+        <ul className="flex flex-wrap gap-6 text-gray-500 justify-center">
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Pricing</a></li>
+          <li><a href="#">Testimonials</a></li>
+          <li><a href="#">Partners</a></li>
+          <li><a href="#">Press Kit</a></li>
+        </ul>
+        <div className="flex gap-4">
+            <div className="w-14 h-6">     
+                <img
+                    src={'https://i.ibb.co/rGHzqh5y/BKash.png'}
+                    alt={'Bkash'}
+                    className="w-full h-full object-cover"
+                    />
+            </div>
+            <div className="w-14 h-6">
+                <img
+                src={'https://i.ibb.co/zVxYkhn7/Nagad.png'}
+                alt={'Nagad'}
+                className="w-full h-full object-cover"
+                />
+            </div>
+            <div className="w-14 h-6">
+                <img
+                src={'https://i.ibb.co/YFWybDMg/Rocket.png'}
+                alt={'Nagad'}
+                className="w-full h-full object-cover"
+                />
+            </div>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;

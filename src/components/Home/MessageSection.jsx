@@ -10,7 +10,7 @@ const MessageSection = () => {
 
   return (
     <section
-      className="bg-base-200 py-20 px-6 text-center"
+      className="bg-base-200 py-20 px-6 mb-30 text-center"
       id="contact"
       data-aos="fade-up"
     >
