@@ -1,5 +1,4 @@
 @import "tailwindcss";
-
 @plugin "daisyui" {
   themes: false; /* Disable built-in themes */
 }
