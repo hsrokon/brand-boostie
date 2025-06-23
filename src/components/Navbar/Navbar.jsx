@@ -1,6 +1,6 @@
 import { useContext, useEffect, useRef, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import { AuthContext } from '../providers/AuthProvider'; 
+import { AuthContext } from '../../providers/AuthProvider'; 
 import { TbLogout } from 'react-icons/tb';
 
 const Navbar = () => {
@@ -122,13 +122,13 @@ const Navbar = () => {
               className={navItemClasses}>
               Case Studies
             </NavLink>
-            <NavLink to="/blog"
-              className={navItemClasses}>
-              Blog
-            </NavLink>
             <NavLink to="/about"
               className={navItemClasses}>
               About
+            </NavLink>
+            <NavLink to="/blog"
+              className={navItemClasses}>
+              Blog
             </NavLink>
           </ul>
         </div>
