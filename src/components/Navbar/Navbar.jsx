@@ -2,6 +2,7 @@ import { useContext, useEffect, useRef, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider'; 
 import { TbLogout } from 'react-icons/tb';
+import { hover, motion } from 'framer-motion';
 
 const Navbar = () => {
   const [isUserDropdownOpen, setIsUserDropdownOpen] = useState(false);
@@ -33,8 +34,16 @@ const Navbar = () => {
 
   const navItemClasses = ({ isActive }) =>
   `block py-2 px-2 rounded-md transition-all duration-150 ${
-    isActive ? 'bg-primary text-white' : 'hover:bg-blue-300'
+    isActive ? 'bg-primary text-white' : ''
   }`;
+
+  const routeToLabel = (path) => {
+  return path
+    .replace(/^\//, '')                          // remove leading slash
+    .replace(/([A-Z])/g, ' $1')                  // add space before caps
+    .replace(/\b\w/g, char => char.toUpperCase())// capitalize each word
+    .trim();
+};
 
 
   return (
@@ -106,30 +115,34 @@ const Navbar = () => {
         >
           <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-3 text-sm lg:text-base lg:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white">
             
-            <NavLink to="/"
-              className={navItemClasses}>
-              Home
-            </NavLink>
-            <NavLink to="/services"
-              className={navItemClasses}>
-              Services
-            </NavLink>
-            <NavLink to="/pricing"
-              className={navItemClasses}>
-              Pricing
-            </NavLink>
-            <NavLink to="/portfolio"
-              className={navItemClasses}>
-              Case Studies
-            </NavLink>
-            <NavLink to="/about"
-              className={navItemClasses}>
-              About
-            </NavLink>
-            <NavLink to="/blog"
-              className={navItemClasses}>
-              Blog
-            </NavLink>
+            {["/", "/services", "/pricing", "/caseStudies", "/about", "/blog"].map(nav => 
+              <motion.div
+              className='relative group'
+              initial="rest"
+              animate="rest"
+              whileHover="hover"
+            >
+              <NavLink to={nav}
+                className={navItemClasses}>
+                {()=>routeToLabel(nav) === "" ? "Home" : routeToLabel(nav)}
+              </NavLink>
+              {/* Use NavLink's `isActive` inside a function to disable the animation */}
+              <NavLink
+              to={nav}
+              children={({isActive})=> 
+                !isActive && (
+                  <motion.div
+                  className='absolute left-0 bottom-0 h-0.5 bg-primary'
+                  variants={{
+                    rest: {width : 0, opacity: 0, x: -20},
+                    hover: {width: '100%', opacity: 1, x: 0},
+                  }}
+                  transition={{duration: 0.4, ease: 'easeOut'}}
+                  />
+                )}
+              />
+            </motion.div>
+            )} 
           </ul>
         </div>
       </div>
