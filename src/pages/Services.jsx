@@ -49,8 +49,8 @@ const Services = () => {
         ];
 
     return (
-        <div className='min-h-screen'>
-            <div className="bg-primary/60 w-full h-0.5"></div>
+        <div className='min-h-screen mb-52'>
+            <div className="bg-primary/5 w-full h-0.5"></div>
             <section
             className='relative bg-cover bg-center bg-no-repeat px-6 py-24 mb-24     text-white'
             style={{backgroundImage: "url('https://i.ibb.co/RG6Ng5VJ/service-cover-bg.jpg')"}}
@@ -95,6 +95,15 @@ const Services = () => {
                         <div className={` absolute top-0  text-accent/40 text-7xl ${service.id%2===0 ? 'left-10' : 'right-10'}`}>
                         {service.icon}
                         </div>
+
+                        <div className={`flex ${service.id%2===0 ? 'justify-end' : ''}`}>
+                            <button className={`px-6 py-2 font-medium bg-primary text-white w-fit transition-all 
+                                shadow-[3px_3px_0px_black] hover:shadow-none 
+                                hover:translate-x-[3px] hover:translate-y-[3px]
+                                cursor-pointer`}>Visit Plan
+                            </button>
+                        </div>
+                        
                     </div>
                 </section>
             )
