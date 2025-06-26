@@ -92,38 +92,38 @@ const Services = () => {
         <div className='min-h-screen mb-52'>
             <div className="bg-primary/5 w-full h-0.5"></div>
             <section
-            className='relative bg-cover bg-center bg-no-repeat px-6 py-24 mb-24     text-white'
+            className='relative bg-cover bg-center bg-no-repeat px-6 lg:py-24 mb-10 md:mb-16 lg:mb-24 text-white'
             style={{backgroundImage: "url('https://i.ibb.co/RG6Ng5VJ/service-cover-bg.jpg')"}}
             data-aos="fade-up"
             >
-                <div className='max-w-4xl mx-auto text-center space-y-4 p-8 bg-black/50 rounded-lg'>
-                    <h1 className='text-4xl md:text-5xl font-bold'>Grow your business with confidence.</h1>
-                    <p className='text-lg text-gray-200'>
+                <div className="lg:hidden absolute inset-0 bg-black/50 z-0"></div>
+                <div className='relative z-10 w-full lg:max-w-4xl mx-auto text-center space-y-4 md:p-8 lg:bg-black/50 rounded-lg py-2'>
+                    <h1 className='text-xl md:text-3xl lg:text-5xl font-bold'>Grow your business with confidence.</h1>
+                    <p className='text-sm md:text lg:text-lg text-gray-200'>
                         BrandBoostie helps you dominate online with custom marketing strategies.
                     </p>
-                    <button className='btn border-0 bg-primary text-white'>Get a free Consultation</button>
+                    <button className='btn btn-sm md:btn-md border-0 bg-primary text-white'>Get a free Consultation</button>
                 </div>
             </section>
 
-            <IoIosArrowDown className="text-4xl mx-auto text-base-content/50" data-aos="fade-up"/>
+            <IoIosArrowDown className="text-2xl md:text-3xl lg:text-4xl mx-auto text-base-content/50" data-aos="fade-up"/>
 
             {/* Services */}
-
-            <h1 className="text-center text-5xl text-accent my-10" data-aos="fade-left">Explore Services</h1>
+            <h1 className="text-center text-2xl md:text-3xl lg:text-5xl text-accent my-6 md:my-8 lg:my-10" data-aos="fade-left">Explore Services</h1>
 
             {
             services.map(service =>
                 <section 
                 key={service.id}
-                className="w-8/12 mx-auto my-24"
+                className="w-11/12 md:w-10/12 lg:w-8/12 mx-auto my-14  lg:my-24"
                 data-aos={`${service.id%2===0 ? 'fade-left' : 'fade-right'}`}
                 >
                     <div className="relative">
-                        <h1 className={ `text-4xl my-2 font-semibold text-primary ${service.id%2===0 ? 'text-right' : ''}`}>
+                        <h1 className={ `text-2xl lg:text-4xl my-2 font-semibold text-primary ${service.id%2===0 ? 'text-right' : ''}`}>
                             {service.title}
                         </h1>
 
-                        <h5 className={`text-xl my-2 text-gray-600 flex items-center gap-3
+                        <h5 className={`text-sm md:text-base lg:text-xl my-2 text-gray-600 flex items-center gap-3
                         ${service.id%2===0 ? 'flex-row-reverse' : ''}`}> 
                             <div className="text-secondary">
                                 {service.icon}
@@ -131,7 +131,7 @@ const Services = () => {
                         {service.short}
                         </h5>
 
-                        <p className={` text-base-content text-lg my-4 ${service.id%2===0 ? 'text-right' : ''}`}
+                        <p className={`text-base-content text-sm lg:text-lg my-4 ${service.id%2===0 ? 'text-right' : ''}`}
                         >
                             {service.description}
                         </p>
@@ -170,7 +170,7 @@ const Services = () => {
                         </button>)
                     }
                 </div>
-                <Link to={'/about'}>
+                <Link to={'/caseStudies'}>
                     <button 
                     className={`px-6 py-2 font-medium bg-primary my-8
                         text-white w-fit transition-all 

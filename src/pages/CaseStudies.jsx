@@ -1,6 +1,6 @@
 import React from 'react';
 
-const About = () => {
+const CaseStudies = () => {
     return (
         <div className='min-h-screen'>
             
@@ -8,4 +8,4 @@ const About = () => {
     );
 };
 
-export default About;
+export default CaseStudies;

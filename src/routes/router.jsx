@@ -3,6 +3,10 @@ import Layout from "../layout/Layout";
 import Home from "../pages/Home";
 import Services from "../pages/Services";
 import ErrorPage from "../pages/ErrorPage";
+import Pricing from "../pages/Pricing";
+import CaseStudies from "../pages/CaseStudies";
+import About from "../pages/About";
+import Blogs from "../pages/Blogs";
 
 
 const router = createBrowserRouter([
@@ -18,7 +22,23 @@ const router = createBrowserRouter([
             {
                 path: '/services',
                 element: <Services></Services>
-            }
+            },
+            {
+                path: '/pricing',
+                element: <Pricing></Pricing>
+            },
+            {
+                path: '/caseStudies',
+                element: <CaseStudies></CaseStudies>
+            },
+            {
+                path: '/about',
+                element: <About></About>
+            },
+            {
+                path: '/blogs',
+                element: <Blogs></Blogs>
+            },
         ]
     }
 ])
