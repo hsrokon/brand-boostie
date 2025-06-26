@@ -4,6 +4,8 @@ import 'aos/dist/aos.css'
 import { useEffect } from "react";
 import { HiRocketLaunch } from "react-icons/hi2";
 import { IoIosArrowDown } from "react-icons/io";
+import { MdOutlineContentPasteSearch, MdWeb, MdOutlineMarkEmailRead } from "react-icons/md";
+
 
 const Services = () => {
 
@@ -11,8 +13,44 @@ const Services = () => {
         Aos.init({duration: 800, once: true})
     },[])
 
+    const services = [
+        {
+            id: 1,
+            title: "Ads Campaign",
+            icon: <HiRocketLaunch />,
+            short: "Targeted advertising to boost your brand’s reach and engagement",
+            description:
+            "Our Ads Campaign service helps you reach the right people through targeted ads on platforms like Google, Facebook, and Instagram. We create eye-catching visuals, engaging messages, and optimize campaigns to meet your business goals — whether that’s increasing traffic, generating leads, or boosting sales. With regular monitoring and data-driven improvements, we make sure your investment performs at its best.",
+        },
+        {
+            id: 2,
+            title: "Full Local SEO",
+            icon: <MdOutlineContentPasteSearch />,
+            short: "Improve your local search ranking and drive nearby traffic",
+            description:
+            "Our Full Local SEO service is built to increase your visibility in local searches. We optimize your Google Business Profile, manage local listings, and target location-specific keywords to help nearby customers find your business. Whether you're a shop, restaurant, or service provider, we ensure you show up when it matters most — in front of people searching near you.",
+        },
+        {
+            id: 3,
+            title: "Website",
+            icon: <MdWeb />,
+            short: "Modern, responsive websites tailored to your brand",
+            description:
+            "We design and build websites that reflect your brand, work on all devices, and convert visitors into customers. From clean layouts to fast loading and mobile optimization, every detail is crafted to give users a smooth experience. Whether you need a business landing page or a full e-commerce site, we create digital spaces that support your growth.",
+        },
+        {
+            id: 4,
+            title: "Email Marketing",
+            icon: <MdOutlineMarkEmailRead />,
+            short: "Convert leads through strategic and automated email flows",
+            description:
+            "Our Email Marketing service helps you stay connected with your audience through smart, automated campaigns. From welcome sequences to product promotions, we design personalized emails that drive engagement and increase conversions. Using tools like Mailchimp or Klaviyo, we build flows that nurture leads and bring customers back — all while saving you time.",
+        },
+        ];
+
     return (
         <div className='min-h-screen'>
+            <div className="bg-primary/60 w-full h-0.5"></div>
             <section
             className='relative bg-cover bg-center bg-no-repeat px-6 py-24 mb-24     text-white'
             style={{backgroundImage: "url('https://i.ibb.co/RG6Ng5VJ/service-cover-bg.jpg')"}}
@@ -29,17 +67,40 @@ const Services = () => {
 
             <IoIosArrowDown className="text-4xl mx-auto text-base-content/50" data-aos="fade-up"/>
 
-            <section className="w-9/12 mx-auto my-16"
-            data-aos="fade-right"
-            >
-                <div className="relative">
-                    <h1 className="text-4xl my-2 font-semibold text-primary">Ads Campaign</h1>
-                    <h5 className="text-xl my-2 text-gray-600 flex items-center gap-3 "> <HiRocketLaunch className="text-secondary"/>
-                    Targeted advertising to boost your brand's reach and engagement</h5>
-                    <p className="text-base-content text-lg my-4">Our Ads Campaign service is designed to connect your business with the right audience through precise targeting on platforms like Google, Facebook, Instagram, and more. We craft compelling ad creatives and strategic messaging that capture attention and drive action. Whether your goal is to increase website traffic, generate leads, or grow sales, we tailor each campaign to match your objectives. With ongoing monitoring and data-driven optimization, we ensure your ad budget delivers the best possible return.</p>
-                    <HiRocketLaunch className="absolute top-0 -right-10 text-accent/40 text-7xl"/>
-                </div>
-            </section>
+            {
+            services.map(service =>
+                <section 
+                key={service.id}
+                className="w-8/12 mx-auto my-24"
+                data-aos={`${service.id%2===0 ? 'fade-left' : 'fade-right'}`}
+                >
+                    <div className="relative">
+                        <h1 className={ `text-4xl my-2 font-semibold text-primary ${service.id%2===0 ? 'text-right' : ''}`}>
+                            {service.title}
+                        </h1>
+
+                        <h5 className={`text-xl my-2 text-gray-600 flex items-center gap-3
+                        ${service.id%2===0 ? 'flex-row-reverse' : ''}`}> 
+                            <div className="text-secondary">
+                                {service.icon}
+                            </div>
+                        {service.short}
+                        </h5>
+
+                        <p className={` text-base-content text-lg my-4 ${service.id%2===0 ? 'text-right' : ''}`}
+                        >
+                            {service.description}
+                        </p>
+
+                        <div className={` absolute top-0  text-accent/40 text-7xl ${service.id%2===0 ? 'left-10' : 'right-10'}`}>
+                        {service.icon}
+                        </div>
+                    </div>
+                </section>
+            )
+            }
+
+            
 
         </div>
     );
