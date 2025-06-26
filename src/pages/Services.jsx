@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { HiRocketLaunch } from "react-icons/hi2";
 import { IoIosArrowDown } from "react-icons/io";
 import { MdOutlineContentPasteSearch, MdWeb, MdOutlineMarkEmailRead } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 
 const Services = () => {
@@ -106,6 +107,10 @@ const Services = () => {
 
             <IoIosArrowDown className="text-4xl mx-auto text-base-content/50" data-aos="fade-up"/>
 
+            {/* Services */}
+
+            <h1 className="text-center text-5xl text-accent my-10" data-aos="fade-left">Explore Services</h1>
+
             {
             services.map(service =>
                 <section 
@@ -164,8 +169,17 @@ const Services = () => {
                         {point.point}
                         </button>)
                     }
-                    
                 </div>
+                <Link to={'/about'}>
+                    <button 
+                    className={`px-6 py-2 font-medium bg-primary my-8
+                        text-white w-fit transition-all 
+                        shadow-[3px_3px_0px_black] hover:shadow-none 
+                        hover:translate-x-[3px] hover:translate-y-[3px]
+                        cursor-pointer`}>Learn More...
+                    </button>
+                </Link>
+                
             </section>
 
         </div>
