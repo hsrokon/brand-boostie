@@ -48,6 +48,45 @@ const Services = () => {
         },
         ];
 
+    const bulletPoints = [
+        {
+            id: 1,
+            point: "Data-driven results"
+        },
+        {
+            id: 2,
+            point: "Dedicated support"
+        },
+        {
+            id: 3,
+            point: "Transparent reporting"
+        },
+        {
+            id: 4,
+            point: "Scalable solutions"
+        },
+        {
+            id: 5,
+            point: "SEO & mobile-ready"
+        },
+        {
+            id: 6,
+            point: "Proven success"
+        },
+        {
+            id: 7,
+            point: "Multi-channel strategy"
+        },
+        {
+            id: 8,
+            point: "Ongoing optimization"
+        },
+        {
+            id: 9,
+            point: "Local & global targeting "
+        },
+    ]
+
     return (
         <div className='min-h-screen mb-52'>
             <div className="bg-primary/5 w-full h-0.5"></div>
@@ -109,7 +148,25 @@ const Services = () => {
             )
             }
 
-            
+            <section 
+            className="w-7/12 mx-auto flex flex-col items-center"
+            data-aos="fade-down">
+                <h1 className="text-4xl text-accent font-semibold my-4">Why choose us?</h1>
+                <h5 className="my-2 font-semibold text-primary italic">We focus on:</h5>
+                <div className="grid gap-3 grid-cols-3">
+                    {
+                        bulletPoints.map(point => 
+                        <button key={point.id} className="px-6 py-2 font-medium 
+                            border-2 border-primary text-primary w-fit transition-all 
+                            shadow-[3px_3px_0px_black] hover:shadow-none 
+                            hover:translate-x-[3px] hover:translate-y-[3px]
+                            cursor-pointer">
+                        {point.point}
+                        </button>)
+                    }
+                    
+                </div>
+            </section>
 
         </div>
     );
