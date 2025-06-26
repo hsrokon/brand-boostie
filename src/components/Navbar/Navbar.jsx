@@ -137,7 +137,7 @@ const Navbar = () => {
                     rest: {width : 0, opacity: 0, x: -20},
                     hover: {width: '100%', opacity: 1, x: 0},
                   }}
-                  transition={{duration: 0.4, ease: 'easeOut'}}
+                  transition={{duration: 0.2, ease: 'easeOut'}}
                   />
                 )}
               />
