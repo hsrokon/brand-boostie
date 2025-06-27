@@ -1,6 +1,20 @@
+import React from 'react';
+import { useEffect, useState } from "react";
+import { IoMdCheckmark } from "react-icons/io";
+import { RxCross2 } from "react-icons/rx";
 import { Link } from "react-router-dom";
+import PricingTable from '../components/PricingTable';
 
 const Pricing = () => {
+
+    const [ pricingData, setPricingData ] = useState([])
+
+    useEffect(()=> {
+        fetch('pricing.json')
+        .then(res => res.json())
+        .then(data => setPricingData(data))
+    },[])
+
   return (
     <div className="min-h-screen">
       <section
@@ -20,9 +34,14 @@ const Pricing = () => {
             results.
             </p>
             <button className="btn btn-sm md:btn-md md:text-base border-0 bg-primary text-white shadow hover:bg-primary/90 transition">
-                Compare Plans
+                Customize Plan
             </button>
         </div>
+      </section>
+
+    {/* Pricing Comparison table */}
+      <section className="w-10/12 mx-auto">
+        <PricingTable></PricingTable>
       </section>
     </div>
   );

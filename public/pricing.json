@@ -1,0 +1,47 @@
+[
+  {
+    "service": "Ads Campaign",
+    "features": [
+      {
+        "name": "Meta Pixel Integration",
+        "starter": false,
+        "professional": true
+      },
+      {
+        "name": "Business Manager Setup",
+        "starter": true,
+        "professional": true
+      },
+      {
+        "name": "3 Targeted Ad Campaigns",
+        "starter": true,
+        "professional": true
+      },
+      {
+        "name": "Weekly Reporting & Analysis",
+        "starter": false,
+        "professional": true
+      }
+    ]
+  },
+  {
+    "service": "Full Local SEO",
+    "features": [
+      {
+        "name": "Google Business Profile Setup",
+        "starter": true,
+        "professional": true
+      },
+      {
+        "name": "Local Citation Building",
+        "starter": false,
+        "professional": true
+      },
+      {
+        "name": "Local Keyword Research",
+        "starter": true,
+        "professional": true
+      }
+    ]
+  }
+]
