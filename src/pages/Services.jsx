@@ -98,7 +98,7 @@ const Services = () => {
                 <div className="absolute inset-0 bg-black/15 backdrop-blur-sm z-0"></div>
 
                 <div className="relative z-10 w-full lg:max-w-4xl mx-auto text-center space-y-4 md:p-8 rounded-lg py-2">
-                    <h1 className="text-xl md:text-3xl lg:text-5xl font-bold text-white drop-shadow-xl">
+                    <h1 className="text-xl md:text-3xl lg:text-5xl font-bold text-white drop-shadow-xl [text-shadow:_2px_2px_0_black,_-2px_-2px_0_black]">
                     Grow your business with confidence.
                     </h1>
                     <p className="text-sm md:text lg:text-lg  drop-shadow-lg">

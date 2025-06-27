@@ -113,7 +113,7 @@ const Navbar = () => {
           className={`items-center justify-between w-full md:flex md:w-auto md:order-1 ${isMobileMenuOpen ? '' : 'hidden'}`}
           id="navbar-user"
         >
-          <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-3 text-sm lg:text-base lg:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white">
+          <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-1 text-sm md:text-xs lg:text-base lg:space-x-4 xl:space-x-7 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white">
             
             {["/", "/services", "/pricing", "/caseStudies", "/about", "/blogs", "/contact"].map(nav => 
               <motion.div
@@ -126,7 +126,7 @@ const Navbar = () => {
                 className={navItemClasses}>
                 {()=>routeToLabel(nav) === "" ? "Home" : routeToLabel(nav)}
               </NavLink>
-              {/* Use NavLink's `isActive` inside a function to disable the animation */}
+              {/* Use NavLink's `isActive` to disable the animation */}
               <NavLink
               to={nav}
               children={({isActive})=> 
