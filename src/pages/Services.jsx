@@ -124,7 +124,7 @@ const Services = () => {
                         </h1>
 
                         <h5 className={`text-sm md:text-base lg:text-xl my-2 text-gray-600 flex items-center gap-3
-                        ${service.id%2===0 ? 'flex-row-reverse' : ''}`}> 
+                        ${service.id%2===0 ? 'flex-row-reverse text-right md:text-inherit' : ''}`}> 
                             <div className="text-secondary">
                                 {service.icon}
                             </div>
@@ -136,7 +136,7 @@ const Services = () => {
                             {service.description}
                         </p>
 
-                        <div className={` absolute top-0  text-accent/40 text-7xl ${service.id%2===0 ? 'left-10' : 'right-10'}`}>
+                        <div className={`absolute -top-3 md:top-0 text-accent/40 text-5xl md:text-7xl ${service.id%2===0 ? 'left-0 md:left-10' : 'right-0 md:right-10'}`}>
                         {service.icon}
                         </div>
 
@@ -156,13 +156,13 @@ const Services = () => {
             <section 
             className="w-7/12 mx-auto flex flex-col items-center"
             data-aos="fade-down">
-                <h1 className="text-4xl text-accent font-semibold my-4">Why choose us?</h1>
+                <h1 className="text-2xl md:text-4xl text-accent font-semibold my-2 md:my-4">Why choose us?</h1>
                 <h5 className="my-2 font-semibold text-primary italic">We focus on:</h5>
-                <div className="grid gap-3 grid-cols-3">
+                <div className="grid gap-3 md:grid-cols-3">
                     {
                         bulletPoints.map(point => 
                         <button key={point.id} className="px-6 py-2 font-medium 
-                            border-2 border-primary text-primary w-fit transition-all 
+                            border-2 border-primary text-xs md:text-sm lg:text-base text-primary w-fit transition-all 
                             shadow-[3px_3px_0px_black] hover:shadow-none 
                             hover:translate-x-[3px] hover:translate-y-[3px]
                             cursor-pointer">
