@@ -90,21 +90,28 @@ const Services = () => {
 
     return (
         <div className='min-h-screen '>
-            <div className="bg-primary/5 w-full h-0.5"></div>
+            {/* <div className="bg-primary/5 w-full h-0.5"></div> */}
             <section
-            className='relative bg-cover bg-center bg-no-repeat px-6 lg:py-24 mb-10 md:mb-16 lg:mb-24 text-white'
-            style={{backgroundImage: "url('https://i.ibb.co/RG6Ng5VJ/service-cover-bg.jpg')"}}
-            data-aos="fade-up"
+            className="relative bg-cover bg-center bg-no-repeat px-6 lg:py-24 mb-10 md:mb-16 lg:mb-24 text-white"
+            style={{ backgroundImage: "url('https://i.ibb.co/RG6Ng5VJ/service-cover-bg.jpg')" }}
             >
-                <div className="lg:hidden absolute inset-0 bg-black/50 z-0"></div>
-                <div className='relative z-10 w-full lg:max-w-4xl mx-auto text-center space-y-4 md:p-8 lg:bg-black/50 rounded-lg py-2'>
-                    <h1 className='text-xl md:text-3xl lg:text-5xl font-bold'>Grow your business with confidence.</h1>
-                    <p className='text-sm md:text lg:text-lg text-gray-200'>
-                        BrandBoostie helps you dominate online with custom marketing strategies.
+                <div className="absolute inset-0 bg-black/15 backdrop-blur-sm z-0"></div>
+
+                <div className="relative z-10 w-full lg:max-w-4xl mx-auto text-center space-y-4 md:p-8 rounded-lg py-2">
+                    <h1 className="text-xl md:text-3xl lg:text-5xl font-bold text-white drop-shadow-xl">
+                    Grow your business with confidence.
+                    </h1>
+                    <p className="text-sm md:text lg:text-lg  drop-shadow-lg">
+                    BrandBoostie helps you dominate online with custom marketing strategies.
                     </p>
-                    <button className='btn btn-sm md:btn-md border-0 bg-primary text-white'>Get a free Consultation</button>
+                    <Link to="/contact">
+                    <button className="btn btn-sm md:btn-md border-0 bg-primary text-white shadow hover:bg-primary/90 transition">
+                        Get a free Consultation
+                    </button>
+                    </Link>
                 </div>
             </section>
+
 
             <IoIosArrowDown className="text-2xl md:text-3xl lg:text-4xl mx-auto text-base-content/50" data-aos="fade-up"/>
 
@@ -219,9 +226,9 @@ const Services = () => {
                     From startups to local shops, our clients love the results we deliver.
                 </p>
                 <div className="flex justify-center flex-wrap gap-6">
-                    <img src="https://i.ibb.co/fYqK9psP/omar.jpg" alt="Client 1" className="h-8 md:h-10 rounded-full " />
-                    <img src="https://i.ibb.co/D0XrWnc/Imran.jpg" alt="Client 2" className="h-8 md:h-10 rounded-full " />
-                    <img src="https://i.ibb.co/whk3qJ3j/nusrat.jpg" alt="Client 3" className="h-8 md:h-10 rounded-full " />
+                    <img src="https://i.ibb.co/fYqK9psP/omar.jpg" alt="Client 1" className="h-8 md:h-10 rounded-full cursor-pointer" />
+                    <img src="https://i.ibb.co/D0XrWnc/Imran.jpg" alt="Client 2" className="h-8 md:h-10 rounded-full cursor-pointer" />
+                    <img src="https://i.ibb.co/whk3qJ3j/nusrat.jpg" alt="Client 3" className="h-8 md:h-10 rounded-full cursor-pointer" />
                     {/* Replace with your real client logos */}
                 </div>
             </section>

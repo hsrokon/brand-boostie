@@ -9,7 +9,7 @@ const Layout = () => {
             <header className='sticky top-0 z-50 bg-white'>
                 <Navbar></Navbar>
             </header>
-            <main className='overflow-x-hidden'>
+            <main className='overflow-x-hidden overflow-y-hidden'>
                 <Outlet></Outlet>
             </main> 
             <footer>
