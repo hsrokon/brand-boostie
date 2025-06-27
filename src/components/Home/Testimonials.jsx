@@ -12,7 +12,7 @@ const testimonials = [
     role: "Small Business Owner",
     message:
       "BrandBoostie helped me grow my online store by 300%! Their team is so responsive and knowledgeable.",
-    photo: "https://i.ibb.co/xmSLVFt/testimonial-1.jpg",
+    photo: "https://i.ibb.co/whk3qJ3j/nusrat.jpg",
   },
   {
     id: 2,
@@ -20,7 +20,7 @@ const testimonials = [
     role: "Founder, TechEdu",
     message:
       "From SEO to email marketing, they nailed every campaign. Couldn't be happier with the results.",
-    photo: "https://i.ibb.co/QdP0Tjv/testimonial-2.jpg",
+    photo: "https://i.ibb.co/D0XrWnc/Imran.jpg",
   },
   {
     id: 3,
@@ -28,7 +28,7 @@ const testimonials = [
     role: "Marketing Lead, HalalMart",
     message:
       "Our traffic and conversions improved drastically after working with BrandBoostie. Highly recommended!",
-    photo: "https://i.ibb.co/sPSyDhH/testimonial-3.jpg",
+    photo: "https://i.ibb.co/zW0qPSt3/Fatima-rahman.jpg",
   },
   {
     id: 4,
@@ -36,7 +36,7 @@ const testimonials = [
     role: "Co-Founder, Zoon IT",
     message:
       "Their web team built us a fast, beautiful site and their strategy helped us scale effectively.",
-    photo: "https://i.ibb.co/41LxYx4/testimonial-4.jpg",
+    photo: "https://i.ibb.co/fYqK9psP/omar.jpg",
   },
 ];
 

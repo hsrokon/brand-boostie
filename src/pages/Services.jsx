@@ -89,7 +89,7 @@ const Services = () => {
     ]
 
     return (
-        <div className='min-h-screen mb-52'>
+        <div className='min-h-screen '>
             <div className="bg-primary/5 w-full h-0.5"></div>
             <section
             className='relative bg-cover bg-center bg-no-repeat px-6 lg:py-24 mb-10 md:mb-16 lg:mb-24 text-white'
@@ -179,9 +179,52 @@ const Services = () => {
                         cursor-pointer`}>Learn More...
                     </button>
                 </Link>
-                
+            </section>
+            
+            <section className="w-7/12 mx-auto text-white py-2 lg:py-16 mt-14 md:mt-16 lg:mt-28 text-center" data-aos="zoom-in">
+                <h2 className="text-2xl text-accent md:text-4xl font-bold mb-4">
+                    Ready to Boost Your Brand?
+                </h2>
+                <p className="text-sm text-base-content md:text-lg  max-w-2xl mx-auto mb-6">
+                    Let us help you grow with powerful digital marketing strategies tailored just for your business.
+                </p>
+                <Link to="/contact">
+                    <button className="btn btn-md bg-white text-primary font-semibold hover:bg-gray-200 transition">
+                    Get a Free Consultation
+                    </button>
+                </Link>
             </section>
 
+            <section className="w-10/12 md:w-8/12 lg:w-6/12 mx-auto mt-28 text-center" data-aos="fade-up">
+                <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6">Frequently Asked Questions</h2>
+                <div className="space-y-4 text-left">
+                    <div>
+                    <h4 className="font-semibold xl:text-lg text-accent">How long before I see results?</h4>
+                    <p className="text-base-content text-sm xl:text-base">Results depend on your service, but many clients begin to notice improvements within the first month.</p>
+                    </div>
+                    <div>
+                    <h4 className="font-semibold xl:text-lg text-accent">Do you work with small businesses?</h4>
+                    <p className="text-base-content text-sm xl:text-base">Yes! We specialize in helping small to mid-sized businesses scale effectively.</p>
+                    </div>
+                    <div>
+                    <h4 className="font-semibold xl:text-lg text-accent">Can I customize my service package?</h4>
+                    <p className="text-base-content text-sm xl:text-base">Absolutely. We offer flexible packages to meet your unique business needs.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section className="py-32 px-6 bg-base-100 text-center" data-aos="fade-up">
+                <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4">Trusted by Businesses Like Yours</h2>
+                <p className="text-sm md:text-lg mb-6 max-w-2xl mx-auto text-base-content">
+                    From startups to local shops, our clients love the results we deliver.
+                </p>
+                <div className="flex justify-center flex-wrap gap-6">
+                    <img src="https://i.ibb.co/fYqK9psP/omar.jpg" alt="Client 1" className="h-8 md:h-10 rounded-full " />
+                    <img src="https://i.ibb.co/D0XrWnc/Imran.jpg" alt="Client 2" className="h-8 md:h-10 rounded-full " />
+                    <img src="https://i.ibb.co/whk3qJ3j/nusrat.jpg" alt="Client 3" className="h-8 md:h-10 rounded-full " />
+                    {/* Replace with your real client logos */}
+                </div>
+            </section>
         </div>
     );
 };
