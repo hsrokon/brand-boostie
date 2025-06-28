@@ -39,19 +39,18 @@ const Pricing = () => {
         </div>
       </section>
 
-        <h1 className='text-center text-4xl font-semibold'>Pricing Comparison table</h1>
+        <h1 className='text-center text-2xl md:text-3xl lg:text-4xl font-semibold'>Pricing Comparison table</h1>
 
     {/* Pricing Comparison table */}
-      <section className="w-11/12 mx-auto relative my-28">
+      <section className="w-full md:w-11/12 mx-auto relative my-28">
         
+        <div className='absolute h-[186.7rem] md:h-[129.5rem] lg:h-[132rem] xl:h-[110rem] w-20 md:w-[10.5rem] lg:w-[14.5rem] xl:w-80 border md:border-2 border-secondary -top-2 md:-top-5 lg:-top-10 rounded-lg md:rounded-3xl right-1 md:right-4'></div>
 
-        <div className='absolute h-[110rem] w-80 border-2 border-secondary -top-10 rounded-3xl right-5'></div>
-
-        <div className='grid grid-cols-4 font-serif px-4 text-center text-3xl z-10'>
-          <h2 className=''>Service Name</h2>
+        <div className='grid grid-cols-4 font-serif px-4 text-center text-[0.95rem] md:text-2xl lg:text-3xl z-10'>
+          <h2 className=''>Service <span className='hidden md:inline-block'>Name</span> </h2>
           <h2 className=''>Feature</h2>
           <h2 className='text-primary font-semibold'>Starter</h2>
-          <h2 className='text-4xl font-bold text-secondary pb-6'>Premium</h2>
+          <h2 className=' md:text-3xl lg:text-4xl font-semibold md:font-bold text-secondary pb-3 md:pb-6 ml-1.5 md:ml-0'>Premium</h2>
         </div>
 
         <PricingTable></PricingTable>

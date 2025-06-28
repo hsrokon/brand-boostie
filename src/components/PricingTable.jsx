@@ -12,7 +12,7 @@ const PricingTable = () => {
   }, []);
 
   return (
-    <div className="w-full mx-auto px-4 z-10">
+    <div className="w-full mx-auto md:px-4 z-10">
       {pricingData.map((service, index) => (
         <div
           key={index}
@@ -20,7 +20,7 @@ const PricingTable = () => {
         >
           {/* Service name with row-span */}
           <div
-            className={`row-span-${service.features.length} flex items-center justify-center font-bold text-lg bg-gradient-to-r from-transparent via-secondary/15 border-b rounded-bl-xl to-transparent`}
+            className={`row-span-${service.features.length} flex items-center justify-center font-bold text-sm pl-1.5 md:pl-0 md:text-lg bg-gradient-to-b from-transparent via-secondary/15 border border-r-0 border-gray-400 rounded-l-xl to-transparent`}
           >
             {service.service}
           </div>
@@ -35,7 +35,7 @@ const PricingTable = () => {
                   idx % 2 === 0 ? "bg-gray-50" : "bg-white"
                 }`}
               >
-                <div className="">{feature.name}</div>
+                <div className="text-sm lg:text-base">{feature.name}</div>
                 <div className="text-center">
                   {feature.starter ? (
                     <IoMdCheckmark className="text-green-600 inline" />
