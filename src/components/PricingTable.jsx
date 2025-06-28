@@ -12,15 +12,15 @@ const PricingTable = () => {
   }, []);
 
   return (
-    <div className="w-full max-w-6xl mx-auto p-4">
+    <div className="w-full mx-auto px-4 z-10">
       {pricingData.map((service, index) => (
         <div
           key={index}
-          className="grid grid-cols-4 border-b last:border-0"
+          className="grid grid-cols-4 last:border-0"
         >
           {/* Service name with row-span */}
           <div
-            className={`row-span-${service.features.length} flex items-center justify-center bg-gray-50 font-bold text-lg border-r`}
+            className={`row-span-${service.features.length} flex items-center justify-center  font-bold text-lg border border-b-0 rounded-lg`}
           >
             {service.service}
           </div>
@@ -30,7 +30,8 @@ const PricingTable = () => {
             {service.features.map((feature, idx) => (
               <div
                 key={idx}
-                className={`grid grid-cols-3 items-center py-4 px-2 border-b ${
+                // border-b
+                className={`grid grid-cols-3 items-center py-4 px-2  ${
                   idx % 2 === 0 ? "bg-gray-50" : "bg-white"
                 }`}
               >
@@ -45,10 +46,7 @@ const PricingTable = () => {
 
                 {/* Professional column wrapped in a rounded shape */}
                 <div
-                  className={`text-center ${
-                    idx === 0 ? "rounded-t-2xl" : ""
-                  } ${idx === service.features.length - 1 ? "rounded-b-2xl" : ""}
-                  bg-primary/5 border border-primary`}
+                  className={`text-center`}
                 >
                   {feature.professional ? (
                     <IoMdCheckmark className="text-green-600 inline" />

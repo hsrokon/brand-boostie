@@ -4,7 +4,7 @@
     "features": [
       {
         "name": "Meta Pixel Integration",
-        "starter": false,
+        "starter": true,
         "professional": true
       },
       {
@@ -15,6 +15,21 @@
       {
         "name": "3 Targeted Ad Campaigns",
         "starter": true,
+        "professional": false
+      },
+      {
+        "name": "Client Research & Full Funnel Strategy",
+        "starter": false,
+        "professional": true
+      },
+      {
+        "name": "Up to 10 Campaign Launch",
+        "starter": false,
+        "professional": true
+      },
+      {
+        "name": "Audience Targeting & Retargeting",
+        "starter": false,
         "professional": true
       },
       {
@@ -25,21 +40,121 @@
     ]
   },
   {
-    "service": "Full Local SEO",
+    "service": "Email Marketing",
     "features": [
       {
-        "name": "Google Business Profile Setup",
+        "name": "Strategic Welcome Workflow (4–5 steps)",
         "starter": true,
-        "professional": true
+        "professional": false
       },
       {
-        "name": "Local Citation Building",
+        "name": "Engaging, Pre-written Templates",
+        "starter": true,
+        "professional": false
+      },
+      {
+        "name": "Seamless Automation Integration",
+        "starter": true,
+        "professional": false
+      },
+      {
+        "name": "Complete automation flows",
         "starter": false,
         "professional": true
       },
       {
-        "name": "Local Keyword Research",
+        "name": "Smart audience segmentation",
+        "starter": false,
+        "professional": true
+      },
+      {
+        "name": "Behavior-based trigger emails",
+        "starter": false,
+        "professional": true
+      },
+      {
+        "name": "A/B testing & reports",
+        "starter": false,
+        "professional": true
+      }
+    ]
+  },
+  {
+    "service": "Website",
+    "features": [
+      {
+        "name": "Optimized Mobile friendly Design",
         "starter": true,
+        "professional": false
+      },
+      {
+        "name": "Essential Sections Covered (About, Products, Contact etc.)",
+        "starter": true,
+        "professional": false
+      },
+      {
+        "name": "Product Showcase (up to 5 products)",
+        "starter": true,
+        "professional": false
+      },
+      {
+        "name": "Modern & minimal, mobile-first design",
+        "starter": false,
+        "professional": true
+      },
+      {
+        "name": "High-converting landing pages",
+        "starter": false,
+        "professional": true
+      },
+      {
+        "name": "Chat & lead integration",
+        "starter": false,
+        "professional": true
+      },
+      {
+        "name": "Domain, hosting & security setup",
+        "starter": false,
+        "professional": true
+      }
+    ]
+  },
+  {
+    "service": "Full Local SEO",
+    "features": [
+      {
+        "name": "Site Health & Indexing Optimization",
+        "starter": true,
+        "professional": false
+      },
+      {
+        "name": "Speed & Performance Enhancements",
+        "starter": true,
+        "professional": false
+      },
+      {
+        "name": "SEO Foundation Setup (OnPage SEO up to 3 pages)",
+        "starter": true,
+        "professional": false
+      },
+      {
+        "name": "Deep site audit & Technical issues solving",
+        "starter": false,
+        "professional": true
+      },
+      {
+        "name": "Quality backlinks building",
+        "starter": false,
+        "professional": true
+      },
+      {
+        "name": "Local & mobile SEO optimization",
+        "starter": false,
+        "professional": true
+      },
+      {
+        "name": "Monthly growth tracking & reporting",
+        "starter": false,
         "professional": true
       }
     ]

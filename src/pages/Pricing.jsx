@@ -40,7 +40,17 @@ const Pricing = () => {
       </section>
 
     {/* Pricing Comparison table */}
-      <section className="w-10/12 mx-auto">
+      <section className="w-11/12 mx-auto relative">
+        
+        <div className='absolute h-[120rem] w-80 border-2 border-secondary -top-10 rounded-3xl right-5'></div>
+
+        <div className='grid grid-cols-4 font-serif px-4 text-center text-3xl z-10'>
+          <h2 className=''>Service Name</h2>
+          <h2 className=''>Feature</h2>
+          <h2 className='text-primary font-semibold'>Starter</h2>
+          <h2 className='text-4xl font-bold text-secondary pb-6'>Premium</h2>
+        </div>
+
         <PricingTable></PricingTable>
       </section>
     </div>
