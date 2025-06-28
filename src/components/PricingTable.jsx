@@ -20,7 +20,7 @@ const PricingTable = () => {
         >
           {/* Service name with row-span */}
           <div
-            className={`row-span-${service.features.length} flex items-center justify-center  font-bold text-lg border border-b-0 rounded-lg`}
+            className={`row-span-${service.features.length} flex items-center justify-center font-bold text-lg bg-gradient-to-r from-transparent via-secondary/15 border-b rounded-bl-xl to-transparent`}
           >
             {service.service}
           </div>
@@ -30,12 +30,12 @@ const PricingTable = () => {
             {service.features.map((feature, idx) => (
               <div
                 key={idx}
-                // border-b
-                className={`grid grid-cols-3 items-center py-4 px-2  ${
+                // 
+                className={`grid grid-cols-3 items-center border-b border-gray-200 py-4 pl-6 ${
                   idx % 2 === 0 ? "bg-gray-50" : "bg-white"
                 }`}
               >
-                <div>{feature.name}</div>
+                <div className="">{feature.name}</div>
                 <div className="text-center">
                   {feature.starter ? (
                     <IoMdCheckmark className="text-green-600 inline" />

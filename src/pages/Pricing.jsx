@@ -39,10 +39,13 @@ const Pricing = () => {
         </div>
       </section>
 
+        <h1 className='text-center text-4xl font-semibold'>Pricing Comparison table</h1>
+
     {/* Pricing Comparison table */}
-      <section className="w-11/12 mx-auto relative">
+      <section className="w-11/12 mx-auto relative my-28">
         
-        <div className='absolute h-[120rem] w-80 border-2 border-secondary -top-10 rounded-3xl right-5'></div>
+
+        <div className='absolute h-[110rem] w-80 border-2 border-secondary -top-10 rounded-3xl right-5'></div>
 
         <div className='grid grid-cols-4 font-serif px-4 text-center text-3xl z-10'>
           <h2 className=''>Service Name</h2>
