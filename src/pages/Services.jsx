@@ -92,7 +92,7 @@ const Services = () => {
         <div className='min-h-screen '>
             {/* <div className="bg-primary/5 w-full h-0.5"></div> */}
             <section
-            className="relative bg-cover bg-center bg-no-repeat px-6 lg:py-24 mb-10 md:mb-16 lg:mb-24 text-white"
+            className="relative bg-cover bg-center bg-no-repeat px-6 py-8 md:py-16 lg:py-24 mb-10 md:mb-16 lg:mb-24 text-white"
             style={{ backgroundImage: "url('https://i.ibb.co/RG6Ng5VJ/service-cover-bg.jpg')" }}
             >
                 <div className="absolute inset-0 bg-black/15 backdrop-blur-sm z-0"></div>
