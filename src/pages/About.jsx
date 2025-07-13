@@ -6,6 +6,7 @@ import Aos from 'aos';
 import { RxDividerVertical } from 'react-icons/rx';
 import Stats from '../components/Stats';
 import FAQ from '../components/FAQ';
+import { MdCallMade } from 'react-icons/md';
 
 const About = () => {
 
@@ -63,6 +64,16 @@ const About = () => {
 
             <section>
                 <FAQ></FAQ>
+            </section>
+
+            <section className='mt-16 mb-14 md:mb-12 lg:my-20 w-9/12 xl:w-7/12 mx-auto text-center space-y-4' data-aos="fade-up">
+                <h2 className='text-xl lg:text-4xl font-bold text-primary'>Still have questions?</h2>
+
+                <Link to="/contact">
+                <button className="btn btn-sm md:btn-md border-0 text-primary bg-white/70 shadow-md hover:bg-primary/80 lg:text-base hover:text-white transition">
+                    Contact Us <MdCallMade  className='text-xl'/>
+                </button>
+                </Link>
             </section>
         </div>
     );
