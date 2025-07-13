@@ -43,14 +43,14 @@ const Stats = () => {
           >
             <h3 className="text-4xl md:text-6xl font-bold text-primary">
               {stat.label === 'Founded in' ? (
-  <h3 className="text-4xl md:text-6xl font-bold text-primary">
-    {stat.value}
-  </h3>
-) : (
-  <h3 className="text-4xl md:text-6xl font-bold text-primary">
-    {inView ? <CountUp end={stat.value} duration={2} /> : '0'}+
-  </h3>
-)}
+            <h3 className="text-4xl md:text-6xl font-bold text-primary">
+              {stat.value}
+            </h3>
+            ) : (
+              <h3 className="text-4xl md:text-6xl font-bold text-primary">
+                {inView ? <CountUp end={stat.value} duration={2} /> : '0'}+
+              </h3>
+            )}
 
             </h3>
             <p className="text-base-content mt-2 font-medium">{stat.label}</p>
