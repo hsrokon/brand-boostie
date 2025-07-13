@@ -2,10 +2,10 @@ import BannerSlider from '../components/Home/BannerSlider';
 import MiniAbout from '../components/Home/MiniAbout';
 import MiniServices from '../components/Home/MIniServices';
 import MiniPricing from '../components/Home/MIniPricing';
-import Stats from '../components/Home/Stats';
 import Team from '../components/Team';
 import Testimonials from '../components/Home/Testimonials';
 import MessageSection from '../components/Home/MessageSection';
+import Stats from '../components/Stats';
 
 const Home = () => {
     return (

@@ -6,6 +6,7 @@ import { HiRocketLaunch } from "react-icons/hi2";
 import { IoIosArrowDown } from "react-icons/io";
 import { MdOutlineContentPasteSearch, MdWeb, MdOutlineMarkEmailRead } from "react-icons/md";
 import { Link } from "react-router-dom";
+import FAQ from "../components/FAQ";
 
 
 const Services = () => {
@@ -201,23 +202,9 @@ const Services = () => {
                     </button>
                 </Link>
             </section>
-
-            <section className="w-10/12 md:w-8/12 lg:w-6/12 mx-auto mt-28 text-center" data-aos="fade-up">
-                <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6">Frequently Asked Questions</h2>
-                <div className="space-y-4 text-left">
-                    <div>
-                    <h4 className="font-semibold xl:text-lg text-accent">How long before I see results?</h4>
-                    <p className="text-base-content text-sm xl:text-base">Results depend on your service, but many clients begin to notice improvements within the first month.</p>
-                    </div>
-                    <div>
-                    <h4 className="font-semibold xl:text-lg text-accent">Do you work with small businesses?</h4>
-                    <p className="text-base-content text-sm xl:text-base">Yes! We specialize in helping small to mid-sized businesses scale effectively.</p>
-                    </div>
-                    <div>
-                    <h4 className="font-semibold xl:text-lg text-accent">Can I customize my service package?</h4>
-                    <p className="text-base-content text-sm xl:text-base">Absolutely. We offer flexible packages to meet your unique business needs.</p>
-                    </div>
-                </div>
+            
+            <section>
+                <FAQ></FAQ>
             </section>
 
             <section className="py-32 px-6 bg-base-100 text-center" data-aos="fade-up">

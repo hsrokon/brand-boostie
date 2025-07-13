@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 import { IoIosArrowDown } from 'react-icons/io';
 import Aos from 'aos';
 import { RxDividerVertical } from 'react-icons/rx';
-import Stats from '../components/Home/Stats';
+import Stats from '../components/Stats';
+import FAQ from '../components/FAQ';
 
 const About = () => {
 
@@ -58,6 +59,10 @@ const About = () => {
 
             <section>
                 <Stats></Stats>
+            </section>
+
+            <section>
+                <FAQ></FAQ>
             </section>
         </div>
     );
