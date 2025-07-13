@@ -34,7 +34,7 @@ const Team = () => {
         Meet Our Core Team
       </h2>
       <p
-        className="text-base-content max-w-2xl mx-auto mb-12"
+        className="text-base-content max-w-2xl lg:text-lg mx-auto mb-12"
         data-aos="fade-up"
       >
         We are thrilled to introduce the core members of our team. Each
