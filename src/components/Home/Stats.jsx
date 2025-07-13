@@ -3,6 +3,7 @@ import CountUp from 'react-countup';
 import { useInView } from 'react-intersection-observer';
 import AOS from 'aos';
 import "aos/dist/aos.css";
+import { useLocation } from 'react-router-dom';
 
 const Stats = () => {
   useEffect(() => {
@@ -15,11 +16,19 @@ const Stats = () => {
     { label: 'Happy Clients', value: 40 },
   ];
 
+  const statsAbout = [
+    { label: 'Founded in', value: 2020 },
+    { label: 'Successful Campaigns', value: 50 },
+    { label: 'Trusted by brands worldwide', value: 30 },
+  ];
+
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.5, // start animation when 50% visible
   });
 
+  const location = useLocation();
+  
   return (
     <section
       ref={ref}
@@ -27,7 +36,26 @@ const Stats = () => {
       data-aos="fade-up"
     >
       <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
-        {stats.map((stat, index) => (
+         {  location.pathname === '/about' ?  statsAbout.map((stat, index) => (
+          <div
+            key={index}
+            className="p-8 rounded-lg bg-gradient-to-r from-base-100 via-amber-100 to-base-100 bg-white hover:scale-105 transition-all duration-300"
+          >
+            <h3 className="text-4xl md:text-6xl font-bold text-primary">
+              {stat.label === 'Founded in' ? (
+  <h3 className="text-4xl md:text-6xl font-bold text-primary">
+    {stat.value}
+  </h3>
+) : (
+  <h3 className="text-4xl md:text-6xl font-bold text-primary">
+    {inView ? <CountUp end={stat.value} duration={2} /> : '0'}+
+  </h3>
+)}
+
+            </h3>
+            <p className="text-base-content mt-2 font-medium">{stat.label}</p>
+          </div>
+        )) : stats.map((stat, index) => (
           <div
             key={index}
             className="p-8 rounded-lg bg-gradient-to-r from-base-100 via-amber-100 to-base-100 bg-white hover:scale-105 transition-all duration-300"
