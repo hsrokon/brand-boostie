@@ -1,4 +1,5 @@
 import { IoMailOutline } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -78,11 +79,13 @@ const Footer = () => {
       {/* Bottom Section */}
       <div className="mt-12 pt-6 max-w-7xl mx-auto border-t text-sm flex flex-col md:flex-row justify-between items-center gap-4">
         <ul className="flex flex-wrap gap-6 text-gray-500 justify-center">
-          <li><a href="#">Services</a></li>
-          <li><a href="#">Pricing</a></li>
-          <li><a href="#">Testimonials</a></li>
-          <li><a href="#">Partners</a></li>
-          <li><a href="#">Press Kit</a></li>
+          <Link to={"/"}>Home</Link>
+          <Link to={"/services"}>Services</Link>
+          <Link to={"/pricing"}>Pricing</Link>
+          <Link to={"/caseStudies"}>Case Studies</Link>
+          <Link to={"/about"}>About</Link>
+          <Link to={"/blogs"}>Blogs</Link>
+          <Link to={"/contact"}>Contact</Link>
         </ul>
         <div className="flex gap-4">
             <div className="w-14 h-6">     
