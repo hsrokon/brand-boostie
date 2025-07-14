@@ -7,17 +7,20 @@ export const AuthContext = createContext();
 const AuthProvider = ({children}) => {
     const provider = new GoogleAuthProvider();
     const [ user, setUser ] = useState(null);
+    const [ loading, setLoading ] = useState(true);
     // console.log(user);
 
     useEffect(()=> {
         const unSubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser);
+            setLoading(false);
         })
         return ()=> unSubscribe();
     },[])
 
     const createNewUser = (email, password) => {
-        return createUserWithEmailAndPassword(auth, email, password)
+        setLoading(false);
+        return createUserWithEmailAndPassword(auth, email, password);
     }
 
     const updateUserProfile = (displayName, photoURL)=> {
@@ -28,6 +31,7 @@ const AuthProvider = ({children}) => {
     }
 
     const loginUser = (email, password) => {
+        setLoading(false);
         return signInWithEmailAndPassword(auth, email, password);
     }
 
@@ -41,6 +45,7 @@ const AuthProvider = ({children}) => {
 
     const userInfo = {
         user,
+        loading,
         setUser,
         createNewUser,
         updateUserProfile,
