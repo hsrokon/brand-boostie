@@ -4,7 +4,7 @@ import MiniServices from '../components/Home/MIniServices';
 import MiniPricing from '../components/Home/MIniPricing';
 import Team from '../components/Team';
 import Testimonials from '../components/Home/Testimonials';
-import MessageSection from '../components/Home/MessageSection';
+import MessageSection from '../components/MessageSection';
 import Stats from '../components/Stats';
 
 const Home = () => {
