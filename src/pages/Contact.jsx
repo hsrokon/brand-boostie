@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import MessageSection from '../components/MessageSection';
+import Aos from 'aos';
 
 const Contact = () => {
+
+    useEffect(()=> {
+                Aos.init({duration: 800, once: true})
+            },[])
+
     return (
         <div className='min-h-screen'>
 
@@ -37,7 +43,7 @@ const Contact = () => {
                 <MessageSection></MessageSection>
             </section>
 
-            <section className='md:max-w-2xl -mt-10 mb-40 flex flex-col justify-center items-center space-y-6 mx-auto'>
+            <section className='md:max-w-2xl -mt-10 mb-40 flex flex-col justify-center items-center space-y-6 mx-auto' data-aos="fade-up">
                 <h3 className='text-2xl md:text-3xl font-mono text-primary font-semibold'>Connect with us</h3>
                 <div className="flex gap-4">
                     {["facebook", "twitter", "youtube", "linkedin"].map((platform) => (
