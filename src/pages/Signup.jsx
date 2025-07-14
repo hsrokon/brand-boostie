@@ -3,10 +3,11 @@ import useInputState from "../utils/controlledFormHook";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
+import Swal from "sweetalert2";
 
 
 const SignUp = () => {
-    const { createNewUser, updateUserProfile, setUser } = useContext(AuthContext);
+    const { createNewUser, emailVerification, updateUserProfile, setUser } = useContext(AuthContext);
     const passState = useInputState();
     const navigate = useNavigate();
 
@@ -28,12 +29,26 @@ const SignUp = () => {
         createNewUser(email, password)
         .then(credential =>{
             const user = credential.user;
-            setUser(user)
+
+            emailVerification()
+            .then(
+                Swal.fire({
+                    title: 'Email Sent!',
+                    text: 'Check your inbox and click the link to verify.',
+                    icon: 'success',
+                    customClass: {
+                        title: 'swal-title',
+                        htmlContainer: 'swal-text'
+                    }
+                })
+            )
+
+            //setUser(user)
             console.log(user);
             const firstSignedUp = user.metadata.createdAt;;
             const lastLoggedIn = user.metadata.lastLoginAt;
             
-            const userInfo = { email, displayName, photoURL, firstSignedUp, lastLoggedIn};
+            /*const userInfo = { email, displayName, photoURL, firstSignedUp, lastLoggedIn};
             fetch('http://localhost:5000/users', {
                 method : 'POST',
                 headers: {
@@ -49,6 +64,7 @@ const SignUp = () => {
             .catch(error => {
                 console.log('Profile update error', error);
             })
+            */
             navigate('/')
         })
         .catch(error => {

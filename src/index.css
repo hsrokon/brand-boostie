@@ -24,3 +24,11 @@
 @theme {
   --font-poppins: "Poppins", sans-serif;
 }
+
+.swal-title {
+  font-size: 1.5rem; /* 24px */
+}
+
+.swal-text {
+  font-size: 1.03rem; /* 16px */
+}
