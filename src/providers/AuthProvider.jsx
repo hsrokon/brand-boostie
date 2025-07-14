@@ -23,9 +23,9 @@ const AuthProvider = ({children}) => {
         return createUserWithEmailAndPassword(auth, email, password);
     }
 
-    const emailVerification = () => {
-        return sendEmailVerification(auth.currentUser);
-    }
+    // const emailVerification = () => {
+    //     return sendEmailVerification(auth.currentUser);
+    // }
 
     const updateUserProfile = (displayName, photoURL)=> {
         return updateProfile(auth.currentUser, {
@@ -52,7 +52,7 @@ const AuthProvider = ({children}) => {
         loading,
         setUser,
         createNewUser,
-        emailVerification,
+        //emailVerification,
         updateUserProfile,
         loginUser,
         logInWithGoogle,

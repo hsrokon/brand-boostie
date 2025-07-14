@@ -3,11 +3,13 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import { FcGoogle } from "react-icons/fc";
+import { auth } from "../firebase/firebase.config";
+import Swal from "sweetalert2";
 
 
 const Login = () => {
     const [ errorMes, setErrorMes ] = useState({});
-    const { loginUser, logInWithGoogle } = useContext(AuthContext);
+    const { loginUser, logInWithGoogle, logOutUser } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
 
@@ -19,9 +21,42 @@ const Login = () => {
         loginUser(email, password)
         .then(credential =>{
             const user = credential.user;
+
+            if (!user.emailVerified) {
+                Swal.fire({
+                    title: 'Email not verified!',
+                    text: 'Please check your email inbox to verify your account.',
+                    icon: 'warning',
+                });
+            logOutUser();
+            return;
+            }
+
             
             const lastLoggedIn = user.metadata.lastLoginAt;
             const logInInfo = {email, lastLoggedIn}
+
+            /*
+            const firstSignedUp = user.metadata.createdAt;
+            
+            const userInfo = { email, displayName, photoURL, firstSignedUp, lastLoggedIn};
+            fetch('http://localhost:5000/users', {
+                method : 'POST',
+                headers: {
+                    'content-type' : 'application/json'
+                },
+                body: JSON.stringify(userInfo)
+            })
+            .then(res => res.json())
+            .then()
+
+            updateUserProfile(displayName, photoURL)
+            .then()
+            .catch(error => {
+                console.log('Profile update error', error);
+            })
+            */
+
             fetch(`http://localhost:5000/users`, {
                 method: 'PATCH',
                 headers: {

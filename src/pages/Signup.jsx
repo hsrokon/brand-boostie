@@ -4,10 +4,11 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import Swal from "sweetalert2";
+import { sendEmailVerification } from "firebase/auth";
 
 
 const SignUp = () => {
-    const { createNewUser, emailVerification, updateUserProfile, setUser } = useContext(AuthContext);
+    const { createNewUser, emailVerification, updateUserProfile, logOutUser } = useContext(AuthContext);
     const passState = useInputState();
     const navigate = useNavigate();
 
@@ -30,8 +31,8 @@ const SignUp = () => {
         .then(credential =>{
             const user = credential.user;
 
-            emailVerification()
-            .then(
+            sendEmailVerification(user)
+            .then(()=>{
                 Swal.fire({
                     title: 'Email Sent!',
                     text: 'Check your inbox and click the link to verify.',
@@ -41,30 +42,10 @@ const SignUp = () => {
                         htmlContainer: 'swal-text'
                     }
                 })
-            )
-
-            //setUser(user)
-            console.log(user);
-            const firstSignedUp = user.metadata.createdAt;;
-            const lastLoggedIn = user.metadata.lastLoginAt;
-            
-            /*const userInfo = { email, displayName, photoURL, firstSignedUp, lastLoggedIn};
-            fetch('http://localhost:5000/users', {
-                method : 'POST',
-                headers: {
-                    'content-type' : 'application/json'
-                },
-                body: JSON.stringify(userInfo)
+                logOutUser(); 
+                navigate('/auth/login');
             })
-            .then(res => res.json())
-            .then()
 
-            updateUserProfile(displayName, photoURL)
-            .then()
-            .catch(error => {
-                console.log('Profile update error', error);
-            })
-            */
             navigate('/')
         })
         .catch(error => {
