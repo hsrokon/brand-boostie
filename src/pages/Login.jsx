@@ -31,42 +31,28 @@ const Login = () => {
             logOutUser();
             return;
             }
-
-            
+       
             const lastLoggedIn = user.metadata.lastLoginAt;
-            const logInInfo = {email, lastLoggedIn}
-
-            /*
+            const displayName = user.displayName;
+            const photoURL = user.photoURL;
             const firstSignedUp = user.metadata.createdAt;
-            
-            const userInfo = { email, displayName, photoURL, firstSignedUp, lastLoggedIn};
-            fetch('http://localhost:5000/users', {
-                method : 'POST',
-                headers: {
-                    'content-type' : 'application/json'
-                },
-                body: JSON.stringify(userInfo)
-            })
-            .then(res => res.json())
-            .then()
+            const logInInfo = {email, displayName, photoURL, firstSignedUp, lastLoggedIn}
 
-            updateUserProfile(displayName, photoURL)
-            .then()
-            .catch(error => {
-                console.log('Profile update error', error);
+            fetch(`http://localhost:5000/users/${email}`)
+            .then(res => {
+                if (res.status===404) return null;
+                return res.json() 
             })
-            */
-
-            fetch(`http://localhost:5000/users`, {
-                method: 'PATCH',
-                headers: {
-                    'content-type' : 'application/json'
-                },
-                body: JSON.stringify(logInInfo)
-            })
-            .then(res => res.json())
-            .then(data => console.log(data)
-            )
+            .then(data=> {
+                const method = data ? 'PATCH' : 'POST';
+                return fetch('http://localhost:5000/users', {
+                    method,
+                    headers: {
+                        'content-type' : 'application/json',
+                    },
+                    body: JSON.stringify(logInInfo)
+                })
+            })  
 
             navigate(location?.state ? location.state : '/')
         })
@@ -145,12 +131,13 @@ const Login = () => {
                             className="input rounded text-base-content w-full" 
                             placeholder="Password" />
                             <button 
-                            type="button"
-                            onClick={()=> setShowPass(!showPass)}
-                            className="absolute right-4 md:right-6 top-1/2 -translate-y-1/2 text-base-content text-lg z-20">
-                                {
-                                    showPass ? <FaEyeSlash /> : <FaEye/>
-                                }</button>
+                                type="button"
+                                onClick={()=> setShowPass(!showPass)}
+                                className="absolute right-4 md:right-6 top-1/2 -translate-y-1/2 text-base-content text-lg z-20">
+                                    {
+                                        showPass ? <FaEyeSlash /> : <FaEye/>
+                                    }
+                            </button>
                         </div>
                         
                         <div><a className="link link-hover">Forgot password?</a></div>

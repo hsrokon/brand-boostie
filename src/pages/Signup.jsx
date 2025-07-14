@@ -8,7 +8,7 @@ import { sendEmailVerification } from "firebase/auth";
 
 
 const SignUp = () => {
-    const { createNewUser, emailVerification, updateUserProfile, logOutUser } = useContext(AuthContext);
+    const { createNewUser, updateUserProfile, logOutUser } = useContext(AuthContext);
     const passState = useInputState();
     const navigate = useNavigate();
 
@@ -22,14 +22,20 @@ const SignUp = () => {
             return;
         }
 
-        const displayName = e.target.name.value;
-        const photoURL = e.target.photo.value;
         const email = e.target.email.value;
         const password = passState.value;
 
         createNewUser(email, password)
         .then(credential =>{
             const user = credential.user;
+            const displayName = user.displayName;
+            const photoURL = user.photoURL;
+
+            updateUserProfile(displayName, photoURL)
+            .then()
+            .catch(error => {
+                console.log('Profile update error', error);
+            })
 
             sendEmailVerification(user)
             .then(()=>{
@@ -52,7 +58,6 @@ const SignUp = () => {
             const errorMessage = error.message;
             console.log(errorMessage);
         })
-        
     }
 
     const [ showPass, setShowPass ] = useState(false)
