@@ -6,8 +6,7 @@ const Contact = () => {
         <div className='min-h-screen'>
 
             <section className="w-full py-16 px-6 bg-base-200">
-                <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-                    
+                <div className=" md:max-w-2xl lg:max-w-3xl xl:max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
                     <div className="space-y-6 self-center">
                     <h2 className="text-3xl md:text-4xl font-bold text-primary">Get in touch</h2>
                     <p className="text-base-content">
@@ -30,9 +29,8 @@ const Contact = () => {
                             src="https://i.ibb.co/DgDWQmtq/edited-contact-reduced.png"
                             alt="Contact"
                         />
-                        </div>
-
                     </div>
+                </div>
             </section>
 
             <section>
