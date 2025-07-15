@@ -40,6 +40,8 @@ const Login = () => {
 
             fetch(`http://localhost:5000/users/${email}`)
             .then(res => {
+                console.log(res);
+                
                 if (res.status===404) return null;
                 return res.json() 
             })
@@ -52,7 +54,12 @@ const Login = () => {
                     },
                     body: JSON.stringify(logInInfo)
                 })
-            })  
+            }) 
+
+            Swal.fire({
+                    title: "You've successfully logged in!",
+                    icon: 'success',
+                });
 
             navigate(location?.state ? location.state : '/')
         })

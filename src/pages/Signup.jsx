@@ -40,7 +40,7 @@ const SignUp = () => {
             sendEmailVerification(user)
             .then(()=>{
                 Swal.fire({
-                    title: 'Email Sent!',
+                    title: 'Verification Email Sent!',
                     text: 'Check your inbox and click the link to verify.',
                     icon: 'success',
                     customClass: {
