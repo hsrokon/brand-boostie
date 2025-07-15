@@ -3,7 +3,6 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import { FcGoogle } from "react-icons/fc";
-import { auth } from "../firebase/firebase.config";
 import Swal from "sweetalert2";
 
 

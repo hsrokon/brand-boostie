@@ -10,6 +10,8 @@ import Blogs from "../pages/Blogs";
 import Contact from "../pages/Contact";
 import Login from "../pages/Login";
 import SignUp from "../pages/Signup";
+import PrivateRoute from "./PrivateRoute";
+import AdminDashboard from "../pages/AdminDashboard";
 
 
 const router = createBrowserRouter([
@@ -53,8 +55,12 @@ const router = createBrowserRouter([
         element: <Login></Login>
     },
     {
-        path: 'auth/signup',
+        path: '/auth/signup',
         element: <SignUp></SignUp>
+    },
+    {
+        path: '/admin/dashboard',
+        element:<PrivateRoute><AdminDashboard></AdminDashboard></PrivateRoute>
     }
 ])
 
