@@ -56,6 +56,7 @@ const AdminDashboard = () => {
       category: blog.category,
       email: user.email,
       author: user.displayName || user.email,
+      photoURL : user.photoURL
     };
 
     try {

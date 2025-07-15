@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 const BlogCard = ({ blog }) => {
-  const { _id, title, coverImage, category, content, author, createdAt } = blog;
+  const { _id, title, coverImage, category, content, author, photoURL, createdAt } = blog;
 
   // Format publish date nicely
   const publishDate = new Date(createdAt).toLocaleDateString("en-US", {
@@ -23,8 +23,17 @@ const BlogCard = ({ blog }) => {
         <h2 className="card-title text-xl font-bold">{title}</h2>
         <p className="text-sm text-base-content">{preview}</p>
 
+        
+
         <div className="mt-4 flex items-center justify-between text-xs text-gray-500">
-          <span>By {author}</span>
+          <div className="flex items-center gap-1">
+            {
+                photoURL && <div className="h-5 w-5">
+                <img className="h-full w-full object-cover rounded-full" src={photoURL} alt="" />
+                </div>
+            }
+            <span>By {author}</span>
+          </div>
           <span>{publishDate}</span>
         </div>
 
