@@ -24,13 +24,12 @@ const SignUp = () => {
 
         const email = e.target.email.value;
         const password = passState.value;
-
+        const displayName = e.target.name.value;
+        const photoURL = e.target.photo.value;
         createNewUser(email, password)
         .then(credential =>{
             const user = credential.user;
-            const displayName = user.displayName;
-            const photoURL = user.photoURL;
-
+            
             updateUserProfile(displayName, photoURL)
             .then()
             .catch(error => {
@@ -51,8 +50,6 @@ const SignUp = () => {
                 logOutUser(); 
                 navigate('/auth/login');
             })
-
-            navigate('/')
         })
         .catch(error => {
             const errorMessage = error.message;

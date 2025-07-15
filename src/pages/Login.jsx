@@ -13,67 +13,69 @@ const Login = () => {
     const location = useLocation();
     const navigate = useNavigate();
 
-    const handleSubmit = e => {
-        e.preventDefault();
+    const handleSubmit = async (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.pass.value;
 
-        const email = e.target.email.value;
-        const password = e.target.pass.value;
-        loginUser(email, password)
-        .then(credential =>{
-            const user = credential.user;
+    try {
+        const credential = await loginUser(email, password);
+        const user = credential.user;
 
-            if (!user.emailVerified) {
-                Swal.fire({
-                    title: 'Email not verified!',
-                    text: 'Please check your email inbox to verify your account.',
-                    icon: 'warning',
-                });
-            logOutUser();
-            return;
-            }
-       
-            const lastLoggedIn = user.metadata.lastLoginAt;
-            const displayName = user.displayName;
-            const photoURL = user.photoURL;
-            const firstSignedUp = user.metadata.createdAt;
-            const logInInfo = {email, displayName, photoURL, firstSignedUp, lastLoggedIn}
+        if (!user.emailVerified) {
+        Swal.fire({
+            title: 'Email not verified!',
+            text: 'Please check your email inbox to verify your account.',
+            icon: 'warning',
+        });
+        await logOutUser();
+        return;
+        }
 
-            fetch(`http://localhost:5000/users/${email}`)
-            .then(res => {
-                console.log(res);
-                
-                if (res.status===404) return null;
-                return res.json() 
-            })
-            .then(data=> {
-                const method = data ? 'PATCH' : 'POST';
-                return fetch('http://localhost:5000/users', {
-                    method,
-                    headers: {
-                        'content-type' : 'application/json',
-                    },
-                    body: JSON.stringify(logInInfo)
-                })
-            }) 
+        const lastLoggedIn = user.metadata.lastLoginAt;
+        const displayName = user.displayName;
+        const photoURL = user.photoURL;
+        const firstSignedUp = user.metadata.createdAt;
+        const logInInfo = { email, displayName, photoURL, firstSignedUp, lastLoggedIn };
 
-            Swal.fire({
-                    title: "You've successfully logged in!",
-                    icon: 'success',
-                });
+        // 1st: Check if user exists
+        const res = await fetch(`http://localhost:5000/users/${email}`);
+        let method = 'POST';
+        if (res.status !== 404) {
+        const data = await res.json();
+        if (data) method = 'PATCH';
+        }
 
-            navigate(location?.state ? location.state : '/')
-        })
-        .catch(error => {
-            const errorCode = error.code;
-            setErrorMes({...errorMes, login: errorCode})//adding a login property
-            console.log(errorCode);
-        })
+        // 2nd: Save or update user — add a log!
+        const saveRes = await fetch('http://localhost:5000/users', {
+        method,
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify(logInInfo),
+        });
+
+        const saveData = await saveRes.json();
+        console.log('✅ User saved/updated:', saveData);
+
+        Swal.fire({
+        title: "You've successfully logged in!",
+        icon: 'success',
+        });
+
+        navigate(location?.state || '/');
+
+    } catch (error) {
+        const errorCode = error.code || error.message;
+        setErrorMes({ ...errorMes, login: errorCode });
+        console.log(errorCode);
     }
+    };
+
+
 
     //google login
-    const handleGoogleLogIn = () => {
-        logInWithGoogle()
-        .then(credential =>{
+    const handleGoogleLogIn = async () => {
+        try {
+            const credential = await logInWithGoogle();
             const user = credential.user;
 
             const email = user.email;
@@ -81,32 +83,29 @@ const Login = () => {
             const photoURL = user.photoURL;
             const lastLoggedIn = user.metadata.lastLoginAt;
             const firstSignedUp = user.metadata.createdAt;
-            const logInInfo = {email, displayName, photoURL, firstSignedUp, lastLoggedIn}
+            const logInInfo = { email, displayName, photoURL, firstSignedUp, lastLoggedIn };
 
-            fetch(`http://localhost:5000/users/${email}`)
-            .then(res => {
-                if (res.status===404) return null;
-                return res.json() 
-            })
-            .then(data=> {
-                const method = data ? 'PATCH' : 'POST';
-                return fetch('http://localhost:5000/users', {
-                    method,
-                    headers: {
-                        'content-type' : 'application/json',
-                    },
-                    body: JSON.stringify(logInInfo)
-                })
-            })  
+            const res = await fetch(`http://localhost:5000/users/${email}`);
+            let method = 'POST';
+            if (res.status !== 404) {
+            const data = await res.json();
+            if (data) method = 'PATCH';
+            }
 
-            navigate(location?.state ? location.state : '/')
-        })
-        .catch(error => {
-            const errorCode = error.code;
-            setErrorMes({...errorMes, login: errorCode})//adding a login property
+            await fetch('http://localhost:5000/users', {
+            method,
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify(logInInfo),
+            });
+
+            navigate(location?.state || '/');
+
+        } catch (error) {
+            const errorCode = error.code || error.message;
+            setErrorMes({ ...errorMes, login: errorCode });
             console.log(errorCode);
-        })
-    }
+        }
+        };
 
     const [ showPass, setShowPass ] = useState(false)
 
