@@ -13,6 +13,7 @@ import SignUp from "../pages/Signup";
 import PrivateRoute from "./PrivateRoute";
 import AdminDashboard from "../pages/AdminDashboard";
 import BlogDetails from "../components/blogs/BlogDetails";
+import CaseStudyDetails from "../components/caseStudies/CaseStudyDetails";
 
 
 const router = createBrowserRouter([
@@ -36,6 +37,11 @@ const router = createBrowserRouter([
             {
                 path: '/caseStudies',
                 element: <CaseStudies></CaseStudies>
+            },
+            {
+                path: '/caseStudies/:id',
+                element: <CaseStudyDetails></CaseStudyDetails>,
+                loader: ({params}) => fetch(`http://localhost:5000/caseStudies/${params.id}`)
             },
             {
                 path: '/about',
