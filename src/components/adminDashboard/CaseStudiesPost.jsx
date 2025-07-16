@@ -34,6 +34,7 @@ const CaseStudiesPost = () => {
       const newCaseStudy = {
         ...caseStudy,
         email: user.email,
+        photoURL : user.photoURL,
         author: user.displayName || user.email,
       };
 
