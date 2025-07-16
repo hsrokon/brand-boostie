@@ -1,6 +1,5 @@
 import { Link, useLoaderData } from "react-router-dom";
 import { MdArrowBack } from "react-icons/md";
-import Loading from "../Loading";
 
 const CaseStudyDetails = () => {
   const caseStudy = useLoaderData();
