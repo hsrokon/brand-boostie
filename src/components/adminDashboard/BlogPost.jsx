@@ -20,7 +20,7 @@ const BlogPost = () => {
     setError(null);
 
     try {
-      const checkRes = await fetch(`http://localhost:5000/users/${user.email}`);
+      const checkRes = await fetch(`https://brand-boostie-server.vercel.app/users/${user.email}`);
       const userData = await checkRes.json();
 
       if (!userData || userData.role !== "admin") {
@@ -36,7 +36,7 @@ const BlogPost = () => {
         photoURL: user.photoURL,
       };
 
-      const res = await fetch("http://localhost:5000/blogs", {
+      const res = await fetch("https://brand-boostie-server.vercel.app/blogs", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newBlog),

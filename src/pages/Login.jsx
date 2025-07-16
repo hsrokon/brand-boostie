@@ -45,14 +45,14 @@ const Login = () => {
         lastLoggedIn: user.metadata.lastLoginAt,
       };
 
-      const res = await fetch(`http://localhost:5000/users/${email}`);
+      const res = await fetch(`https://brand-boostie-server.vercel.app/users/${email}`);
       let method = "POST";
       if (res.status !== 404) {
         const data = await res.json();
         if (data) method = "PATCH";
       }
 
-      const saveRes = await fetch("http://localhost:5000/users", {
+      const saveRes = await fetch("https://brand-boostie-server.vercel.app/users", {
         method,
         headers: { "content-type": "application/json" },
         body: JSON.stringify(logInInfo),
@@ -91,14 +91,14 @@ const Login = () => {
         lastLoggedIn: user.metadata.lastLoginAt,
       };
 
-      const res = await fetch(`http://localhost:5000/users/${user.email}`);
+      const res = await fetch(`https://brand-boostie-server.vercel.app/users/${user.email}`);
       let method = "POST";
       if (res.status !== 404) {
         const data = await res.json();
         if (data) method = "PATCH";
       }
 
-      await fetch("http://localhost:5000/users", {
+      await fetch("https://brand-boostie-server.vercel.app/users", {
         method,
         headers: { "content-type": "application/json" },
         body: JSON.stringify(logInInfo),

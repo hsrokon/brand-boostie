@@ -19,7 +19,7 @@ const AdminDashboard = () => {
       }
 
       try {
-        const res = await fetch(`http://localhost:5000/users/${user.email}`);
+        const res = await fetch(`https://brand-boostie-server.vercel.app/users/${user.email}`);
         if (!res.ok) {
           console.error("User not found in DB");
           setIsAuthorized(false);

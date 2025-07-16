@@ -6,7 +6,7 @@ const CaseStudies = () => {
     const [ caseStudies, setCaseStudies ] = useState([]);
 
     useState(()=>{
-            fetch('http://localhost:5000/caseStudies')
+            fetch('https://brand-boostie-server.vercel.app/caseStudies')
             .then(res => res.json())
             .then(data => setCaseStudies(data))
         },[])

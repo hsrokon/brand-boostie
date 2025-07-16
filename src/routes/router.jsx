@@ -41,7 +41,7 @@ const router = createBrowserRouter([
             {
                 path: '/caseStudies/:id',
                 element: <CaseStudyDetails></CaseStudyDetails>,
-                loader: ({params}) => fetch(`http://localhost:5000/caseStudies/${params.id}`)
+                loader: ({params}) => fetch(`https://brand-boostie-server.vercel.app/caseStudies/${params.id}`)
             },
             {
                 path: '/about',
@@ -54,7 +54,7 @@ const router = createBrowserRouter([
             {
                 path: '/blogs/:id',
                 element: <BlogDetails></BlogDetails>,
-                loader: ({params}) => fetch(`http://localhost:5000/blogs/${params.id}`)
+                loader: ({params}) => fetch(`https://brand-boostie-server.vercel.app/blogs/${params.id}`)
             },
             {
                 path: '/contact',

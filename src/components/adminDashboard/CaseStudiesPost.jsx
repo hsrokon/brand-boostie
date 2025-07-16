@@ -22,7 +22,7 @@ const CaseStudiesPost = () => {
     setError(null);
 
     try {
-      const res = await fetch(`http://localhost:5000/users/${user.email}`);
+      const res = await fetch(`https://brand-boostie-server.vercel.app/users/${user.email}`);
       const userData = await res.json();
 
       if (!userData || userData.role !== "admin") {
@@ -38,7 +38,7 @@ const CaseStudiesPost = () => {
         author: user.displayName || user.email,
       };
 
-      const postRes = await fetch("http://localhost:5000/caseStudies", {
+      const postRes = await fetch("https://brand-boostie-server.vercel.app/caseStudies", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newCaseStudy),

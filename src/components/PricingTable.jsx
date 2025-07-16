@@ -16,13 +16,17 @@ const PricingTable = () => {
       {pricingData.map((service, index) => (
         <div
           key={index}
-          className="grid grid-cols-4 last:border-0"
+          className="grid grid-cols-3 md:grid-cols-4 last:border-0"
         >
           {/* Service name with row-span */}
           <div
-            className={`row-span-${service.features.length} flex items-center justify-center font-bold text-sm pl-1.5 md:pl-0 md:text-lg bg-gradient-to-b from-transparent via-secondary/15 border border-r-0 border-gray-400 rounded-l-xl to-transparent`}
+            className={`row-span-${service.features?.length || 1} hidden md:flex items-center justify-center font-bold text-sm pl-1.5 md:pl-0 md:text-lg bg-gradient-to-b from-transparent via-secondary/15 border border-r-0 border-gray-400 rounded-l-xl to-transparent`}
           >
             {service.service}
+          </div>
+
+          <div className="ml-4 col-span-2 italic text-base-content font-semibold text-xl md:hidden">
+              <h3>{service.service}:</h3>
           </div>
 
           {/* Features rows */}
@@ -30,28 +34,36 @@ const PricingTable = () => {
             {service.features.map((feature, idx) => (
               <div
                 key={idx}
-                // 
                 className={`grid grid-cols-3 items-center border-b border-gray-200 py-4 pl-6 ${
                   idx % 2 === 0 ? "bg-gray-50" : "bg-white"
                 }`}
               >
+                {/* Feature name */}
                 <div className="text-sm lg:text-base">{feature.name}</div>
-                <div className="text-center">
-                  {feature.starter ? (
-                    <IoMdCheckmark className="text-green-600 inline" />
+
+                {/* Starter */}
+                <div className="text-center w-16 md:w-32 lg:w-52 mx-auto">
+                  {typeof feature.starter === "boolean" ? (
+                    feature.starter ? (
+                      <IoMdCheckmark className="text-green-600 inline" />
+                    ) : (
+                      <RxCross2 className="text-red-500 inline" />
+                    )
                   ) : (
-                    <RxCross2 className="text-red-500 inline" />
+                    <span className="text-xs md:text-sm">{feature.starter}</span>
                   )}
                 </div>
 
-                {/* Professional column wrapped in a rounded shape */}
-                <div
-                  className={`text-center`}
-                >
-                  {feature.professional ? (
-                    <IoMdCheckmark className="text-green-600 inline" />
+                {/* Professional */}
+                <div className="text-center w-16 md:w-32 lg:w-52 mx-auto">
+                  {typeof feature.professional === "boolean" ? (
+                    feature.professional ? (
+                      <IoMdCheckmark className="text-green-600 inline" />
+                    ) : (
+                      <RxCross2 className="text-red-500 inline" />
+                    )
                   ) : (
-                    <RxCross2 className="text-red-500 inline" />
+                    <span className="text-xs md:text-sm">{feature.professional}</span>
                   )}
                 </div>
               </div>

@@ -30,28 +30,36 @@ const BlogDetails = () => {
         <span className="inline-block badge text-primary italic">{category}</span>
         <h1 className="text-3xl md:text-5xl font-bold">{title}</h1>
         <div className="text-gray-500 flex items-center gap-1.5 my-6">
-            {
-                photoURL && <div className="w-6 h-6 border-2 rounded-full border-secondary">
-                    <img className="w-full h-full object-cover rounded-full" src={photoURL} alt="" />
-                </div>
-            }
-            By <span className="font-semibold">{author}</span> on {publishDate}
+          {photoURL && (
+            <div className="w-6 h-6 border-2 rounded-full border-secondary">
+              <img
+                className="w-full h-full object-cover rounded-full"
+                src={photoURL}
+                alt={author}
+              />
+            </div>
+          )}
+          By <span className="font-semibold">{author}</span> on {publishDate}
         </div>
       </div>
 
-      {/* Content */}
+      {/* Content with preserved line breaks */}
       <div className="prose max-w-none prose-p:leading-relaxed prose-headings:mb-4 prose-img:rounded-lg">
-        {content.split("\n").map((para, i) => (
-          <p key={i}>{para}</p>
-        ))}
+        {content.split("\n").map((line, idx) =>
+          line.trim() === "" ? (
+            <br key={idx} />
+          ) : (
+            <p key={idx}>{line}</p>
+          )
+        )}
       </div>
 
       {/* Back Button */}
       <Link
         to="/blogs"
-        className="mt-6 btn py-1 border-primary text-primary hover:bg-primary hover:text-white"
+        className="mt-6 btn py-1 border-primary text-primary hover:bg-primary hover:text-white inline-flex items-center gap-1"
       >
-         <MdArrowBack />Back to Blogs
+        <MdArrowBack /> Back to Blogs
       </Link>
     </article>
   );
