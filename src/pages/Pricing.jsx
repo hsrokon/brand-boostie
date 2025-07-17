@@ -1,33 +1,32 @@
 import React from 'react';
 import { useEffect, useState } from "react";
-import { IoMdCheckmark } from "react-icons/io";
-import { RxCross2 } from "react-icons/rx";
 import { Link } from "react-router-dom";
 import PricingTable from '../components/PricingTable';
+import PricingCard from '../components/pricing/PricingCard';
 
 const Pricing = () => {
 
-    // const [ pricingData, setPricingData ] = useState([])
+  const [pricingData, setPricingData] = useState([]);
 
-    // useEffect(()=> {
-    //     fetch('pricing.json')
-    //     .then(res => res.json())
-    //     .then(data => setPricingData(data))
-    // },[])
+  useEffect(() => {
+    fetch("/pricing.json")
+      .then((res) => res.json())
+      .then((data) => setPricingData(data));
+  }, []);
 
   return (
     <div className="min-h-screen">
       <section
         className="relative 
-  banner-height 
-  sm:h-[30vh] 
-  md:h-[35vh] 
-  lg:h-[30rem]  
-  bg-cover bg-center bg-no-repeat 
-  px-6 
-  py-10 sm:py-14 md:py-16 lg:py-24 
-  mb-10 md:mb-16 lg:mb-24 
-  text-white"
+        banner-height 
+        sm:h-[30vh] 
+        md:h-[35vh] 
+        lg:h-[30rem]  
+        bg-cover bg-center bg-no-repeat 
+        px-6 
+        py-10 sm:py-14 md:py-16 lg:py-24 
+        mb-10 md:mb-16 lg:mb-24 
+        text-white"
 
         style={{
           backgroundImage: "url('https://i.ibb.co/vxMB0hHk/pricing.jpg')",
@@ -49,9 +48,8 @@ const Pricing = () => {
         </div>
       </section>
 
-        <h1 className='text-center text-2xl md:text-3xl lg:text-4xl font-semibold'>Pricing Comparison table</h1>
+      {/* <h1 className='text-center text-2xl md:text-3xl lg:text-4xl font-semibold'>Pricing Comparison table</h1>
 
-    {/* Pricing Comparison table */}
       <section className="w-full md:w-11/12 mx-auto relative my-28">
         
         <div className="absolute -top-2 lg:-top-6 bottom-0 right-1 md:right-4 hidden md:inline-block md:w-[10.5rem] lg:w-[14rem] xl:w-80 border border-secondary md:border-2 rounded-lg md:rounded-3xl"></div>
@@ -64,6 +62,26 @@ const Pricing = () => {
         </div>
 
         <PricingTable></PricingTable>
+      </section> */}
+
+      <section>
+        <div className="min-h-screen bg-base-100 px-4 md:px-8 py-12">
+      <h1 className="text-3xl md:text-4xl font-bold text-center text-primary mb-12">
+        Compare Our Plans
+      </h1>
+
+      <div className="grid gap-10 md:gap-12 xl:gap-16 grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 max-w-6xl mx-auto">
+        {pricingData.map((item, idx) => (
+          <PricingCard
+          key={idx}
+          service={item.service}
+          features={item.features}
+          starterPrice={item.starterPrice}
+          professionalPrice={item.professionalPrice}
+        />
+        ))}
+      </div>
+    </div>
       </section>
     </div>
   );

@@ -1,232 +1,72 @@
 [
   {
     "service": "Facebook Ads Campaign",
+    "starterPrice": 3000,
+    "professionalPrice": 9000,
     "features": [
-      {
-        "name": "Business Page Setup",
-        "starter": true,
-        "professional": true
-      },
-      {
-        "name": "Messenger ChatBot Setup",
-        "starter": false,
-        "professional": true
-      },
-      {
-        "name": "Meta Pixel Integration",
-        "starter": false,
-        "professional": true
-      },
-      {
-        "name": "Number of Ad Campaigns",
-        "starter": "Up to 3 basic campaigns",
-        "professional": "8-10 campaigns /month (targeted + retargeted)"
-      },
-      {
-        "name": "Ad Copy & Creative Ideas",
-        "starter": "Basic idea",
-        "professional": "Advanced idea"
-      },
-      {
-        "name": "A/B Testing",
-        "starter": false,
-        "professional": true
-      },
-      {
-        "name": "Target Audience Setup",
-        "starter": "Basic targeting (age, location, interest)",
-        "professional": "Advanced audience segmentation + custom retargeting"
-      },
-      {
-        "name": "Budget Guidance",
-        "starter": "Initial setup only",
-        "professional": "Ongoing budget optimization"
-      },
-      {
-        "name": "Performance Tracking",
-        "starter": "One time Report",
-        "professional": "Weekly campaign performance summary"
-      },
-      {
-        "name": "Best For",
-        "starter": "New businesses looking to run their first ads",
-        "professional": "Businesses focused on steady leads & sales from ads"
-      }
+      { "name": "Business Page Setup", "starter": true, "professional": true },
+      { "name": "Messenger ChatBot Setup", "starter": false, "professional": true },
+      { "name": "Meta Pixel Integration", "starter": false, "professional": true },
+      { "name": "Number of Ad Campaigns", "starter": "Up to 3 basic campaigns", "professional": "8-10 campaigns /month (targeted + retargeted)" },
+      { "name": "Ad Copy & Creative Ideas", "starter": "Basic idea", "professional": "Advanced idea" },
+      { "name": "A/B Testing", "starter": false, "professional": true },
+      { "name": "Target Audience Setup", "starter": "Basic targeting (age, location, interest)", "professional": "Advanced audience segmentation + custom retargeting" },
+      { "name": "Budget Guidance", "starter": "Initial setup only", "professional": "Ongoing budget optimization" },
+      { "name": "Performance Tracking", "starter": "One time Report", "professional": "Weekly campaign performance summary" },
+      { "name": "Best For", "starter": "New businesses looking to run their first ads", "professional": "Businesses focused on steady leads & sales from ads" }
     ]
   },
   {
     "service": "SEO Service",
+    "starterPrice": 2500,
+    "professionalPrice": 8500,
     "features": [
-      {
-        "name": "Goal",
-        "starter": "Get indexed on Google & fix basic SEO issues",
-        "professional": "Rank higher locally and build long-term search visibility"
-      },
-      {
-        "name": "Google Business Optimization",
-        "starter": false,
-        "professional": "Fully optimized and managed monthly"
-      },
-      {
-        "name": "Backlink Strategy",
-        "starter": false,
-        "professional": "100+ monthly quality backlinks"
-      },
-      {
-        "name": "Keyword Research",
-        "starter": "Basic keyword placement",
-        "professional": "In-depth keyword research + targeting"
-      },
-      {
-        "name": "Meta Tags Optimization",
-        "starter": "Titles, meta descriptions, headers for 3 pages",
-        "professional": "Full meta optimization for 20 pages"
-      },
-      {
-        "name": "On-Pages Covered",
-        "starter": "On-page SEO for 3 pages",
-        "professional": "On-page SEO for up to 20 pages or products"
-      },
-      {
-        "name": "Image Optimization",
-        "starter": "Optimize images for 3 pages",
-        "professional": "Full image SEO across site"
-      },
-      {
-        "name": "Sitemap Submission",
-        "starter": true,
-        "professional": "Included with regular updates"
-      },
-      {
-        "name": "Indexing & Crawling Fixes",
-        "starter": "Basic",
-        "professional": "Continuous monitoring + error resolution"
-      },
-      {
-        "name": "SEO Reporting",
-        "starter": false,
-        "professional": "Monthly SEO audit + ranking report"
-      },
-      {
-        "name": "Best For",
-        "starter": "Businesses needing basic Google presence",
-        "professional": "Businesses aiming for local SEO domination & traffic"
-      }
+      { "name": "Goal", "starter": "Get indexed on Google & fix basic SEO issues", "professional": "Rank higher locally and build long-term search visibility" },
+      { "name": "Google Business Optimization", "starter": false, "professional": "Fully optimized and managed monthly" },
+      { "name": "Backlink Strategy", "starter": false, "professional": "100+ monthly quality backlinks" },
+      { "name": "Keyword Research", "starter": "Basic keyword placement", "professional": "In-depth keyword research + targeting" },
+      { "name": "Meta Tags Optimization", "starter": "Titles, meta descriptions, headers for 3 pages", "professional": "Full meta optimization for 20 pages" },
+      { "name": "On-Pages Covered", "starter": "On-page SEO for 3 pages", "professional": "On-page SEO for up to 20 pages or products" },
+      { "name": "Image Optimization", "starter": "Optimize images for 3 pages", "professional": "Full image SEO across site" },
+      { "name": "Sitemap Submission", "starter": true, "professional": "Included with regular updates" },
+      { "name": "Indexing & Crawling Fixes", "starter": "Basic", "professional": "Continuous monitoring + error resolution" },
+      { "name": "SEO Reporting", "starter": false, "professional": "Monthly SEO audit + ranking report" },
+      { "name": "Best For", "starter": "Businesses needing basic Google presence", "professional": "Businesses aiming for local SEO domination & traffic" }
     ]
   },
   {
     "service": "Email Marketing",
+    "starterPrice": 2000,
+    "professionalPrice": 7000,
     "features": [
-      {
-        "name": "Goal",
-        "starter": "Build a basic automated email funnel",
-        "professional": "Grow, engage, and convert with advanced email strategies"
-      },
-      {
-        "name": "Email Platform Setup",
-        "starter": "Mailchimp or MailerLite basic setup",
-        "professional": "Advanced configuration + segmentation"
-      },
-      {
-        "name": "Automated Email Flow",
-        "starter": "4-step flow (Welcome, Product Intro, Trust, Offer)",
-        "professional": "Multi-step flows (cart recovery, promos, re-engagement)"
-      },
-      {
-        "name": "Campaign Frequency",
-        "starter": "One-time setup only",
-        "professional": "Weekly email campaign management"
-      },
-      {
-        "name": "Email Copywriting",
-        "starter": "Basic 4-email series",
-        "professional": "Fully custom campaign copy based on your business goals"
-      },
-      {
-        "name": "Visual Design",
-        "starter": "Basic",
-        "professional": "Branded, visually appealing designs for strong conversion"
-      },
-      {
-        "name": "Smart Tags & Segments",
-        "starter": false,
-        "professional": true
-      },
-      {
-        "name": "List Growth & Cleanup",
-        "starter": "Initial list import only",
-        "professional": "Ongoing list cleanup + subscriber growth automation"
-      },
-      {
-        "name": "Analytics & Reporting",
-        "starter": false,
-        "professional": "Weekly performance tracking and optimization"
-      },
-      {
-        "name": "Best For",
-        "starter": "Businesses starting to build trust & nurture leads",
-        "professional": "Businesses ready to scale email as a sales channel"
-      }
+      { "name": "Goal", "starter": "Build a basic automated email funnel", "professional": "Grow, engage, and convert with advanced email strategies" },
+      { "name": "Email Platform Setup", "starter": "Mailchimp or MailerLite basic setup", "professional": "Advanced configuration + segmentation" },
+      { "name": "Automated Email Flow", "starter": "4-step flow (Welcome, Product Intro, Trust, Offer)", "professional": "Multi-step flows (cart recovery, promos, re-engagement)" },
+      { "name": "Campaign Frequency", "starter": "One-time setup only", "professional": "Weekly email campaign management" },
+      { "name": "Email Copywriting", "starter": "Basic 4-email series", "professional": "Fully custom campaign copy based on your business goals" },
+      { "name": "Visual Design", "starter": "Basic", "professional": "Branded, visually appealing designs for strong conversion" },
+      { "name": "Smart Tags & Segments", "starter": false, "professional": true },
+      { "name": "List Growth & Cleanup", "starter": "Initial list import only", "professional": "Ongoing list cleanup + subscriber growth automation" },
+      { "name": "Analytics & Reporting", "starter": false, "professional": "Weekly performance tracking and optimization" },
+      { "name": "Best For", "starter": "Businesses starting to build trust & nurture leads", "professional": "Businesses ready to scale email as a sales channel" }
     ]
   },
   {
     "service": "Website",
+    "starterPrice": 4000,
+    "professionalPrice": 12000,
     "features": [
-      {
-        "name": "Optimized Mobile friendly Design",
-        "starter": true,
-        "professional": true
-      },
-      {
-        "name": "Essential Sections Covered (About, Products, Contact etc.)",
-        "starter": true,
-        "professional": false
-      },
-      {
-        "name": "All Necessary Sections Covered (About, Products, Contact etc.)",
-        "starter": false,
-        "professional": true
-      },
-      {
-        "name": "Product Showcase (up to 5 products)",
-        "starter": true,
-        "professional": false
-      },
-      {
-        "name": "Modern & minimal, mobile-first design",
-        "starter": true,
-        "professional": true
-      },
-      {
-        "name": "High-converting landing pages",
-        "starter": false,
-        "professional": true
-      },
-      {
-        "name": "Chat & lead integration",
-        "starter": false,
-        "professional": true
-      },
-      {
-        "name": "Domain, hosting & security setup",
-        "starter": false,
-        "professional": true
-      },
-      {
-        "name": "Performance & Speed Optimization",
-        "starter": true,
-        "professional": true
-      },
-      {
-        "name": "SEO Ready Setup",
-        "starter": true,
-        "professional": "Advanced SEO-ready structure"
-      },
-      {
-        "name": "Best For",
-        "starter": "Businesses needing a basic website with key sections",
-        "professional": "Brands looking for modern design, performance, and lead generation"
-      }
+      { "name": "Optimized Mobile friendly Design", "starter": true, "professional": true },
+      { "name": "Essential Sections Covered (About, Products, Contact etc.)", "starter": true, "professional": false },
+      { "name": "All Necessary Sections Covered (About, Products, Contact etc.)", "starter": false, "professional": true },
+      { "name": "Product Showcase (up to 5 products)", "starter": true, "professional": false },
+      { "name": "Modern & minimal, mobile-first design", "starter": true, "professional": true },
+      { "name": "High-converting landing pages", "starter": false, "professional": true },
+      { "name": "Chat & lead integration", "starter": false, "professional": true },
+      { "name": "Domain, hosting & security setup", "starter": false, "professional": true },
+      { "name": "Performance & Speed Optimization", "starter": true, "professional": true },
+      { "name": "SEO Ready Setup", "starter": true, "professional": "Advanced SEO-ready structure" },
+      { "name": "Best For", "starter": "Businesses needing a basic website with key sections", "professional": "Brands looking for modern design, performance, and lead generation" }
     ]
   }
 ]

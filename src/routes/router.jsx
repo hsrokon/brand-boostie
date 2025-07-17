@@ -14,6 +14,7 @@ import PrivateRoute from "./PrivateRoute";
 import AdminDashboard from "../pages/AdminDashboard";
 import BlogDetails from "../components/blogs/BlogDetails";
 import CaseStudyDetails from "../components/caseStudies/CaseStudyDetails";
+import Payment from "../pages/Payment";
 
 
 const router = createBrowserRouter([
@@ -60,6 +61,10 @@ const router = createBrowserRouter([
                 path: '/contact',
                 element: <Contact></Contact>
             },
+            {
+                path: 'payment',
+                element: <PrivateRoute><Payment></Payment></PrivateRoute>
+            }
         ]
     },
     {
