@@ -4,6 +4,7 @@ import emailjs from "emailjs-com";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Swal from "sweetalert2";
+import { useState } from "react";
 
 const MessageSection = () => {
   const form = useRef();
@@ -12,30 +13,38 @@ const MessageSection = () => {
     AOS.init({ duration: 1000 });
   }, []);
 
-  const sendEmail = (e) => {
-    e.preventDefault();
+  const [loading, setLoading] = useState(false);
 
-    emailjs.sendForm(
-      'Brand-Bestie',
-      'template_7vimehl',
-      form.current,
-      '2QtOIBiQHWaigAH9I'
-    )
-    .then((result) => {
-      console.log('Email sent:', result.text);
-      Swal.fire({
-            title: "Message sent successful!",
-            icon: "success",
-          });
-      form.current.reset();
-    }, (error) => {
-      console.error('Email error:', error.text);
-      Swal.fire({
-            title: "Message sent unsuccessful!",
-            icon: "error",
-          });
-    });
-  };
+  const sendEmail = (e) => {
+      e.preventDefault();
+      setLoading(true);
+
+      emailjs.sendForm(
+        'Brand-Bestie',
+        'template_7vimehl',
+        form.current,
+        '2QtOIBiQHWaigAH9I'
+      )
+      .then((result) => {
+        console.log('Email sent:', result.text);
+        Swal.fire({
+          title: "Message sent successfully!",
+          icon: "success",
+        });
+        form.current.reset();
+      })
+      .catch((error) => {
+        console.error('Email error:', error.text);
+        Swal.fire({
+          title: "Message failed to send!",
+          icon: "error",
+        });
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+    };
+
 
   return (
     <section className="bg-base-200 py-14 lg:py-20 px-6 mb-30 text-center" id="contact" data-aos="fade-up">
@@ -93,10 +102,12 @@ const MessageSection = () => {
 
           <button
             type="submit"
+            disabled={loading}
             className="bg-primary text-white w-full cursor-pointer font-semibold px-6 py-3 rounded-md hover:bg-primary/90 transition"
           >
-            Send Message
+            {loading ? "Sending..." : "Send Message"}
           </button>
+
         </motion.form>
       </div>
     </section>
