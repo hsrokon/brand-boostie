@@ -2,6 +2,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import { BsCopy } from "react-icons/bs";
+import Swal from "sweetalert2";
 
 const Payment = () => {
   const { search } = useLocation();
@@ -83,7 +84,11 @@ const Payment = () => {
                     type="button"
                     onClick={() => {
                     navigator.clipboard.writeText("01717506963");
-                    alert("Number copied to clipboard!");
+                    Swal.fire({
+                        title: "Number copied to clipboard!",
+                        icon: "success",
+                        draggable: true
+                        });
                     }}
                     className="font-semibold text-primary underline hover:text-accent cursor-pointer inline-flex items-center gap-1"
                 >

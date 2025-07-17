@@ -2,7 +2,8 @@ import { useContext, useEffect, useRef, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider'; 
 import { TbLogout } from 'react-icons/tb';
-import { hover, motion } from 'framer-motion';
+import { AnimatePresence, motion } from "framer-motion";
+
 
 const Navbar = () => {
   const [isUserDropdownOpen, setIsUserDropdownOpen] = useState(false);
@@ -76,10 +77,16 @@ const Navbar = () => {
           </button>
           }
           
+          <AnimatePresence>
           { user && isUserDropdownOpen && (
-            <div 
-            ref={dropdownRef}
-            className="absolute top-14 right-12 z-50 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow-sm">
+            <motion.div 
+              ref={dropdownRef}
+              initial={{ opacity: 0, scale: 0.95, y: -10 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: -10 }}
+              transition={{ duration: 0.2 }}
+              className="absolute top-16 right-2 z-50 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow-sm"
+            >
               <div className="px-4 py-3">
                 <span className="block text-sm text-gray-900">{user?.displayName}</span>
                 <span className="block text-sm text-gray-500 truncate">{user?.email}</span>
@@ -89,11 +96,15 @@ const Navbar = () => {
                 <li className="cursor-pointer block px-4 py-2 text-sm hover:bg-gray-100">Settings</li>
                 <li className="cursor-pointer block px-4 py-2 text-sm hover:bg-gray-100">Earnings</li>
                 <li 
-                onClick={handleLogOut}
-                className="cursor-pointer flex items-center gap-2 px-4 py-2 text-sm hover:bg-gray-100">Sign out <TbLogout /></li>
+                  onClick={handleLogOut}
+                  className="cursor-pointer flex items-center gap-2 px-4 py-2 text-sm hover:bg-gray-100"
+                >
+                  Sign out <TbLogout />
+                </li>
               </ul>
-            </div>
+            </motion.div>
           )}
+          </AnimatePresence>
 
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -109,42 +120,97 @@ const Navbar = () => {
           </button>
         </div>
 
-        <div
-          className={`items-center justify-between w-full md:flex md:w-auto md:order-1 ${isMobileMenuOpen ? '' : 'hidden'}`}
-          id="navbar-user"
-        >
-          <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-1 text-sm md:text-xs lg:text-base lg:space-x-4 xl:space-x-7 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white">
-            
-            {["/", "/services", "/pricing", "/caseStudies", "/about", "/blogs", "/contact"].map(nav => 
+        <>
+  {/* 👇 For Mobile - AnimatePresence for animated toggle */}
+          <AnimatePresence>
+            {isMobileMenuOpen && (
               <motion.div
-              className='relative group'
-              initial="rest"
-              animate="rest"
-              whileHover="hover"
-            >
-              <NavLink to={nav}
-                className={navItemClasses}>
-                {()=>routeToLabel(nav) === "" ? "Home" : routeToLabel(nav)}
-              </NavLink>
-              {/* Use NavLink's `isActive` to disable the animation */}
-              <NavLink
-              to={nav}
-              children={({isActive})=> 
-                !isActive && (
-                  <motion.div
-                  className='absolute left-0 bottom-0 h-0.5 bg-primary'
-                  variants={{
-                    rest: {width : 0, opacity: 0, x: -20},
-                    hover: {width: '100%', opacity: 1, x: 0},
-                  }}
-                  transition={{duration: 0.2, ease: 'easeOut'}}
+                key="mobile-nav"
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.2 }}
+                className="md:hidden absolute top-full left-0 w-full z-40 bg-white shadow-md"
+                id="navbar-user"
+              >
+                <ul className="flex flex-col font-medium p-4 border border-gray-100 rounded-lg bg-gray-50 text-sm">
+                  {["/", "/services", "/pricing", "/caseStudies", "/about", "/blogs", "/contact"].map(nav => (
+                    <motion.div
+                      className="relative group"
+                      initial="rest"
+                      animate="rest"
+                      whileHover="hover"
+                      key={nav}
+                    >
+                      <NavLink
+                        to={nav}
+                        className={navItemClasses}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        {() => routeToLabel(nav) === "" ? "Home" : routeToLabel(nav)}
+                      </NavLink>
+
+                      <NavLink
+                        to={nav}
+                        children={({ isActive }) =>
+                          !isActive && (
+                            <motion.div
+                              className="absolute left-0 bottom-0 h-0.5 bg-primary"
+                              variants={{
+                                rest: { width: 0, opacity: 0, x: -20 },
+                                hover: { width: '100%', opacity: 1, x: 0 },
+                              }}
+                              transition={{ duration: 0.2, ease: 'easeOut' }}
+                            />
+                          )
+                        }
+                      />
+                    </motion.div>
+                  ))}
+                </ul>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* 👇 For Desktop - Always Visible */}
+          <div className="hidden md:flex md:items-center md:order-1" id="navbar-user">
+            <ul className="flex font-medium space-x-1 text-xs lg:text-base lg:space-x-4 xl:space-x-7">
+              {["/", "/services", "/pricing", "/caseStudies", "/about", "/blogs", "/contact"].map(nav => (
+                <motion.div
+                  className="relative group"
+                  initial="rest"
+                  animate="rest"
+                  whileHover="hover"
+                  key={nav}
+                >
+                  <NavLink
+                    to={nav}
+                    className={navItemClasses}
+                  >
+                    {() => routeToLabel(nav) === "" ? "Home" : routeToLabel(nav)}
+                  </NavLink>
+
+                  <NavLink
+                    to={nav}
+                    children={({ isActive }) =>
+                      !isActive && (
+                        <motion.div
+                          className="absolute left-0 bottom-0 h-0.5 bg-primary"
+                          variants={{
+                            rest: { width: 0, opacity: 0, x: -20 },
+                            hover: { width: '100%', opacity: 1, x: 0 },
+                          }}
+                          transition={{ duration: 0.2, ease: 'easeOut' }}
+                        />
+                      )
+                    }
                   />
-                )}
-              />
-            </motion.div>
-            )} 
-          </ul>
-        </div>
+                </motion.div>
+              ))}
+            </ul>
+          </div>
+        </>
+
       </div>
     </nav>
   );

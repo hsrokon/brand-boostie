@@ -1,11 +1,13 @@
 import Navbar from '../components/Navbar/Navbar';
 import { Outlet } from 'react-router-dom';
-import ScrollToTopButton from '../components/ScrollToTop';
+import ScrollToTopButton from '../components/ScrollToTopButton';
 import Footer from '../components/Footer';
+import ScrollToTop from '../components/ScrollToTop';
 
 const Layout = () => {
     return (
         <div className='min-h-screen w-full mx-auto'>
+            <ScrollToTop></ScrollToTop>
             <header className='sticky top-0 z-50 bg-white'>
                 <Navbar></Navbar>
             </header>

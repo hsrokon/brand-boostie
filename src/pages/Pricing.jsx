@@ -20,7 +20,7 @@ const Pricing = () => {
         className="relative 
         banner-height 
         sm:h-[30vh] 
-        md:h-[35vh] 
+        md:h-[40vh] 
         lg:h-[30rem]  
         bg-cover bg-center bg-no-repeat 
         px-6 
@@ -43,7 +43,7 @@ const Pricing = () => {
             results.
             </p>
             <button className="btn btn-sm md:btn-md md:text-base border-0 bg-primary text-white shadow hover:bg-primary/90 transition">
-                Customize Plan
+                View Pricing Comparison
             </button>
         </div>
       </section>
