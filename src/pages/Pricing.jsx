@@ -18,7 +18,7 @@ const Pricing = () => {
   return (
     <div className="min-h-screen">
       <section
-        className="relative bg-cover bg-center bg-no-repeat px-6 lg:py-24 mb-10 md:mb-16 lg:mb-24 text-white"
+        className="relative h-60 sm:h-72 md:h-96 lg:h-[30rem] xl:h-[36rem] bg-cover bg-center bg-no-repeat px-6 py-10 sm:py-14 md:py-16 lg:py-24 mb-10 md:mb-16 lg:mb-24 text-white"
         style={{
           backgroundImage: "url('https://i.ibb.co/vxMB0hHk/pricing.jpg')",
         }}

@@ -16,7 +16,7 @@ const BannerSlider = () => {
   ];
 
   return (
-    <div className="relative w-full h-44 md:h-96 lg:h-[31rem] xl:h-[40rem] overflow-hidden">
+    <div className="relative w-full h-[14.5rem] sm:h-64 md:h-80 lg:h-[32rem] xl:h-[40rem] overflow-hidden">
       {/* Swiper in background */}
       <Swiper
         modules={[Autoplay]}
@@ -38,7 +38,7 @@ const BannerSlider = () => {
       {/* Static content on top */}
       <div className="absolute inset-0 bg-black/50 z-10 flex items-center justify-center">
         <div className="text-center text-white space-y-4">
-          <h1 className="md:text-3xl lg:text-4xl font-bold">Grow your business online  with <br /> smart, tailored digital <br />marketing strategies.</h1>
+          <h1 className="text-xl md:text-3xl lg:text-4xl font-bold">Grow your business online  with <br /> smart, tailored digital <br />marketing strategies.</h1>
           <Link to={'/about'}>
             <button className="btn btn-sm md:btn-md border-none md:px-6 md:py-6 text-xs md:text-sm lg:text-[1rem] bg-white text-primary font-semibold rounded-md shadow hover:bg-gray-100 transition">
               Learn More

@@ -18,7 +18,7 @@ const About = () => {
         <div className='min-h-screen'>
 
             <section
-            className="relative bg-cover bg-center md:bg-top bg-no-repeat px-6 py-10 md:py-20 lg:py-36 mb-10 md:mb-16 lg:mb-24 text-white"
+            className="relative h-60 sm:h-72 md:h-[28rem] lg:h-[36rem] xl:h-[42rem] bg-cover bg-center md:bg-top bg-no-repeat px-6 py-10 md:py-20 lg:py-36 mb-10 md:mb-16 lg:mb-24 text-white"
             style={{
                 backgroundImage: "url('https://i.ibb.co/pB0x8HZC/team.jpg')",
             }}
