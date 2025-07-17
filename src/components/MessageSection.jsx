@@ -1,19 +1,44 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
+import emailjs from "emailjs-com";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Swal from "sweetalert2";
 
 const MessageSection = () => {
+  const form = useRef();
+
   useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
 
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm(
+      'Brand-Bestie',
+      'template_7vimehl',
+      form.current,
+      '2QtOIBiQHWaigAH9I'
+    )
+    .then((result) => {
+      console.log('Email sent:', result.text);
+      Swal.fire({
+            title: "Message sent successful!",
+            icon: "success",
+          });
+      form.current.reset();
+    }, (error) => {
+      console.error('Email error:', error.text);
+      Swal.fire({
+            title: "Message sent unsuccessful!",
+            icon: "error",
+          });
+    });
+  };
+
   return (
-    <section
-      className="bg-base-200 py-14 lg:py-20 px-6 mb-30 text-center"
-      id="contact"
-      data-aos="fade-up"
-    >
+    <section className="bg-base-200 py-14 lg:py-20 px-6 mb-30 text-center" id="contact" data-aos="fade-up">
       <div className="md:max-w-2xl lg:max-w-3xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
@@ -34,6 +59,8 @@ const MessageSection = () => {
         </motion.p>
 
         <motion.form
+          ref={form}
+          onSubmit={sendEmail}
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.4, duration: 0.5 }}
@@ -42,12 +69,14 @@ const MessageSection = () => {
           <div className="flex flex-col md:flex-row gap-4">
             <input
               type="text"
+              name="name"
               placeholder="Your Name"
               required
               className="w-full px-2 lg:px-4 py-3 rounded-md border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary placeholder:text-sm lg:placeholder:text-base"
             />
             <input
               type="email"
+              name="email"
               placeholder="Your Email"
               required
               className="w-full px-2 lg:px-4 py-3 rounded-md border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary placeholder:text-sm lg:placeholder:text-base"
@@ -55,6 +84,7 @@ const MessageSection = () => {
           </div>
 
           <textarea
+            name="message"
             placeholder="Your Message"
             rows="5"
             required
