@@ -92,9 +92,9 @@ const Navbar = () => {
                 <span className="block text-sm text-gray-500 truncate">{user?.email}</span>
               </div>
               <ul className="py-2">
-                <li className="cursor-pointer block px-4 py-2 text-sm hover:bg-gray-100">Dashboard</li>
-                <li className="cursor-pointer block px-4 py-2 text-sm hover:bg-gray-100">Settings</li>
-                <li className="cursor-pointer block px-4 py-2 text-sm hover:bg-gray-100">Earnings</li>
+                <Link to={'/user/dashboard'} className="cursor-pointer block px-4 py-2 text-sm hover:bg-gray-100">Dashboard</Link>
+                {/* <Link to={'/user/dashboard'} className="cursor-pointer block px-4 py-2 text-sm hover:bg-gray-100">Setting</Link>
+                <Link to={'/user/dashboard'} className="cursor-pointer block px-4 py-2 text-sm hover:bg-gray-100">Earning</Link> */}
                 <li 
                   onClick={handleLogOut}
                   className="cursor-pointer flex items-center gap-2 px-4 py-2 text-sm hover:bg-gray-100"

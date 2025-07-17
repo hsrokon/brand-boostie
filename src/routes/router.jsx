@@ -16,6 +16,7 @@ import BlogDetails from "../components/blogs/BlogDetails";
 import CaseStudyDetails from "../components/caseStudies/CaseStudyDetails";
 import Payment from "../pages/Payment";
 import ResetPassword from "../pages/ResetPassword";
+import Dashboard from "../components/user/Dashboard";
 
 
 const router = createBrowserRouter([
@@ -83,6 +84,10 @@ const router = createBrowserRouter([
     {
         path: '/admin/dashboard',
         element:<PrivateRoute><AdminDashboard></AdminDashboard></PrivateRoute>
+    },
+    {
+        path: '/user/Dashboard',
+        element: <Dashboard></Dashboard>
     }
 ])
 
