@@ -34,7 +34,7 @@ const CaseStudiesPost = () => {
       const newCaseStudy = {
         ...caseStudy,
         email: user.email,
-        photoURL : user.photoURL,
+        photoURL: user.photoURL,
         author: user.displayName || user.email,
       };
 
@@ -78,7 +78,7 @@ const CaseStudiesPost = () => {
             type="text"
             value={caseStudy.title}
             onChange={(e) => setCaseStudy({ ...caseStudy, title: e.target.value })}
-            className="input input-bordered w-full"
+            className="w-full px-3 py-2 border border-primary rounded-md focus:outline-none focus:ring focus:ring-primary"
             placeholder="Enter case study title"
             required
           />
@@ -90,7 +90,7 @@ const CaseStudiesPost = () => {
             type="text"
             value={caseStudy.client}
             onChange={(e) => setCaseStudy({ ...caseStudy, client: e.target.value })}
-            className="input input-bordered w-full"
+            className="w-full px-3 py-2 border border-primary rounded-md focus:outline-none focus:ring focus:ring-primary"
             placeholder="e.g., ABC Corp"
             required
           />
@@ -102,7 +102,7 @@ const CaseStudiesPost = () => {
             type="url"
             value={caseStudy.coverImage}
             onChange={(e) => setCaseStudy({ ...caseStudy, coverImage: e.target.value })}
-            className="input input-bordered w-full"
+            className="w-full px-3 py-2 border border-primary rounded-md focus:outline-none focus:ring focus:ring-primary"
             placeholder="https://your-image-link.com"
             required
           />
@@ -113,7 +113,7 @@ const CaseStudiesPost = () => {
           <select
             value={caseStudy.category}
             onChange={(e) => setCaseStudy({ ...caseStudy, category: e.target.value })}
-            className="select select-bordered w-full"
+            className="w-full px-3 py-2 border border-primary rounded-md focus:outline-none focus:ring focus:ring-primary"
             required
           >
             <option value="">Select category</option>
@@ -131,7 +131,7 @@ const CaseStudiesPost = () => {
           <textarea
             value={caseStudy.description}
             onChange={(e) => setCaseStudy({ ...caseStudy, description: e.target.value })}
-            className="textarea textarea-bordered w-full min-h-[150px]"
+            className="w-full px-3 py-2 border border-primary rounded-md focus:outline-none focus:ring focus:ring-primary min-h-[150px]"
             placeholder="Write your case study description here..."
             required
           ></textarea>
@@ -142,7 +142,7 @@ const CaseStudiesPost = () => {
           <textarea
             value={caseStudy.results}
             onChange={(e) => setCaseStudy({ ...caseStudy, results: e.target.value })}
-            className="textarea textarea-bordered w-full min-h-[100px]"
+            className="w-full px-3 py-2 border border-primary rounded-md focus:outline-none focus:ring focus:ring-primary min-h-[100px]"
             placeholder="What were the results? (optional)"
           ></textarea>
         </div>

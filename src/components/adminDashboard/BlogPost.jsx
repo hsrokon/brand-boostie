@@ -71,7 +71,7 @@ const BlogPost = () => {
             type="text"
             value={blog.title}
             onChange={(e) => setBlog({ ...blog, title: e.target.value })}
-            className="input input-bordered w-full"
+            className="w-full px-3 py-2 border border-primary rounded focus:outline-none"
             placeholder="Enter title"
             required
           />
@@ -83,7 +83,7 @@ const BlogPost = () => {
             type="url"
             value={blog.coverImage}
             onChange={(e) => setBlog({ ...blog, coverImage: e.target.value })}
-            className="input input-bordered w-full"
+            className="w-full px-3 py-2 border border-primary rounded focus:outline-none"
             placeholder="https://your-image-link.com"
             required
           />
@@ -94,7 +94,7 @@ const BlogPost = () => {
           <select
             value={blog.category}
             onChange={(e) => setBlog({ ...blog, category: e.target.value })}
-            className="select select-bordered w-full"
+            className="w-full px-3 py-2 border border-primary rounded focus:outline-none"
             required
           >
             <option value="">Select category</option>
@@ -111,7 +111,7 @@ const BlogPost = () => {
           <textarea
             value={blog.content}
             onChange={(e) => setBlog({ ...blog, content: e.target.value })}
-            className="textarea textarea-bordered w-full min-h-[150px]"
+            className="w-full px-3 py-2 border border-primary rounded min-h-[150px] focus:outline-none"
             placeholder="Write your blog content here..."
             required
           ></textarea>
