@@ -15,6 +15,7 @@ import AdminDashboard from "../pages/AdminDashboard";
 import BlogDetails from "../components/blogs/BlogDetails";
 import CaseStudyDetails from "../components/caseStudies/CaseStudyDetails";
 import Payment from "../pages/Payment";
+import ResetPassword from "../pages/ResetPassword";
 
 
 const router = createBrowserRouter([
@@ -70,6 +71,10 @@ const router = createBrowserRouter([
     {
         path: '/auth/login',
         element: <Login></Login>
+    },
+    {
+        path: '/auth/passReset',
+        element: <ResetPassword></ResetPassword>
     },
     {
         path: '/auth/signup',

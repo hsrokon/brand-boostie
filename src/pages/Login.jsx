@@ -158,9 +158,10 @@ const Login = () => {
                 </button>
               </div>
 
-              <div>
-                <a className="link link-hover">Forgot password?</a>
-              </div>
+              <Link to={'/auth/passReset'}>
+                <button 
+                className="link link-hover">Forgot password?</button>
+              </Link>
 
               {errorMes.login && (
                 <p className="font-semibold text-white">
