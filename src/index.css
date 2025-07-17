@@ -32,3 +32,42 @@
 .swal-text {
   font-size: 1.03rem; /* 16px */
 }
+
+
+/* Custom media query for Pixel 5a (~393px wide) */
+@media (max-width: 400px) {
+  .banner-height {
+    height: 35vh; /* Adjust as needed */
+  }
+}
+
+/* Custom media query for Vivo X200 (~415px wide) */
+@media (min-width: 401px) and (max-width: 430px) {
+  .banner-height {
+    height: 25vh; /* Adjust for vivo X200 */
+  }
+}
+
+
+
+/* Custom Text Size for Pixel 5a (~393px) */
+@media (max-width: 400px) {
+  .text-responsive {
+    font-size: 1rem; /* Adjust for smaller screens */
+    line-height: 1.35rem;
+  }
+}
+
+/* Custom Text Size for Vivo X200 (~415px) */
+@media (min-width: 401px) and (max-width: 430px) {
+  .text-responsive {
+    font-size: 1.05rem;
+    line-height: 1.5rem;
+  }
+}
+
+/* Mid-size phones and up (default fallback) */
+.text-responsive {
+  font-size: 1.125rem; /* Tailwind text-lg */
+  line-height: 1.75rem;
+}

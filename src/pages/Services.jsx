@@ -93,7 +93,7 @@ const Services = () => {
         <div className='min-h-screen '>
             <section
             className="relative 
-            h-[29vh] 
+            banner-height 
             sm:h-[30vh] 
             md:h-[25vh] 
             lg:h-[30rem] 
@@ -109,7 +109,7 @@ const Services = () => {
                 <div className="absolute inset-0 bg-black/15 backdrop-blur-sm z-0"></div>
 
                 <div className="relative z-10 w-full lg:max-w-4xl mx-auto text-center space-y-2 lg:space-y-8 md:p-8 rounded-lg py-2">
-                    <h1 className="text-3xl md:text-3xl lg:text-5xl font-bold text-primary drop-shadow-xl">
+                    <h1 className="text-2xl md:text-3xl lg:text-5xl font-bold text-primary drop-shadow-xl">
                     Grow your business with confidence.
                     </h1>
                     <p className=" lg:text-lg drop-shadow-lg">

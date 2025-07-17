@@ -19,7 +19,7 @@ const Pricing = () => {
     <div className="min-h-screen">
       <section
         className="relative 
-  h-[25vh] 
+  banner-height 
   sm:h-[30vh] 
   md:h-[35vh] 
   lg:h-[30rem]  

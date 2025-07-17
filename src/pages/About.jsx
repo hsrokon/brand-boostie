@@ -19,7 +19,7 @@ const About = () => {
 
             <section
             className="relative 
-            h-[29vh] 
+            banner-height 
             sm:h-[30vh] 
             md:h-[30vh] 
             lg:h-[26rem] 
