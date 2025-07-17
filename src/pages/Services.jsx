@@ -92,16 +92,27 @@ const Services = () => {
     return (
         <div className='min-h-screen '>
             <section
-            className="relative h-60 sm:h-72 md:h-96 lg:h-[30rem] xl:h-[36rem] bg-cover bg-center bg-no-repeat px-6 py-10 sm:py-12 md:py-16 lg:py-24 mb-10 md:mb-16 lg:mb-24 text-white"
+            className="relative 
+            h-[29vh] 
+            sm:h-[30vh] 
+            md:h-[25vh] 
+            lg:h-[30rem] 
+            xl:h-[30rem] 
+            bg-cover bg-center bg-no-repeat 
+            px-6 
+            py-10 sm:py-12 md:py-16 lg:py-24 
+            mb-10 md:mb-16 lg:mb-24 
+            text-white"
+
             style={{ backgroundImage: "url('https://i.ibb.co/RG6Ng5VJ/service-cover-bg.jpg')" }}
             >
                 <div className="absolute inset-0 bg-black/15 backdrop-blur-sm z-0"></div>
 
-                <div className="relative z-10 w-full lg:max-w-4xl mx-auto text-center space-y-4 md:p-8 rounded-lg py-2">
-                    <h1 className="text-xl md:text-3xl lg:text-5xl font-bold text-primary drop-shadow-xl">
+                <div className="relative z-10 w-full lg:max-w-4xl mx-auto text-center space-y-2 lg:space-y-8 md:p-8 rounded-lg py-2">
+                    <h1 className="text-3xl md:text-3xl lg:text-5xl font-bold text-primary drop-shadow-xl">
                     Grow your business with confidence.
                     </h1>
-                    <p className="text-sm lg:text-lg drop-shadow-lg">
+                    <p className=" lg:text-lg drop-shadow-lg">
                     BrandBoostie helps you dominate online with custom marketing strategies.
                     </p>
                     <Link to="/contact">

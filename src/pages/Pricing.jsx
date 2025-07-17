@@ -18,7 +18,17 @@ const Pricing = () => {
   return (
     <div className="min-h-screen">
       <section
-        className="relative h-60 sm:h-72 md:h-96 lg:h-[30rem] xl:h-[36rem] bg-cover bg-center bg-no-repeat px-6 py-10 sm:py-14 md:py-16 lg:py-24 mb-10 md:mb-16 lg:mb-24 text-white"
+        className="relative 
+  h-[25vh] 
+  sm:h-[30vh] 
+  md:h-[35vh] 
+  lg:h-[30rem]  
+  bg-cover bg-center bg-no-repeat 
+  px-6 
+  py-10 sm:py-14 md:py-16 lg:py-24 
+  mb-10 md:mb-16 lg:mb-24 
+  text-white"
+
         style={{
           backgroundImage: "url('https://i.ibb.co/vxMB0hHk/pricing.jpg')",
         }}
@@ -44,13 +54,13 @@ const Pricing = () => {
     {/* Pricing Comparison table */}
       <section className="w-full md:w-11/12 mx-auto relative my-28">
         
-        <div className="absolute -top-2 lg:-top-6 bottom-0 right-1 md:right-4 w-[7.7rem] sm:w-[6.5rem] md:w-[10.5rem] lg:w-[14rem] xl:w-80 border border-secondary md:border-2 rounded-lg md:rounded-3xl"></div>
+        <div className="absolute -top-2 lg:-top-6 bottom-0 right-1 md:right-4 hidden md:inline-block md:w-[10.5rem] lg:w-[14rem] xl:w-80 border border-secondary md:border-2 rounded-lg md:rounded-3xl"></div>
 
         <div className='grid grid-cols-3 md:grid-cols-4 font-serif px-4 text-center text-[0.95rem] md:text-2xl lg:text-3xl z-10'>
           <h2 className='hidden md:inline-block'>Service <span className='hidden md:inline-block'>Name</span> </h2>
           <h2 className='text-xl underline md:no-underline'>Feature</h2>
           <h2 className='text-primary font-semibold text-xl underline md:no-underline'>Starter</h2>
-          <h2 className='text-xl md:text-3xl lg:text-4xl font-semibold md:font-bold text-secondary pb-3 md:pb-6 ml-5.5 md:ml-0 underline md:no-underline'>Premium</h2>
+          <h2 className='text-xl md:text-3xl lg:text-4xl font-semibold md:font-bold text-secondary pb-3 md:pb-6 ml-1.5 md:ml-0 underline md:no-underline'>Premium</h2>
         </div>
 
         <PricingTable></PricingTable>
