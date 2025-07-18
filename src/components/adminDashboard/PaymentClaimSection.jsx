@@ -5,17 +5,26 @@ import Swal from "sweetalert2";
 const PaymentClaimsSection = () => {
   const [claims, setClaims] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [showOnlyIncomplete, setShowOnlyIncomplete] = useState(true); // toggle state
+
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("https://brand-boostie-server.vercel.app/paymentClaims")
-      .then((res) => res.json())
-      .then((data) => {
-        setClaims(data);
-        setLoading(false);
-      });
-  }, []);
+    setLoading(true);
+    const url = showOnlyIncomplete
+        ? "https://brand-boostie-server.vercel.app/paymentClaims?statusNot=Completed"
+        : "https://brand-boostie-server.vercel.app/paymentClaims";
+
+    fetch(url)
+        .then((res) => res.json())
+        .then((data) => {
+            const latestFirst = data.slice().reverse(); // creates a new array in reversed order
+            setClaims(latestFirst);
+            setLoading(false);
+        });
+    }, [showOnlyIncomplete]);
+
 
   const handleVerify = async (id) => {
     try {
@@ -61,7 +70,16 @@ const PaymentClaimsSection = () => {
 
   return (
     <section className="w-11/12 mx-auto md:w-9/12 lg:w-8/12 xl:w-6/12 mt-10">
-      <h2 className="text-xl font-bold mb-4">Payment Claims</h2>
+      <div className="flex justify-between items-center mb-4">
+        <h2 className="text-xl font-bold">Payment Claims</h2>
+        <button
+            onClick={() => setShowOnlyIncomplete((prev) => !prev)}
+            className="px-4 py-2 bg-primary text-white rounded hover:bg-primary/80 transition"
+        >
+            {showOnlyIncomplete ? "Show All Claims" : "Show Only Incomplete"}
+        </button>
+      </div>
+
       {claims.length === 0 ? (
         <p>No claims yet.</p>
       ) : (

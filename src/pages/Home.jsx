@@ -3,7 +3,7 @@ import MiniAbout from '../components/Home/MiniAbout';
 import MiniServices from '../components/Home/MIniServices';
 import MiniPricing from '../components/Home/MIniPricing';
 import Team from '../components/Team';
-import Testimonials from '../components/Home/Testimonials';
+import Testimonials from '../components/testimonials/Testimonials';
 import MessageSection from '../components/MessageSection';
 import Stats from '../components/Stats';
 

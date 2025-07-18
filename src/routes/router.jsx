@@ -21,6 +21,7 @@ import PaymentClaimsSection from "../components/adminDashboard/PaymentClaimSecti
 import BlogPost from "../components/adminDashboard/BlogPost";
 import CaseStudiesPost from "../components/adminDashboard/CaseStudiesPost";
 import SubscribersList from "../components/adminDashboard/SubscribersList";
+import AddTestimony from "../components/testimonials/AddTestimony";
 
 
 const router = createBrowserRouter([
@@ -108,6 +109,10 @@ const router = createBrowserRouter([
     {
         path: '/user/Dashboard',
         element: <Dashboard></Dashboard>
+    },
+    {
+        path: '/user/addTestimony',
+        element: <PrivateRoute><AddTestimony></AddTestimony></PrivateRoute>
     }
 ])
 
