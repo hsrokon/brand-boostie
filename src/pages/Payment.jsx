@@ -1,14 +1,18 @@
 import { useLocation, useNavigate } from "react-router-dom";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import { BsCopy } from "react-icons/bs";
 import Swal from "sweetalert2";
+import emailjs from "emailjs-com";
 
 const Payment = () => {
   const { search } = useLocation();
   const params = new URLSearchParams(search);
   const service = params.get("service");
   const planFromURL = params.get("plan") || "Starter";
+
+  const [ loading, setLoading ] = useState(false);
+  const form = useRef();
 
   const { user } = useContext(AuthContext);
 
@@ -45,6 +49,36 @@ const Payment = () => {
     );
   }
 
+  const sendEmail = e => {
+      e.preventDefault();
+      setLoading(true);
+
+      emailjs.sendForm(
+        'Brand-Bestie',
+        'template_ipl38mq',
+        form.current,
+        '2QtOIBiQHWaigAH9I'
+      )
+      .then((result) => {
+        console.log('Email sent:', result.text);
+        Swal.fire({
+          title: "Payment claim successful!",
+          icon: "success",
+        });
+        form.current.reset();
+      })
+      .catch((error) => {
+        console.error('Email error:', error.text);
+        Swal.fire({
+          title: "Payment claim failed!",
+          icon: "error",
+        });
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+    };
+
   return (
     <div className="min-h-screen bg-base-200 py-12 px-6">
       <div className="max-w-3xl mx-auto bg-white shadow-xl rounded-2xl p-8">
@@ -60,20 +94,26 @@ const Payment = () => {
           service.
         </p>
 
-        <form className="space-y-6">
-          {/* 🧑‍💼 User Info */}
+        <form 
+        onSubmit={sendEmail}
+        ref={form}
+        className="space-y-6">
+          {/*  User Info */}
           <div className="text-center text-secondary">
+            <input type="hidden" name="service" value={selectedService.service}/>
             <p>
               <span className="text-lg font-semibold">Name :</span>{" "}
               {user.displayName}
             </p>
+            <input type="hidden" name="name" value={user?.displayName || "Anonymous"}/>
             <p>
               <span className="text-lg font-semibold">Email :</span>{" "}
               {user.email}
             </p>
+            <input type="hidden" name="email" value={user?.email || "No Email"}/>
           </div>
 
-          {/* 📢 Instructions */}
+          {/* Instructions */}
           <div className="max-w-md mx-auto text-center space-y-1">
             <h4 className="text-center font-semibold text-xl">
               Pay According to Plan
@@ -95,16 +135,18 @@ const Payment = () => {
                     <BsCopy className="text-base relative -top-[1px]" />
                     01717506963
                 </button>{" "}
-                and attach the transaction ID. Then submit the form. After review, we'll notify you soon.
+                and attach the transaction ID in the form then submit the form. After review, we'll notify you soon.
                 </p>
+                <p>Or, if you want you can contact us via this given no.</p>
           </div>
 
-          {/* 📋 Plan Select */}
+          {/*  Plan Select */}
           <div>
             <label className="block text-sm font-medium mb-1">Select Plan</label>
             <select
               className="select select-bordered w-full"
               required
+              name="plan"
               value={selectedPlan}
               onChange={(e) => setSelectedPlan(e.target.value)}
             >
@@ -113,52 +155,59 @@ const Payment = () => {
             </select>
           </div>
 
-          {/* 💳 Payment Method */}
+          {/*  Payment Method */}
           <div>
             <label className="block text-sm font-medium mb-1">Payment Method</label>
-            <select className="select select-bordered w-full" required>
+            <select 
+            className="select select-bordered w-full" 
+            required
+            name="paymentMethod"
+            >
               <option value="bkash">bKash</option>
               <option value="nagad">Nagad</option>
               <option value="rocket">Rocket</option>
             </select>
           </div>
 
-          {/* 📱 Phone Number */}
+          {/*  Phone Number */}
           <div>
             <label className="block text-sm font-medium mb-1">Your Phone No:</label>
             <input
               type="number"
+              name="phoneNo"
               placeholder="01XXXXXXXXX"
               className="input input-bordered w-full"
               required
             />
           </div>
 
-          {/* 🧾 Transaction ID */}
+          {/*  Transaction ID */}
           <div>
             <label className="block text-sm font-medium mb-1">
               Transaction ID
             </label>
             <input
               type="text"
+              name="transactionID"
               placeholder="e.g., TXN12345ABC"
               className="input input-bordered w-full"
               required
             />
           </div>
 
-          {/* 💸 Payment Amount Display */}
+          {/*  Payment Amount Display */}
           <div className="bg-gray-100 p-4 rounded-md text-center">
             <h2 className="text-lg font-semibold">
               Total Payment:{" "}
               <span className="text-primary">৳{getPlanPrice()}</span>
+              <input type="hidden" name="planPrice" value={getPlanPrice()}/>
             </h2>
           </div>
 
-          {/* ✅ Submit Buttons */}
+          {/*  Submit Buttons */}
           <div className="space-y-2">
             <button type="submit" className="btn btn-primary text-white w-full">
-              Claim Purchase
+              {loading ? 'Claiming...' : 'Claim Purchase'}
             </button>
             <button
               type="button"

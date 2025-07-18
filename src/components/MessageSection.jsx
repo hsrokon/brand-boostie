@@ -31,6 +31,7 @@ const MessageSection = () => {
           title: "Message sent successfully!",
           icon: "success",
         });
+        
         form.current.reset();
       })
       .catch((error) => {
@@ -64,7 +65,7 @@ const MessageSection = () => {
           transition={{ delay: 0.2, duration: 0.5 }}
           className="text-base-content text-sm lg:text-base mb-10"
         >
-          We'd love to hear from you. Fill out the form below and we’ll get back to you.
+          We'd love to hear from you. Fill out the form below and we'll get back to you.
         </motion.p>
 
         <motion.form

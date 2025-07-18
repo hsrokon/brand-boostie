@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const PricingCard = ({ service, features, starterPrice, professionalPrice }) => {
   return (
-    <div className="bg-white rounded-2xl shadow-md border border-base-300 p-6 flex flex-col justify-between h-full">
+    <div className="bg-white rounded-2xl shadow-2xl hover:shadow-accent border border-base-300 p-6 flex flex-col justify-between h-full">
       {/* Service title */}
       <h2 className="text-xl font-bold text-primary border-b border-primary pb-3 mb-4 text-center">
         {service}
