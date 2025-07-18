@@ -4,26 +4,23 @@ import { Link } from "react-router-dom";
 const MiniPricingCard = ({ plan }) => {
   return (
     <section className="bg-base-100 w-full h-full">
-        <Card plan={plan} />
+      <Card plan={plan} />
     </section>
   );
 };
 
 const Card = ({ plan }) => {
   const {
-    id,
-    slug,
+    _id,            // using MongoDB _id
     category,
     title,
-    tagline,
     price,
     originalPrice,
-    currency,
+    currency = "৳", // default to ৳ if not set
     frequency,
-    highlighted,
     planCategory,
-    features,
-    cta,
+    features = [],
+    cta = "Buy Plan", // fallback if cta is missing
   } = plan;
 
   return (
@@ -33,24 +30,25 @@ const Card = ({ plan }) => {
       variants={{ hover: { scale: 1.05 } }}
       className={`relative w-full h-full min-h-[22.5rem] lg:h-[25rem] max-w-[16rem] md:max-w-[18rem] lg:md:max-w-[19.5rem] xl:max-w-sm mx-auto 
         overflow-hidden rounded-xl 
-        ${planCategory === 'Professional' ? 'bg-accent min-h-[24rem]' : 'bg-primary '} 
-        ${id.split('-')[1]%2==0 ? 'md:mt-8 lg:mt-0 xl:mt-12' : ''}
+        ${planCategory === 'Professional' ? 'bg-accent min-h-[24rem]' : 'bg-primary'} 
+        
         p-6 sm:p-8 shadow-lg`}
-
+        // ${parseInt(_id.slice(-2), 16) % 2 === 0 ? 'md:mt-8 lg:mt-0 xl:mt-12' : ''}
     >
       <div className="relative z-10 text-base-100">
-        <div className="flex justify-between">
-          <span className="mb-3 block w-fit rounded-full bg-white/20 px-3 py-0.5 text-sm font-light">
-          {category}
-        </span>
-        
-        {
-          originalPrice && <span className="block w-fit rounded-full text-xl line-through font-medium">
-          ৳{originalPrice}
-        </span>
-        }
-      </div>
-        
+        <div className="flex justify-between items-center">
+          {category && (
+            <span className="mb-3 block w-fit rounded-full bg-white/20 px-3 py-0.5 text-sm font-light">
+              {category}
+            </span>
+          )}
+
+          {originalPrice && (
+            <span className="text-white text-lg line-through font-medium">
+              {currency}{originalPrice}
+            </span>
+          )}
+        </div>
 
         <motion.span
           initial={{ scale: 0.85 }}
@@ -58,8 +56,8 @@ const Card = ({ plan }) => {
           transition={{ duration: 1, ease: "backInOut" }}
           className="my-2 block origin-top-left font-mono text-4xl md:text-5xl font-black leading-[1.2]"
         >
-          ৳{price}
-          <span className="text-sm font-normal ml-1">{frequency}</span>
+          {currency}{price}
+          {frequency && <span className="text-sm font-normal ml-1">{frequency}</span>}
         </motion.span>
 
         <motion.span
@@ -81,7 +79,7 @@ const Card = ({ plan }) => {
 
       {/* CTA Button */}
       <Link
-        to="/pricing"
+        to={`/pricing`}
         className="absolute bottom-4 left-4 right-4 z-20 rounded border-2 border-base-100 bg-base-100 py-2 text-center font-mono font-bold uppercase text-primary backdrop-blur transition-colors hover:bg-transparent hover:text-base-100"
       >
         {cta}

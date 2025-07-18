@@ -23,6 +23,7 @@ import CaseStudiesPost from "../components/adminDashboard/CaseStudiesPost";
 import SubscribersList from "../components/adminDashboard/SubscribersList";
 import AddTestimony from "../components/testimonials/AddTestimony";
 import AdminPricingManager from "../components/adminDashboard/AdminPricingManager";
+import AdminPricingCardManager from "../components/adminDashboard/AdminPricingCardManager";
 
 
 const router = createBrowserRouter([
@@ -106,6 +107,10 @@ const router = createBrowserRouter([
     {
         path: '/admin/dashboard/managePricing',
         element: <AdminPricingManager></AdminPricingManager>
+    },
+    {
+        path: '/admin/dashboard/managePricingCard',
+        element: <AdminPricingCardManager></AdminPricingCardManager>
     },
     {
         path: '/admin/dashboard/subscribers',

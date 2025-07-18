@@ -1,0 +1,110 @@
+[
+  {
+    "category": "Ads",
+    "title": "Ads Campaign",
+    "price": 4200,
+    "frequency": "Once",
+    "planCategory": "Starter",
+    "features": [
+      "Meta Pixel Integration",
+      "Business Manager Setup",
+      "3 targeted Ad Campaigns"
+    ],
+    "cta": "Order Now"
+  },
+  {
+    "category": "SEO",
+    "title": "Full Local SEO",
+    "price": 4200,
+    "frequency": "Once",
+    "planCategory": "Starter",
+    "features": [
+      "Site Health & Indexing Optimization",
+      "Speed & Performance Enhancements",
+      "SEO Foundation Setup (OnPage SEO up to 3 pages)"
+    ],
+    "cta": "Order Now"
+  },
+  {
+    "category": "Email",
+    "title": "Email Marketing",
+    "price": 4200,
+    "frequency": "Once",
+    "planCategory": "Starter",
+    "features": [
+      "Strategic Welcome Workflow (4-5 steps)",
+      "Engaging, Pre-written Templates",
+      "Seamless Automation Integration"
+    ],
+    "cta": "Order Now"
+  },
+  {
+    "category": "Web",
+    "title": "Website Building",
+    "price": 5000,
+    "frequency": "Once",
+    "planCategory": "Starter",
+    "features": [
+      "Optimized Mobile friendly Design",
+      "Essential Sections Covered (About, Products, Contact etc.)",
+      "Product Showcase (up to 5 products)"
+    ],
+    "cta": "Order Now"
+  },
+  {
+    "category": "Ads",
+    "title": "Ads Campaign Manager",
+    "price": 9000,
+    "frequency": "Monthly",
+    "planCategory": "Professional",
+    "features": [
+      "Client Research & Full Funnel Strategy",
+      "Up to 10 Campaign Launch",
+      "Audience Targeting & Retargeting",
+      "Weekly Reporting & Analysis"
+    ],
+    "cta": "Order Now"
+  },
+  {
+    "category": "SEO",
+    "title": "SEO Specialist",
+    "price": 8500,
+    "frequency": "Monthly",
+    "planCategory": "Professional",
+    "features": [
+      "Deep site audit & Technical issues solving",
+      "Quality backlinks building",
+      "Local & mobile SEO optimization",
+      "Monthly growth tracking & reporting"
+    ],
+    "cta": "Order Now"
+  },
+  {
+    "category": "Email",
+    "title": "Email Marketing Manager",
+    "price": 7000,
+    "frequency": "Monthly",
+    "planCategory": "Professional",
+    "features": [
+      "Complete automation flows",
+      "Smart audience segmentation",
+      "Behavior-based trigger emails",
+      "A/B testing & reports"
+    ],
+    "cta": "Order Now"
+  },
+  {
+    "category": "Web",
+    "title": "Website Builder",
+    "price": 12000,
+    "frequency": "Monthly",
+    "planCategory": "Professional",
+    "features": [
+      "Modern & minimal, mobile-first design",
+      "High-converting landing pages",
+      "Chat & lead integration",
+      "Domain, hosting & security setup"
+    ],
+    "cta": "Order Now"
+  }
+]

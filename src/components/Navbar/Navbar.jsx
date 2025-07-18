@@ -78,33 +78,50 @@ const Navbar = () => {
           }
           
           <AnimatePresence>
-          { user && isUserDropdownOpen && (
-            <motion.div 
-              ref={dropdownRef}
-              initial={{ opacity: 0, scale: 0.95, y: -10 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: -10 }}
-              transition={{ duration: 0.2 }}
-              className="absolute top-16 right-2 z-50 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow-sm"
-            >
-              <div className="px-4 py-3">
-                <span className="block text-sm text-gray-900">{user?.displayName}</span>
-                <span className="block text-sm text-gray-500 truncate">{user?.email}</span>
-              </div>
-              <ul className="py-2">
-                <Link to={'/user/dashboard'} className="cursor-pointer block px-4 py-2 text-sm hover:bg-gray-100">Dashboard</Link>
-                {/* <Link to={'/user/dashboard'} className="cursor-pointer block px-4 py-2 text-sm hover:bg-gray-100">Setting</Link>
-                <Link to={'/user/dashboard'} className="cursor-pointer block px-4 py-2 text-sm hover:bg-gray-100">Earning</Link> */}
-                <li 
-                  onClick={handleLogOut}
-                  className="cursor-pointer flex items-center gap-2 px-4 py-2 text-sm hover:bg-gray-100"
-                >
-                  Sign out <TbLogout />
-                </li>
-              </ul>
-            </motion.div>
-          )}
+            {user && isUserDropdownOpen && (
+              <motion.div
+                ref={dropdownRef}
+                initial={{ opacity: 0, scale: 0.95, y: -10 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95, y: -10 }}
+                transition={{ duration: 0.2 }}
+                className="absolute top-16 right-4 z-50 w-64 bg-white border border-gray-200 rounded-xl shadow-lg overflow-hidden"
+              >
+                {/* User Info */}
+                <div className="flex items-center gap-4 p-4 border-b border-gray-200">
+                  {/* <img
+                    src={user?.photoURL}
+                    alt="user"
+                    className="w-12 h-12 rounded-full object-cover border border-primary"
+                  /> */}
+                  <div className="flex flex-col">
+                    <span className="text-sm font-semibold text-gray-900">{user?.displayName}</span>
+                    <span className="text-xs text-gray-500 truncate">{user?.email}</span>
+                  </div>
+                </div>
+
+                {/* Navigation Links */}
+                <ul className="flex flex-col text-sm text-gray-700">
+                  <Link
+                    to="/user/dashboard"
+                    onClick={() => setIsUserDropdownOpen(false)}
+                    className="px-4 py-3 hover:bg-gray-100 transition-colors duration-150"
+                  >
+                    Dashboard
+                  </Link>
+                  {/* <Link to="/user/setting" className="px-4 py-3 hover:bg-gray-100">Settings</Link> */}
+
+                  <li
+                    onClick={handleLogOut}
+                    className="flex items-center gap-2 px-4 py-3 text-red-600 cursor-pointer hover:bg-red-50 transition-colors duration-150"
+                  >
+                    <TbLogout className="text-lg" /> Sign out
+                  </li>
+                </ul>
+              </motion.div>
+            )}
           </AnimatePresence>
+
 
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}

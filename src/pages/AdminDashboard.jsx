@@ -46,6 +46,7 @@ const AdminDashboard = () => {
         <Link to="/admin/dashboard/postBLog" className="btn btn-outline btn-primary hover:text-white">Post Blog</Link>
         <Link to="/admin/dashboard/postCaseStudy" className="btn btn-outline btn-primary hover:text-white">Post Case Study</Link>
         <Link to="/admin/dashboard/managePricing" className="btn btn-outline btn-primary hover:text-white">Manage Pricing</Link>
+        <Link to="/admin/dashboard/managePricingCard" className="btn btn-outline btn-primary hover:text-white">Manage Pricing Card</Link>
         <Link to="/admin/dashboard/subscribers" className="btn btn-outline btn-primary hover:text-white">View Subscribers</Link>
       </div>
 

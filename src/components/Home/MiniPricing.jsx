@@ -8,19 +8,20 @@ const MiniPricing = () => {
     AOS.init({ duration: 800, once: true });
   }, []);
 
-  const [ starterPlans, setStarterPlans ] = useState([]);
-  useEffect(()=>{
-    fetch('starterPlans.json')
-    .then(res => res.json())
-    .then(data => setStarterPlans(data))
-  },[])
-  
-  const [ professionalPlans, setProfessionalPlans ] = useState([]);
-  useEffect(()=>{
-    fetch('professionalPlans.json')
-    .then(res => res.json())
-    .then(data => setProfessionalPlans(data))
-  },[])
+  const [starterPlans, setStarterPlans] = useState([]);
+  const [professionalPlans, setProfessionalPlans] = useState([]);
+
+  useEffect(() => {
+    fetch('https://brand-boostie-server.vercel.app/pricingCards')
+      .then(res => res.json())
+      .then(data => {
+        const starter = data.filter(plan => plan.planCategory === 'Starter');
+        const professional = data.filter(plan => plan.planCategory === 'Professional');
+        setStarterPlans(starter);
+        setProfessionalPlans(professional);
+      })
+      .catch(error => console.error("Failed to fetch pricing cards:", error));
+  }, []);
 
   return (
     <div className="my-24 flex flex-col justify-center items-center gap-8 px-4 md:px-0">
@@ -34,32 +35,26 @@ const MiniPricing = () => {
       {/* Starter Pricing Card Section */}
       <div className="w-full" data-aos="fade-up">
         <h2 className="text-xl ml-4 text-center my-6 lg:text-3xl font-semibold text-primary">
-            &#10095; Starter Plans
+          &#10095; Starter Plans
         </h2>
         <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-4">
-            {
-            starterPlans.map(plan =>
-                <MiniPricingCard key={plan.id} plan={plan} />
-            )
-            }
+          {starterPlans.map(plan => (
+            <MiniPricingCard key={plan._id} plan={plan} />
+          ))}
         </div>
-    </div>
-
+      </div>
 
       {/* Professional Pricing Card Section */}
-    <div className="w-full mt-20" data-aos="fade-up">
+      <div className="w-full mt-20" data-aos="fade-up">
         <h2 className="text-xl ml-4 text-center my-6 lg:text-3xl font-semibold text-accent">
-            &#10095; Professional Plans
+          &#10095; Professional Plans
         </h2>
         <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-4">
-            {
-            professionalPlans.map(plan =>
-                <MiniPricingCard key={plan.id} plan={plan} />
-            )
-            }
+          {professionalPlans.map(plan => (
+            <MiniPricingCard key={plan._id} plan={plan} />
+          ))}
         </div>
-    </div>
-
+      </div>
     </div>
   );
 };
