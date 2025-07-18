@@ -1,7 +1,48 @@
+import { useState } from "react";
 import { IoMailOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
+  
+const Footer = () => { 
+    const [subscriberEmail, setSubscriberEmail] = useState("");
+    const [subscribing, setSubscribing] = useState(false);
 
-const Footer = () => {
+    const handleSubscribe = async (e) => {
+      e.preventDefault();
+      setSubscribing(true);
+
+      try {
+        const res = await fetch("https://brand-boostie-server.vercel.app/subscribers", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email: subscriberEmail }),
+        });
+
+        if (!res.ok) throw new Error("Subscription failed");
+
+        Swal.fire({
+          icon: "success",
+          title: "🎉 Subscribed!",
+          text: "You have successfully subscribed to our updates.",
+          confirmButtonColor: "#3085d6",
+        });
+
+        setSubscriberEmail("");
+      } catch (err) {
+        console.error(err);
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Failed to subscribe. Please try again later.",
+          confirmButtonColor: "#d33",
+        });
+      } finally {
+        setSubscribing(false);
+      }
+    };
+
+
+
   return (
     <footer className="bg-base-300 text-gray-700 pt-16 pb-8 px-6 font-poppins">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
@@ -59,18 +100,22 @@ const Footer = () => {
           <p className="text-sm text-gray-600 mb-4">
             Get the latest digital marketing insights, growth tips, and exclusive offers straight to your inbox.
           </p>
-          <form className="flex rounded-md overflow-hidden bg-white border border-primary">
+          <form onSubmit={handleSubscribe} className="flex rounded-md overflow-hidden bg-white border border-primary">
             <input
               type="email"
               placeholder="Enter your email"
+              value={subscriberEmail}
+              onChange={(e) => setSubscriberEmail(e.target.value)}
+              required
               className="px-4 py-2 w-full text-sm focus:outline-none"
             />
             <button
               type="submit"
-              className="px-4 text-sm lg:text-base  text-primary hover:text-accent transition flex items-center gap-1.5 cursor-pointer"
+              disabled={subscribing}
+              className="px-4 text-sm lg:text-base text-primary hover:text-accent transition flex items-center gap-1.5 cursor-pointer"
               title="Subscribe"
             >
-              <IoMailOutline /> Subscribe
+              {subscribing ? "Subscribing..." : <><IoMailOutline /> Subscribe</>}
             </button>
           </form>
         </div>
@@ -86,6 +131,7 @@ const Footer = () => {
           <Link to={"/about"}>About</Link>
           <Link to={"/blogs"}>Blogs</Link>
           <Link to={"/contact"}>Contact</Link>
+          <Link to={"/admin/dashboard"}>Admin</Link>
         </ul>
         <div className="flex gap-4">
             <div className="w-14 h-6">     

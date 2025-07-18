@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const PaymentClaimsSection = () => {
   const [claims, setClaims] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch("https://brand-boostie-server.vercel.app/paymentClaims")
@@ -57,7 +60,7 @@ const PaymentClaimsSection = () => {
   if (loading) return <p>Loading payment claims...</p>;
 
   return (
-    <section>
+    <section className="w-11/12 mx-auto md:w-9/12 lg:w-8/12 xl:w-6/12 mt-10">
       <h2 className="text-xl font-bold mb-4">Payment Claims</h2>
       {claims.length === 0 ? (
         <p>No claims yet.</p>
@@ -76,7 +79,7 @@ const PaymentClaimsSection = () => {
               <p><strong>Phone:</strong> {claim.phoneNo}</p>
               <p><strong>Txn ID:</strong> {claim.transactionID}</p>
               <p><strong>Status:</strong> <span className="text-primary">{claim.status}</span></p>
-              <p><strong>Verified:</strong> {claim.isVerified ? "✅ Yes" : "❌ No"}</p>
+              <p><strong>Verified:</strong> {claim.isVerified ? " Yes" : " No"}</p>
 
               <div className="mt-3 flex flex-wrap gap-2">
                 {!claim.isVerified && (
@@ -109,6 +112,13 @@ const PaymentClaimsSection = () => {
           ))}
         </div>
       )}
+
+      <button 
+      onClick={()=>navigate(-1)}
+      className="btn my-4 border-2 border-primary bg-primary text-white hover:bg-primary/90">
+        Go Back
+      </button>
+
     </section>
   );
 };

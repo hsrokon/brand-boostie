@@ -1,9 +1,11 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const CaseStudiesPost = () => {
   const { user } = useContext(AuthContext);
+
+  const navigate = useNavigate();
 
   const [caseStudy, setCaseStudy] = useState({
     title: "",
@@ -48,7 +50,7 @@ const CaseStudiesPost = () => {
         throw new Error("Failed to post case study");
       }
 
-      alert("✅ Case Study posted successfully!");
+      alert(" Case Study posted successfully!");
       setCaseStudy({
         title: "",
         client: "",
@@ -66,7 +68,7 @@ const CaseStudiesPost = () => {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="w-11/12 mx-auto md:w-9/12 lg:w-8/12 xl:w-6/12 mt-10 space-y-6">
       <h2 className="text-3xl font-bold text-primary mb-4">Post a Case Study</h2>
 
       {error && <p className="text-red-600">{error}</p>}
@@ -156,9 +158,11 @@ const CaseStudiesPost = () => {
         </button>
       </form>
 
-      <Link to="/" className="btn my-4 border-2 border-primary text-primary hover:bg-primary hover:text-white">
-        Go Home
-      </Link>
+      <button 
+      onClick={()=>navigate(-1)}
+      className="btn my-4 border-2 border-primary bg-primary text-white hover:bg-primary/90">
+        Go Back
+      </button>
     </div>
   );
 };

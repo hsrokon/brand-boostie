@@ -1,9 +1,11 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const BlogPost = () => {
   const { user } = useContext(AuthContext);
+
+  const navigate = useNavigate();
 
   const [blog, setBlog] = useState({
     title: "",
@@ -57,10 +59,8 @@ const BlogPost = () => {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="w-11/12 mx-auto md:w-9/12 lg:w-8/12 xl:w-6/12 mt-10 space-y-6">
       <h2 className="text-3xl text-primary font-bold">Post a Blog</h2>
-
-      <p>Welcome, {user?.displayName || user?.email}</p>
 
       {error && <p className="text-red-600">{error}</p>}
 
@@ -126,9 +126,12 @@ const BlogPost = () => {
         </button>
       </form>
 
-      <Link to="/" className="btn my-4 border border-primary text-primary hover:bg-primary hover:text-white">
-        Go Home
-      </Link>
+      <button 
+      onClick={()=>navigate(-1)}
+      className="btn my-4 border-2 border-primary bg-primary text-white hover:bg-primary/90">
+        Go Back
+      </button>
+
     </div>
   );
 };

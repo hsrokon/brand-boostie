@@ -17,6 +17,10 @@ import CaseStudyDetails from "../components/caseStudies/CaseStudyDetails";
 import Payment from "../pages/Payment";
 import ResetPassword from "../pages/ResetPassword";
 import Dashboard from "../components/user/Dashboard";
+import PaymentClaimsSection from "../components/adminDashboard/PaymentClaimSection";
+import BlogPost from "../components/adminDashboard/BlogPost";
+import CaseStudiesPost from "../components/adminDashboard/CaseStudiesPost";
+import SubscribersList from "../components/adminDashboard/SubscribersList";
 
 
 const router = createBrowserRouter([
@@ -84,6 +88,22 @@ const router = createBrowserRouter([
     {
         path: '/admin/dashboard',
         element:<PrivateRoute><AdminDashboard></AdminDashboard></PrivateRoute>
+    },
+    {
+        path: '/admin/dashboard/paymentClaims',
+        element: <PaymentClaimsSection></PaymentClaimsSection>
+    },
+    {
+        path: '/admin/dashboard/postBLog',
+        element: <BlogPost></BlogPost>
+    },
+    {
+        path: '/admin/dashboard/postCaseStudy',
+        element: <CaseStudiesPost></CaseStudiesPost>
+    },
+    {
+        path: '/admin/dashboard/subscribers',
+        element: <SubscribersList></SubscribersList>
     },
     {
         path: '/user/Dashboard',

@@ -1,16 +1,12 @@
 import { useContext, useEffect, useState } from "react";
-import { Navigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
-import BlogPost from "../components/adminDashboard/BlogPost";
-import CaseStudiesPost from "../components/adminDashboard/CaseStudiesPost";
-import PaymentClaimsSection from "../components/adminDashboard/PaymentClaimSection";
 
 const AdminDashboard = () => {
   const { user, loading } = useContext(AuthContext);
-  const [isAuthorized, setIsAuthorized] = useState(null); // null: still checking
+  const [isAuthorized, setIsAuthorized] = useState(null);
 
   useEffect(() => {
-    // Wait for Auth to finish
     if (loading) return;
 
     const checkAdminRole = async () => {
@@ -21,22 +17,10 @@ const AdminDashboard = () => {
 
       try {
         const res = await fetch(`https://brand-boostie-server.vercel.app/users/${user.email}`);
-        if (!res.ok) {
-          console.error("User not found in DB");
-          setIsAuthorized(false);
-          return;
-        }
-
         const data = await res.json();
-        console.log("DB user check:", data);
-
-        if (data.role === "admin") {
-          setIsAuthorized(true);
-        } else {
-          setIsAuthorized(false);
-        }
+        setIsAuthorized(data.role === "admin");
       } catch (err) {
-        console.error("Error checking admin role:", err);
+        console.error(err);
         setIsAuthorized(false);
       }
     };
@@ -44,13 +28,8 @@ const AdminDashboard = () => {
     checkAdminRole();
   }, [user, loading]);
 
-  // Wait for Firebase Auth to finish
   if (loading || isAuthorized === null) {
-    return (
-      <p className="text-center mt-10 text-lg font-semibold">
-        Checking admin permissions...
-      </p>
-    );
+    return <p className="text-center mt-10 text-lg font-semibold">Checking admin permissions...</p>;
   }
 
   if (!isAuthorized) {
@@ -58,24 +37,20 @@ const AdminDashboard = () => {
   }
 
   return (
-    <div className="max-w-4xl mx-auto p-6 space-y-12">
-      <h1 className="text-3xl font-bold text-accent mb-4">
-        Admin Dashboard
-      </h1>
+    <div className="max-w-4xl mx-auto p-6">
+      <h1 className="text-3xl font-bold text-accent mb-6">Admin Dashboard</h1>
+      <h2 className="text-2xl my-6">Welcome, <span className="text-secondary font-semibold">{user?.displayName || user?.email}!</span></h2>
 
-      <section>
-        <PaymentClaimsSection></PaymentClaimsSection>
-      </section>
+      <div className="grid gap-4">
+        <Link to="/admin/dashboard/paymentClaims" className="btn btn-outline btn-primary hover:text-white">Manage Payment Claims</Link>
+        <Link to="/admin/dashboard/postBLog" className="btn btn-outline btn-primary hover:text-white">Post Blog</Link>
+        <Link to="/admin/dashboard/postCaseStudy" className="btn btn-outline btn-primary hover:text-white">Post Case Study</Link>
+        <Link to="/admin/dashboard/subscribers" className="btn btn-outline btn-primary hover:text-white">View Subscribers</Link>
+      </div>
 
-      <section>
-        <BlogPost />
-      </section>
-
-    <hr />
-
-      <section>
-        <CaseStudiesPost />
-      </section>
+      <Link to="/" className="btn my-4 border-2 border-primary bg-primary text-white hover:bg-primary/90">
+        Go Home
+      </Link>
     </div>
   );
 };
