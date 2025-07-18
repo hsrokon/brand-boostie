@@ -31,9 +31,9 @@ const Card = ({ plan }) => {
       whileHover="hover"
       transition={{ duration: 1, ease: "backInOut" }}
       variants={{ hover: { scale: 1.05 } }}
-      className={`relative w-full h-full  min-h-[24rem] max-w-[16rem] md:max-w-[18rem] lg:md:max-w-[19.5rem] xl:max-w-sm mx-auto 
+      className={`relative w-full h-full min-h-[22.5rem] lg:h-[25rem] max-w-[16rem] md:max-w-[18rem] lg:md:max-w-[19.5rem] xl:max-w-sm mx-auto 
         overflow-hidden rounded-xl 
-        ${planCategory === 'Professional' ? 'bg-accent' : 'bg-primary md:min-h-[25rem] lg:min-h-[24rem]'} 
+        ${planCategory === 'Professional' ? 'bg-accent min-h-[24rem]' : 'bg-primary '} 
         ${id.split('-')[1]%2==0 ? 'md:mt-8 lg:mt-0 xl:mt-12' : ''}
         p-6 sm:p-8 shadow-lg`}
 
@@ -46,7 +46,7 @@ const Card = ({ plan }) => {
         
         {
           originalPrice && <span className="block w-fit rounded-full text-xl line-through font-medium">
-          ${originalPrice}
+          ৳{originalPrice}
         </span>
         }
       </div>
@@ -58,7 +58,7 @@ const Card = ({ plan }) => {
           transition={{ duration: 1, ease: "backInOut" }}
           className="my-2 block origin-top-left font-mono text-4xl md:text-5xl font-black leading-[1.2]"
         >
-          ${price}
+          ৳{price}
           <span className="text-sm font-normal ml-1">{frequency}</span>
         </motion.span>
 

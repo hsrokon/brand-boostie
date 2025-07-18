@@ -1,13 +1,13 @@
 [
   {
     "id": "starter-001",
-    "category": "Social",
+    "category": "Ads",
     "slug": "social-media-setup",
     "title": "Ads Campaign",
     "tagline": "Kickstart your Meta ads presence.",
-    "price": 39.99,
-    "originalPrice": 49.99,
-    "currency": "USD",
+    "price": 4200,
+    "originalPrice": 5300,
+    "currency": "BDT",
     "frequency": "Once",
     "highlighted": true,
     "planCategory": "Starter",
@@ -20,13 +20,32 @@
   },
   {
     "id": "starter-002",
+    "category": "SEO",
+    "slug": "technical-seo",
+    "title": "Full Local SEO",
+    "tagline": "Boost your site's performance and visibility.",
+    "price": 4200,
+    "originalPrice": 5300,
+    "currency": "BDT",
+    "frequency": "Once",
+    "highlighted": false,
+    "planCategory": "Starter",
+    "features": [
+      "Site Health & Indexing Optimization",
+      "Speed & Performance Enhancements",
+      "SEO Foundation Setup (OnPage SEO up to 3 pages)"
+    ],
+    "cta": "Order Now"
+  },
+  {
+    "id": "starter-003",
     "category": "Email",
     "slug": "email-automation-setup",
     "title": "Email Marketing",
     "tagline": "Automate lead nurturing with strategic flows.",
-    "price": 39.99,
-    "originalPrice": 49.99,
-    "currency": "USD",
+    "price": 4200,
+    "originalPrice": 5300,
+    "currency": "BDT",
     "frequency": "Once",
     "highlighted": false,
     "planCategory": "Starter",
@@ -38,14 +57,14 @@
     "cta": "Order Now"
   },
   {
-    "id": "starter-003",
+    "id": "starter-004",
     "category": "Web",
     "slug": "landing-page-creation",
     "title": "Website Building",
     "tagline": "Build a high-converting sales or lead page.",
-    "price": 39.99,
-    "originalPrice": 59.99,
-    "currency": "USD",
+    "price": 5000,
+    "originalPrice": 6300,
+    "currency": "BDT",
     "frequency": "Once",
     "highlighted": false,
     "planCategory": "Starter",
@@ -53,25 +72,6 @@
       "Optimized Mobile friendly Design",
       "Essential Sections Covered (About, Products, Contact etc.)",
       "Product Showcase (up to 5 products)"
-    ],
-    "cta": "Order Now"
-  },
-  {
-    "id": "starter-004",
-    "category": "SEO",
-    "slug": "technical-seo",
-    "title": "Full Local SEO",
-    "tagline": "Boost your site's performance and visibility.",
-    "price": 39.99,
-    "originalPrice": 49.99,
-    "currency": "USD",
-    "frequency": "Once",
-    "highlighted": false,
-    "planCategory": "Starter",
-    "features": [
-      "Site Health & Indexing Optimization",
-      "Speed & Performance Enhancements",
-      "SEO Foundation Setup (OnPage SEO up to 3 pages)"
     ],
     "cta": "Order Now"
   }

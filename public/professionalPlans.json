@@ -5,9 +5,9 @@
     "slug": "ads-campaign-manager",
     "title": "Ads Campaign Manager",
     "tagline": "Run targeted campaigns with strategy & retargeting.",
-    "price": 149.99,
+    "price": 9000,
     "originalPrice": null,
-    "currency": "USD",
+    "currency": "BDT",
     "frequency": "Monthly",
     "highlighted": true,
     "planCategory": "Professional",
@@ -21,13 +21,33 @@
   },
   {
     "id": "pro-002",
+    "category": "SEO",
+    "slug": "seo-specialist",
+    "title": "SEO Specialist",
+    "tagline": "Boost visibility with advanced SEO practices.",
+    "price": 8500,
+    "originalPrice": 10000,
+    "currency": "BDT",
+    "frequency": "Monthly",
+    "highlighted": true,
+    "planCategory": "Professional",
+    "features": [
+      "Deep site audit & Technical issues solving",
+      "Quality backlinks building",
+      "Local & mobile SEO optimization",
+      "Monthly growth tracking & reporting"
+    ],
+    "cta": "Order Now"
+  },
+  {
+    "id": "pro-003",
     "category": "Email",
     "slug": "email-marketing-manager",
     "title": "Email Marketing Manager",
     "tagline": "Automated, segmented, and smart email campaigns.",
-    "price": 119.99,
+    "price": 7000,
     "originalPrice": null,
-    "currency": "USD",
+    "currency": "BDT",
     "frequency": "Monthly",
     "highlighted": false,
     "planCategory": "Professional",
@@ -40,14 +60,14 @@
     "cta": "Order Now"
   },
   {
-    "id": "pro-003",
+    "id": "pro-004",
     "category": "Web",
     "slug": "website-builder",
     "title": "Website Builder",
     "tagline": "Complete site design, landing, and integrations.",
-    "price": 199.99,
+    "price": 12000,
     "originalPrice": null,
-    "currency": "USD",
+    "currency": "BDT",
     "frequency": "Monthly",
     "highlighted": false,
     "planCategory": "Professional",
@@ -56,26 +76,6 @@
       "High-converting landing pages",
       "Chat & lead integration",
       "Domain, hosting & security setup"
-    ],
-    "cta": "Order Now"
-  },
-  {
-    "id": "pro-004",
-    "category": "SEO",
-    "slug": "seo-specialist",
-    "title": "SEO Specialist",
-    "tagline": "Boost visibility with advanced SEO practices.",
-    "price": 149.99,
-    "originalPrice": 199.99,
-    "currency": "USD",
-    "frequency": "Monthly",
-    "highlighted": true,
-    "planCategory": "Professional",
-    "features": [
-      "Deep site audit & Technical issues solving",
-      "Quality backlinks building",
-      "Local & mobile SEO optimization",
-      "Monthly growth tracking & reporting"
     ],
     "cta": "Order Now"
   }

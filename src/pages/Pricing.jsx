@@ -9,10 +9,11 @@ const Pricing = () => {
   const [pricingData, setPricingData] = useState([]);
 
   useEffect(() => {
-    fetch("/pricing.json")
-      .then((res) => res.json())
-      .then((data) => setPricingData(data));
-  }, []);
+  fetch("https://brand-boostie-server.vercel.app/pricingPlans")
+    .then(res => res.json())
+    .then(data => setPricingData(data));
+}, []);
+
 
   return (
     <div className="min-h-screen">
@@ -65,7 +66,7 @@ const Pricing = () => {
       </section> */}
 
       <section>
-        <div className="min-h-screen bg-base-100 px-4 md:px-8 py-12">
+        <div className="min-h-screen bg-base-100 px-4 md:px-8 pt-12 pb-22">
       <h1 className="text-3xl md:text-4xl font-bold text-center text-primary mb-12">
         Compare Our Plans
       </h1>
