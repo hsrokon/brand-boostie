@@ -3,6 +3,7 @@ import { Navigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import BlogPost from "../components/adminDashboard/BlogPost";
 import CaseStudiesPost from "../components/adminDashboard/CaseStudiesPost";
+import PaymentClaimsSection from "../components/adminDashboard/PaymentClaimSection";
 
 const AdminDashboard = () => {
   const { user, loading } = useContext(AuthContext);
@@ -61,6 +62,10 @@ const AdminDashboard = () => {
       <h1 className="text-3xl font-bold text-accent mb-4">
         Admin Dashboard
       </h1>
+
+      <section>
+        <PaymentClaimsSection></PaymentClaimsSection>
+      </section>
 
       <section>
         <BlogPost />

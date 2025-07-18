@@ -1,3 +1,5 @@
+// ✅ Modified Payment.jsx to send data to your server in addition to emailjs
+
 import { useLocation, useNavigate } from "react-router-dom";
 import { useContext, useEffect, useRef, useState } from "react";
 import { AuthContext } from "../providers/AuthProvider";
@@ -11,7 +13,7 @@ const Payment = () => {
   const service = params.get("service");
   const planFromURL = params.get("plan") || "Starter";
 
-  const [ loading, setLoading ] = useState(false);
+  const [loading, setLoading] = useState(false);
   const form = useRef();
 
   const { user } = useContext(AuthContext);
@@ -49,35 +51,63 @@ const Payment = () => {
     );
   }
 
-  const sendEmail = e => {
-      e.preventDefault();
-      setLoading(true);
+  const sendEmail = async (e) => {
+    e.preventDefault();
+    setLoading(true);
 
-      emailjs.sendForm(
-        'Brand-Bestie',
-        'template_ipl38mq',
+    const formData = new FormData(form.current);
+
+    const claimData = {
+      name: user?.displayName || "Anonymous",
+      email: user?.email || "No Email",
+      service: selectedService.service,
+      plan: formData.get("plan"),
+      paymentMethod: formData.get("paymentMethod"),
+      phoneNo: formData.get("phoneNo"),
+      transactionID: formData.get("transactionID"),
+      price: getPlanPrice(),
+    };
+
+    try {
+      // Send to EmailJS (this can fail silently if server fails later)
+      await emailjs.sendForm(
+        "Brand-Bestie",
+        "template_ipl38mq",
         form.current,
-        '2QtOIBiQHWaigAH9I'
-      )
-      .then((result) => {
-        console.log('Email sent:', result.text);
+        "2QtOIBiQHWaigAH9I"
+      );
+
+      // Send to server
+      const res = await fetch("https://brand-boostie-server.vercel.app/paymentClaims", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(claimData),
+      });
+
+      const result = await res.json();
+
+      if (res.ok && result.insertedId) {
         Swal.fire({
           title: "Payment claim successful!",
           icon: "success",
         });
         form.current.reset();
-      })
-      .catch((error) => {
-        console.error('Email error:', error.text);
-        Swal.fire({
-          title: "Payment claim failed!",
-          icon: "error",
-        });
-      })
-      .finally(() => {
-        setLoading(false);
+      } else {
+        throw new Error("Server rejected payment claim.");
+      }
+
+    } catch (error) {
+      console.error("Claim Error:", error);
+      Swal.fire({
+        title: "Payment claim failed!",
+        text: "Please try again or contact support.",
+        icon: "error",
       });
-    };
+    } finally {
+      setLoading(false);
+    }
+  };
+
 
   return (
     <div className="min-h-screen bg-base-200 py-12 px-6">
@@ -87,60 +117,33 @@ const Payment = () => {
         </h1>
 
         <p className="text-lg text-center mb-6 text-gray-700">
-          You're purchasing the{" "}
-          <span className="font-semibold text-accent">
-            {selectedService.service}
-          </span>{" "}
-          service.
+          You're purchasing the <span className="font-semibold text-accent">{selectedService.service}</span> service.
         </p>
 
-        <form 
-        onSubmit={sendEmail}
-        ref={form}
-        className="space-y-6">
-          {/*  User Info */}
+        <form onSubmit={sendEmail} ref={form} className="space-y-6">
+          <input type="hidden" name="service" value={selectedService.service} />
+          <input type="hidden" name="name" value={user?.displayName || "Anonymous"} />
+          <input type="hidden" name="email" value={user?.email || "No Email"} />
+
           <div className="text-center text-secondary">
-            <input type="hidden" name="service" value={selectedService.service}/>
-            <p>
-              <span className="text-lg font-semibold">Name :</span>{" "}
-              {user.displayName}
-            </p>
-            <input type="hidden" name="name" value={user?.displayName || "Anonymous"}/>
-            <p>
-              <span className="text-lg font-semibold">Email :</span>{" "}
-              {user.email}
-            </p>
-            <input type="hidden" name="email" value={user?.email || "No Email"}/>
+            <p><span className="text-lg font-semibold">Name :</span> {user.displayName}</p>
+            <p><span className="text-lg font-semibold">Email :</span> {user.email}</p>
           </div>
 
-          {/* Instructions */}
           <div className="max-w-md mx-auto text-center space-y-1">
-            <h4 className="text-center font-semibold text-xl">
-              Pay According to Plan
-            </h4>
+            <h4 className="text-center font-semibold text-xl">Pay According to Plan</h4>
             <p className="text-center">
-                You've to <span className="font-semibold">"Send Money"</span> on{" "}
-                <button
-                    type="button"
-                    onClick={() => {
-                    navigator.clipboard.writeText("01717506963");
-                    Swal.fire({
-                        title: "Number copied to clipboard!",
-                        icon: "success",
-                        draggable: true
-                        });
-                    }}
-                    className="font-semibold text-primary underline hover:text-accent cursor-pointer inline-flex items-center gap-1"
-                >
-                    <BsCopy className="text-base relative -top-[1px]" />
-                    01717506963
-                </button>{" "}
-                and attach the transaction ID in the form then submit the form. After review, we'll notify you soon.
-                </p>
-                <p>Or, if you want you can contact us via this given no.</p>
+              You've to <span className="font-semibold">"Send Money"</span> on
+              <button type="button" onClick={() => {
+                navigator.clipboard.writeText("01717506963");
+                Swal.fire({ title: "Number copied to clipboard!", icon: "success" });
+              }} className="font-semibold text-primary underline hover:text-accent cursor-pointer inline-flex items-center gap-1">
+                <BsCopy className="text-base relative -top-[1px]" />
+                01717506963
+              </button> and attach the transaction ID in the form.
+            </p>
           </div>
 
-          {/*  Plan Select */}
           <div>
             <label className="block text-sm font-medium mb-1">Select Plan</label>
             <select
@@ -155,65 +158,37 @@ const Payment = () => {
             </select>
           </div>
 
-          {/*  Payment Method */}
           <div>
             <label className="block text-sm font-medium mb-1">Payment Method</label>
-            <select 
-            className="select select-bordered w-full" 
-            required
-            name="paymentMethod"
-            >
+            <select className="select select-bordered w-full" required name="paymentMethod">
               <option value="bkash">bKash</option>
               <option value="nagad">Nagad</option>
               <option value="rocket">Rocket</option>
             </select>
           </div>
 
-          {/*  Phone Number */}
           <div>
             <label className="block text-sm font-medium mb-1">Your Phone No:</label>
-            <input
-              type="number"
-              name="phoneNo"
-              placeholder="01XXXXXXXXX"
-              className="input input-bordered w-full"
-              required
-            />
+            <input type="number" name="phoneNo" placeholder="01XXXXXXXXX" className="input input-bordered w-full" required />
           </div>
 
-          {/*  Transaction ID */}
           <div>
-            <label className="block text-sm font-medium mb-1">
-              Transaction ID
-            </label>
-            <input
-              type="text"
-              name="transactionID"
-              placeholder="e.g., TXN12345ABC"
-              className="input input-bordered w-full"
-              required
-            />
+            <label className="block text-sm font-medium mb-1">Transaction ID</label>
+            <input type="text" name="transactionID" placeholder="e.g., TXN12345ABC" className="input input-bordered w-full" required />
           </div>
 
-          {/*  Payment Amount Display */}
           <div className="bg-gray-100 p-4 rounded-md text-center">
             <h2 className="text-lg font-semibold">
-              Total Payment:{" "}
-              <span className="text-primary">৳{getPlanPrice()}</span>
-              <input type="hidden" name="planPrice" value={getPlanPrice()}/>
+              Total Payment: <span className="text-primary">৳{getPlanPrice()}</span>
+              <input type="hidden" name="planPrice" value={getPlanPrice()} />
             </h2>
           </div>
 
-          {/*  Submit Buttons */}
           <div className="space-y-2">
             <button type="submit" className="btn btn-primary text-white w-full">
-              {loading ? 'Claiming...' : 'Claim Purchase'}
+              {loading ? "Claiming..." : "Claim Purchase"}
             </button>
-            <button
-              type="button"
-              className="btn btn-primary w-full text-white"
-              onClick={handleGoBack}
-            >
+            <button type="button" className="btn btn-primary w-full text-white" onClick={handleGoBack}>
               Go Back
             </button>
           </div>
