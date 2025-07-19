@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom';
 import ScrollToTopButton from '../components/ScrollToTopButton';
 import Footer from '../components/Footer';
 import ScrollToTop from '../components/ScrollToTop';
+import WhatsAppButton from '../components/WhatsappButton';
 
 const Layout = () => {
     return (
@@ -17,6 +18,7 @@ const Layout = () => {
             <footer>
                 <Footer></Footer>
             </footer>
+            <WhatsAppButton></WhatsAppButton>
             <ScrollToTopButton></ScrollToTopButton>
         </div>
     );
