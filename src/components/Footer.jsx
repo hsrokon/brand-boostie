@@ -76,25 +76,25 @@ const Footer = () => {
         <div className="grid grid-cols-2 gap-8 text-sm">
           <div>
             <h4 className="font-semibold mb-3">Company</h4>
-            <ul className="space-y-2 text-gray-600">
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Case Studies</a></li>
-              <li><a href="#">Careers</a></li>
-              <li><a href="#">Blog</a></li>
-            </ul>
+            <div className="flex flex-col gap-1.5 text-gray-600">
+              <Link to={'/about'}>About Us</Link>
+              <Link to={'/caseStudies'}>Case Studies</Link>
+              <Link>Careers</Link>
+              <Link to={'/blogs'}>Blog</Link>
+            </div>
           </div>
           <div>
             <h4 className="font-semibold mb-3">Support</h4>
-            <ul className="space-y-2 text-gray-600">
-              <li><a href="#">Contact</a></li>
-              <li><a href="#">FAQs</a></li>
-              <li><a href="#">Privacy Policy</a></li>
-              <li><a href="#">Terms & Conditions</a></li>
-            </ul>
+            <div className="flex flex-col gap-1.5 text-gray-600">
+              <Link to={'/contact'}>Contact</Link>
+              <Link to={'/about'}>FAQs</Link>
+              <Link>Privacy Policy</Link>
+              <Link>Terms & Conditions</Link>
+            </div>
           </div>
         </div>
 
-        {/* Newsletter */}
+        {/* Newsletter   */}
         <div>
           <h4 className="font-semibold text-sm mb-3">Subscribe to Updates</h4>
           <p className="text-sm text-gray-600 mb-4">

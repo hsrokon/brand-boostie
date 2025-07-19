@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import PricingTable from '../components/PricingTable';
@@ -7,13 +7,17 @@ import PricingCard from '../components/pricing/PricingCard';
 const Pricing = () => {
 
   const [pricingData, setPricingData] = useState([]);
+  const comparisonRef = useRef(null);
 
   useEffect(() => {
   fetch("https://brand-boostie-server.vercel.app/pricingPlans")
     .then(res => res.json())
     .then(data => setPricingData(data));
-}, []);
+  }, []);
 
+  const scrollToComparison = ()=> {
+    comparisonRef.current?.scrollIntoView({behavior : 'smooth'})
+  }
 
   return (
     <div className="min-h-screen">
@@ -43,7 +47,10 @@ const Pricing = () => {
             Plans designed to grow with your business — no hidden fees, just
             results.
             </p>
-            <button className="btn btn-sm md:btn-md md:text-base border-0 bg-primary text-white shadow hover:bg-primary/90 transition">
+            <button 
+            onClick={scrollToComparison}
+            className="btn btn-sm md:btn-md md:text-base border-0 bg-primary text-white shadow hover:bg-primary/90 transition
+            ">
                 View Pricing Comparison
             </button>
         </div>
@@ -67,11 +74,14 @@ const Pricing = () => {
 
       <section>
         <div className="min-h-screen bg-base-100 px-4 md:px-8 pt-12 pb-22">
-      <h1 className="text-3xl md:text-4xl font-bold text-center text-primary mb-12">
+      <h1 
+      ref={comparisonRef}
+      className="text-3xl md:text-4xl font-bold text-center text-primary mb-12">
         Compare Our Plans
       </h1>
 
-      <div className="grid gap-10 md:gap-12 xl:gap-16 grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 max-w-6xl mx-auto">
+      <div 
+      className="grid gap-10 md:gap-12 xl:gap-16 grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 max-w-6xl mx-auto">
         {pricingData.map((item, idx) => (
           <PricingCard
           key={idx}

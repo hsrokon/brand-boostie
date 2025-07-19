@@ -160,6 +160,7 @@ const Login = () => {
 
               <Link to={'/auth/passReset'}>
                 <button 
+                type="button"
                 className="link link-hover">Forgot password?</button>
               </Link>
 
