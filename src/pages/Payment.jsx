@@ -71,10 +71,10 @@ const Payment = () => {
     try {
       // Send to EmailJS (this can fail silently if server fails later)
       await emailjs.sendForm(
-        "Brand-Bestie",
-        "template_ipl38mq",
+        "service_70x9e51",
+        "template_1doh8cv",
         form.current,
-        "2QtOIBiQHWaigAH9I"
+        "gW7WrVtHZVykpscjy"
       );
 
       // Send to server

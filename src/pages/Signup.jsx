@@ -82,7 +82,7 @@ const SignUp = () => {
                         type="text" 
                         name="photo"
                         className="input rounded text-base-content w-full" 
-                        placeholder="Profile photo URL" />
+                        placeholder="Profile photo URL (optional)" />
 
                         <label className="text-sm">Email</label>
                         <input 

@@ -19,9 +19,9 @@ const Contact = () => {
                         We'd love to hear about your project or questions.
                     </p>
                     <div className="space-y-2">
-                        <p><strong>Email:</strong> hello@yourbrand.com</p>
-                        <p><strong>Phone:</strong> +123 456 789</p>
-                        <p><strong>Location:</strong> 123 Business St, City, Country</p>
+                        <p><strong>Email:</strong> contact@brandboostie.com</p>
+                        <p><strong>Phone:</strong> +88 01518-989695</p>
+                        <p><strong>Location:</strong> Vatara, Dhaka 1212, Bangladesh.</p>
                         <p className='italic font-thin text-sm'>
                         <span className='text-red-600'>Things you should know:</span>
                         &nbsp;We don't spam & we reply within 24 hours!

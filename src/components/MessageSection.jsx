@@ -20,10 +20,10 @@ const MessageSection = () => {
       setLoading(true);
 
       emailjs.sendForm(
-        'Brand-Bestie',
-        'template_7vimehl',
+        'service_70x9e51',
+        'template_oc2047k',
         form.current,
-        '2QtOIBiQHWaigAH9I'
+        'gW7WrVtHZVykpscjy'
       )
       .then((result) => {
         console.log('Email sent:', result.text);
