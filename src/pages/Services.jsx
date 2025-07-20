@@ -189,7 +189,7 @@ const Services = () => {
             } */}
 
             <section 
-                id="ads-campaign"
+                id="facebook-ads-campaign"
                 className="w-11/12 md:w-10/12 lg:w-8/12 mx-auto my-14 lg:my-24 scroll-mt-24"
                 data-aos='fade-right'
             >
@@ -308,13 +308,13 @@ const Services = () => {
             </section>
 
             <section 
-                id="website"
+                id="website-design-and-development"
                 className="w-11/12 md:w-10/12 lg:w-8/12 mx-auto my-14  lg:my-24 scroll-mt-24"
                 data-aos='fade-left'
             >
                 <div className="relative">
                     <h1 className={ `text-2xl lg:text-4xl my-2 font-semibold text-primary text-right`}>
-                        Website
+                        Website Design and Development
                     </h1>
 
                     <h5 className={`text-sm md:text-base lg:text-xl my-2 text-gray-600 flex items-center gap-3 flex-row-reverse text-right md:text-inherit`}> 
@@ -334,7 +334,7 @@ const Services = () => {
                     </div>
 
                     <div className={`flex justify-end`}>
-                        <Link to={`/pricing?service=Website`}>
+                        <Link to={`/pricing?service=Website%20Design%20and%20Development`}>
                             <button className={`px-6 py-2 font-medium bg-primary text-white w-fit transition-all 
                                 shadow-[3px_3px_0px_black] hover:shadow-none 
                                 hover:translate-x-[3px] hover:translate-y-[3px]

@@ -8,7 +8,7 @@ const MiniServicesCards = () => {
     <div className="p-4 w-11/12 md:w-9/12 mx-auto">
       <div className="grid gap-6 grid-cols-1 md:grid-cols-2">
         <Card
-          title="Ads Campaign"
+          title="Facebook Ads Campaign"
           subtitle="Targeted ads to boost brand visibility and engagement."
           Icon={RiAdvertisementFill}
         />
@@ -23,7 +23,7 @@ const MiniServicesCards = () => {
           Icon={FiMail}
         />
         <Card
-          title="Website"
+          title="Website Design and Development"
           subtitle="Modern, responsive websites tailored to your brand."
           Icon={FiGlobe}
         />

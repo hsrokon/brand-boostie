@@ -10,8 +10,14 @@ import emailjs from "emailjs-com";
 const Payment = () => {
   const { search } = useLocation();
   const params = new URLSearchParams(search);
+  console.log(params);
+  
   const service = params.get("service");
+  console.log(service);
+  
   const planFromURL = params.get("plan") || "Starter";
+  console.log(planFromURL);
+  
 
   const [loading, setLoading] = useState(false);
   const form = useRef();
@@ -24,7 +30,7 @@ const Payment = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("/pricing.json")
+    fetch("https://brand-boostie-server.vercel.app/pricingPlans")
       .then((res) => res.json())
       .then((data) => {
         const found = data.find((item) => item.service === service);
@@ -133,12 +139,12 @@ const Payment = () => {
           <div className="max-w-md mx-auto text-center space-y-1">
             <h4 className="text-center font-semibold text-xl">Pay According to Plan</h4>
             <p className="text-center">
-              You've to <span className="font-semibold">"Send Money"</span> on
+              You've to <span className="font-semibold">"Send Money"</span> on {' '}
               <button type="button" onClick={() => {
                 navigator.clipboard.writeText("01717506963");
                 Swal.fire({ title: "Number copied to clipboard!", icon: "success" });
               }} className="font-semibold text-primary underline hover:text-accent cursor-pointer inline-flex items-center gap-1">
-                <BsCopy className="text-base relative -top-[1px]" />
+                 <BsCopy className="text-base relative -top-[1px]" />
                 01717506963
               </button> and attach the transaction ID in the form.
             </p>

@@ -1,8 +1,10 @@
 [
   {
     "category": "Ads",
-    "title": "Ads Campaign",
+    "title": "Facebook Ads Campaign",
     "price": 4200,
+    "oldPrice": 5600,
+    "discountPercentage": 25,
     "frequency": "Once",
     "planCategory": "Starter",
     "features": [
@@ -16,6 +18,8 @@
     "category": "SEO",
     "title": "Full Local SEO",
     "price": 4200,
+    "oldPrice": 5600,
+    "discountPercentage": 25,
     "frequency": "Once",
     "planCategory": "Starter",
     "features": [
@@ -29,6 +33,8 @@
     "category": "Email",
     "title": "Email Marketing",
     "price": 4200,
+    "oldPrice": 5600,
+    "discountPercentage": 25,
     "frequency": "Once",
     "planCategory": "Starter",
     "features": [
@@ -39,9 +45,11 @@
     "cta": "Order Now"
   },
   {
-    "category": "Web",
-    "title": "Website Building",
+    "category": "Website",
+    "title": "Website Design & Development",
     "price": 5000,
+    "oldPrice": 6700,
+    "discountPercentage": 25,
     "frequency": "Once",
     "planCategory": "Starter",
     "features": [
@@ -53,8 +61,10 @@
   },
   {
     "category": "Ads",
-    "title": "Ads Campaign Manager",
+    "title": "Facebook Ads Campaign",
     "price": 9000,
+    "oldPrice": 12000,
+    "discountPercentage": 25,
     "frequency": "Monthly",
     "planCategory": "Professional",
     "features": [
@@ -67,8 +77,10 @@
   },
   {
     "category": "SEO",
-    "title": "SEO Specialist",
+    "title": "Full Local SEO",
     "price": 8500,
+    "oldPrice": 11300,
+    "discountPercentage": 25,
     "frequency": "Monthly",
     "planCategory": "Professional",
     "features": [
@@ -81,8 +93,10 @@
   },
   {
     "category": "Email",
-    "title": "Email Marketing Manager",
+    "title": "Email Marketing",
     "price": 7000,
+    "oldPrice": 9800,
+    "discountPercentage": 29,
     "frequency": "Monthly",
     "planCategory": "Professional",
     "features": [
@@ -94,9 +108,11 @@
     "cta": "Order Now"
   },
   {
-    "category": "Web",
-    "title": "Website Builder",
+    "category": "Website",
+    "title": "Website Design & Development",
     "price": 12000,
+    "oldPrice": 16000,
+    "discountPercentage": 25,
     "frequency": "Monthly",
     "planCategory": "Professional",
     "features": [

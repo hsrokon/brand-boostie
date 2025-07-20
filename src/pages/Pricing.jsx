@@ -1,7 +1,6 @@
 import React, { useRef } from 'react';
 import { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
-import PricingTable from '../components/PricingTable';
+import { useLocation } from "react-router-dom";
 import PricingCard from '../components/pricing/PricingCard';
 
 const Pricing = () => {
@@ -20,8 +19,8 @@ const Pricing = () => {
     const params = new URLSearchParams(location.search);
     const targetService = params.get("service");
 
-    console.log("Query service:", targetService);
-    console.log("Available service names:", pricingData.map(d => d.service));
+    // console.log("Query service:", targetService);
+    // console.log("Available service names:", pricingData.map(d => d.service));
 
     if (targetService && pricingData.length > 0) {
       const id = `pricing-${targetService.replace(/\s+/g, "-").toLowerCase()}`;
@@ -73,48 +72,32 @@ const Pricing = () => {
         </div>
       </section>
 
-      {/* <h1 className='text-center text-2xl md:text-3xl lg:text-4xl font-semibold'>Pricing Comparison table</h1>
-
-      <section className="w-full md:w-11/12 mx-auto relative my-28">
-        
-        <div className="absolute -top-2 lg:-top-6 bottom-0 right-1 md:right-4 hidden md:inline-block md:w-[10.5rem] lg:w-[14rem] xl:w-80 border border-secondary md:border-2 rounded-lg md:rounded-3xl"></div>
-
-        <div className='grid grid-cols-3 md:grid-cols-4 font-serif px-4 text-center text-[0.95rem] md:text-2xl lg:text-3xl z-10'>
-          <h2 className='hidden md:inline-block'>Service <span className='hidden md:inline-block'>Name</span> </h2>
-          <h2 className='text-xl underline md:no-underline'>Feature</h2>
-          <h2 className='text-primary font-semibold text-xl underline md:no-underline'>Starter</h2>
-          <h2 className='text-xl md:text-3xl lg:text-4xl font-semibold md:font-bold text-secondary pb-3 md:pb-6 ml-1.5 md:ml-0 underline md:no-underline'>Premium</h2>
-        </div>
-
-        <PricingTable></PricingTable>
-      </section> */}
-
       <section>
         <div className="min-h-screen bg-base-100 px-4 md:px-8 pt-12 pb-22">
-      <h1 
-      ref={comparisonRef}
-      className="text-3xl md:text-4xl font-bold text-center text-primary mb-12">
-        Compare Our Plans
-      </h1>
+          <h1 
+          ref={comparisonRef}
+          className="text-3xl md:text-4xl font-bold text-center text-primary mb-12">
+            Compare Our Plans
+          </h1>
 
-      <div 
-      className="grid gap-10 md:gap-12 xl:gap-16 grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 max-w-6xl mx-auto">
-        {pricingData.map((item, idx) => (
-          <div
-            id={`pricing-${item.service.replace(/\s+/g, "-").toLowerCase()}`} // ← unique ID
-            key={idx}
-            className='scroll-mt-24'
-          >
-            <PricingCard
-              service={item.service}
-              features={item.features}
-              starterPrice={item.starterPrice}
-              professionalPrice={item.professionalPrice}
-            />
+          <div 
+          className="grid gap-10 md:gap-12 xl:gap-16 grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 max-w-6xl mx-auto">
+            {pricingData.map((item, idx) => (
+              <div
+                id={`pricing-${item.service.replace(/\s+/g, "-").toLowerCase()}`} // unique ID
+                key={idx}
+                className='scroll-mt-24'
+              >
+                <PricingCard
+                  service={item.service}
+                  features={item.features}
+                  starterPrice={item.starterPrice}
+                  professionalPrice={item.professionalPrice}
+                />
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-    </div>
+        </div>
       </section>
     </div>
   );
