@@ -66,123 +66,122 @@ const AdminPricingManager = () => {
   };
 
   const handleAddFeature = () => {
-    setFormData({ ...formData, features: [...formData.features, newFeature] });
-    setNewFeature({ name: '', starter: '', professional: '' });
+    if (newFeature.name || newFeature.starter || newFeature.professional) {
+      setFormData({ ...formData, features: [...formData.features, newFeature] });
+      setNewFeature({ name: '', starter: '', professional: '' });
+    }
   };
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-10">
       <h2 className="text-3xl font-bold mb-6 text-center">Manage Pricing Plans</h2>
 
-      <div className="flex justify-center my-4">
-        <button className="btn btn-primary text-white" onClick={() => navigate(-1)}>
-            <IoMdArrowBack /> Go Back
+      <div className="flex justify-center mb-8">
+        <button className="btn btn-outline border-primary text-primary flex items-center gap-1" onClick={() => navigate(-1)}>
+          <IoMdArrowBack size={20} /> Go Back
         </button>
       </div>
 
-
-      <div className="mb-10 border p-6 rounded-lg shadow-lg">
-        <h3 className="text-xl font-semibold mb-4">{editingPlan ? 'Edit Plan' : 'Add New Plan'}</h3>
+      <div className="bg-white rounded-2xl shadow-md p-6 mb-12 space-y-6">
+        <h3 className="text-2xl font-semibold">{editingPlan ? 'Edit Plan' : 'Add New Plan'}</h3>
 
         <input
           type="text"
           placeholder="Service Name"
-          className="input input-bordered border border-base-300"
+          className="input w-full input-bordered"
           value={formData.service}
           onChange={(e) => setFormData({ ...formData, service: e.target.value })}
         />
 
-        <div className="grid grid-cols-2 gap-4 mb-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <input
             type="number"
             placeholder="Starter Price"
-            className="input input-bordered border border-base-300"
+            className="input input-bordered"
             value={formData.starterPrice}
             onChange={(e) => setFormData({ ...formData, starterPrice: +e.target.value })}
           />
           <input
             type="number"
             placeholder="Professional Price"
-            className="input input-bordered border border-base-300"
+            className="input input-bordered"
             value={formData.professionalPrice}
             onChange={(e) => setFormData({ ...formData, professionalPrice: +e.target.value })}
           />
         </div>
 
-        <div className="mb-4">
-          <h4 className="font-semibold mb-2">Add Feature</h4>
-          <div className="grid grid-cols-3 gap-2 mb-2">
+        <div>
+          <h4 className="font-medium mb-2">Add Feature</h4>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
             <input
               type="text"
               placeholder="Feature Name"
-              className="input input-bordered border border-base-300"
+              className="input input-bordered"
               value={newFeature.name}
               onChange={(e) => setNewFeature({ ...newFeature, name: e.target.value })}
             />
             <input
               type="text"
               placeholder="Starter"
-              className="input input-bordered border border-base-300"
+              className="input  input-bordered"
               value={newFeature.starter}
               onChange={(e) => setNewFeature({ ...newFeature, starter: e.target.value })}
             />
             <input
               type="text"
               placeholder="Professional"
-              className="input input-bordered border border-base-300"
+              className="input input-bordered"
               value={newFeature.professional}
               onChange={(e) => setNewFeature({ ...newFeature, professional: e.target.value })}
             />
           </div>
-          <button className="btn btn-sm btn-accent" onClick={handleAddFeature}>Add Feature</button>
+          <button className="btn btn-accent mt-3" onClick={handleAddFeature}>Add Feature</button>
         </div>
 
-        <ul className="mb-4">
+        <div className="space-y-2">
           {formData.features.map((f, i) => (
-            <li key={i} className="mb-1 flex gap-2 text-sm">
+            <div key={i} className="grid grid-cols-1 sm:grid-cols-3 gap-2">
               <input
                 value={f.name}
                 onChange={(e) => handleFeatureChange(i, 'name', e.target.value)}
-                className="input input-sm border border-base-300 input-bordered w-1/3"
+                className="input input-sm input-bordered"
               />
               <input
                 value={f.starter}
                 onChange={(e) => handleFeatureChange(i, 'starter', e.target.value)}
-                className="input input-sm border border-base-300 input-bordered w-1/3"
+                className="input input-sm input-bordered"
               />
               <input
                 value={f.professional}
                 onChange={(e) => handleFeatureChange(i, 'professional', e.target.value)}
-                className="input input-sm border border-base-300 input-bordered w-1/3"
+                className="input input-sm input-bordered"
               />
-            </li>
+            </div>
           ))}
-        </ul>
-
-        <div className="flex gap-3">
-            <button className="btn btn-primary text-white" onClick={handleSave}>
-                {editingPlan ? 'Update Plan' : 'Add Plan'}
-            </button>
-            
-            {editingPlan && (
-                <button
-                className="btn btn-outline border-red-400 text-red-500 hover:bg-red-100"
-                onClick={() => {
-                    setEditingPlan(null);
-                    setFormData({ service: '', starterPrice: '', professionalPrice: '', features: [] });
-                }}
-                >
-                Cancel
-                </button>
-            )}
         </div>
 
+        <div className="flex gap-3">
+          <button className="btn btn-primary text-white" onClick={handleSave}>
+            {editingPlan ? 'Update Plan' : 'Add Plan'}
+          </button>
+          {editingPlan && (
+            <button
+              className="btn btn-outline border-red-400 text-red-500 hover:bg-red-100"
+              onClick={() => {
+                setEditingPlan(null);
+                setFormData({ service: '', starterPrice: '', professionalPrice: '', features: [] });
+              }}
+            >
+              Cancel
+            </button>
+          )}
+        </div>
       </div>
 
       <h3 className="text-2xl font-semibold mb-4">All Plans</h3>
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto border border-base-300 rounded-xl shadow-md">
         <table className="table w-full">
-          <thead>
+          <thead className="bg-base-200">
             <tr>
               <th>Service</th>
               <th>Starter ৳</th>
@@ -192,7 +191,7 @@ const AdminPricingManager = () => {
           </thead>
           <tbody>
             {plans.map(plan => (
-              <tr key={plan._id}>
+              <tr key={plan._id} className="hover:bg-base-100 transition">
                 <td>{plan.service}</td>
                 <td>{plan.starterPrice}</td>
                 <td>{plan.professionalPrice}</td>

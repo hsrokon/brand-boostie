@@ -20,7 +20,9 @@ const AddTestimony = () => {
       photo: user.photoURL,
       message,
       role,
+      email: user.email // <== REQUIRED to validate on server
     };
+
 
     try {
       const res = await fetch("https://brand-boostie-server.vercel.app/testimonials", {
@@ -29,14 +31,29 @@ const AddTestimony = () => {
         body: JSON.stringify(newTestimony),
       });
 
-      if (!res.ok) throw new Error("Submission failed");
+      if (res.status === 403) {
+        throw new Error("FORBIDDEN");
+      }
+      if (!res.ok) {
+        throw new Error("Submission failed");
+      }
+
 
       Swal.fire("Success", "Your testimony has been submitted!", "success");
       setMessage("");
       setRole("");
     } catch (err) {
       console.error(err);
-      Swal.fire("Error", "Something went wrong", "error");
+
+      if (err.message === "FORBIDDEN") {
+        Swal.fire({
+          icon: "warning",
+          title: "Access Denied",
+          text: `You can only submit a testimony after using our service. Please "complete" a service first.`,
+        });
+      } else {
+        Swal.fire("Error", "Something went wrong. Please try again later.", "error");
+      }
     } finally {
       setSubmitting(false);
     }
@@ -45,9 +62,12 @@ const AddTestimony = () => {
   return (
     <div className="max-w-xl mx-auto p-6 bg-white rounded-xl shadow-md mt-10">
       <h2 className="text-3xl font-bold mb-2 text-primary text-center">Add Your Testimony</h2>
-      <p className="text-accent text-center mb-6">
-        ⚠️ Only add a testimony if you've taken our service.
+      <p className="text-yellow-600 text-center mb-6 font-medium">
+        ⚠️ Only verified clients who have completed a service can leave a testimony.
+        <br />
+        If you haven't completed a service yet, this form will not accept your submission.
       </p>
+
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <textarea

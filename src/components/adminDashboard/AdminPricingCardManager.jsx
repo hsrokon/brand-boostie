@@ -10,11 +10,14 @@ const AdminPricingCardManager = () => {
     category: '',
     title: '',
     price: '',
+    oldPrice: '',
+    discountPercentage: '',
     frequency: '',
     planCategory: '',
     features: [],
     cta: ''
   });
+
   const [newFeature, setNewFeature] = useState('');
   const navigate = useNavigate();
 
@@ -45,6 +48,8 @@ const AdminPricingCardManager = () => {
       category: plan.category,
       title: plan.title,
       price: plan.price,
+      oldPrice: plan.oldPrice || '',
+      discountPercentage: plan.discountPercentage || '',
       frequency: plan.frequency,
       planCategory: plan.planCategory,
       features: plan.features,
@@ -95,35 +100,37 @@ const AdminPricingCardManager = () => {
       <h2 className="text-3xl font-bold mb-6 text-center">Manage Pricing Comparison Cards</h2>
 
       <div className="flex justify-center my-4">
-        <button className="btn btn-primary text-white" onClick={() => navigate(-1)}>
-          <IoMdArrowBack /> Go Back
+        <button className="btn bg-primary hover:bg-primary text-white" onClick={() => navigate(-1)}>
+          <IoMdArrowBack className="mr-1" /> Go Back
         </button>
       </div>
 
-      <div className="mb-10 border p-6 rounded-lg shadow-lg">
+      <div className="mb-10 bg-white border border-base-200 p-6 rounded-2xl shadow-sm">
         <h3 className="text-xl font-semibold mb-4">{editingPlan ? 'Edit Plan' : 'Add New Plan'}</h3>
 
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <input className="input input-bordered" placeholder="Category" value={formData.category} onChange={e => setFormData({ ...formData, category: e.target.value })} />
           <input className="input input-bordered" placeholder="Title" value={formData.title} onChange={e => setFormData({ ...formData, title: e.target.value })} />
-          <input className="input input-bordered border border-base-300" placeholder="Price" type="number" value={formData.price} onChange={e => setFormData({ ...formData, price: +e.target.value })} />
-          <input className="input input-bordered border border-base-300" placeholder="Frequency" value={formData.frequency} onChange={e => setFormData({ ...formData, frequency: e.target.value })} />
-          <input className="input input-bordered border border-base-300" placeholder="Plan Category" value={formData.planCategory} onChange={e => setFormData({ ...formData, planCategory: e.target.value })} />
-          <input className="input input-bordered border border-base-300" placeholder="CTA Button Text" value={formData.cta} onChange={e => setFormData({ ...formData, cta: e.target.value })} />
+          <input className="input input-bordered" placeholder="Price" type="number" value={formData.price} onChange={e => setFormData({ ...formData, price: +e.target.value })} />
+          <input className="input input-bordered" placeholder="Old Price" value={formData.oldPrice} onChange={e => setFormData({ ...formData, oldPrice: e.target.value })} />
+          <input className="input input-bordered" placeholder="Discount (%)" value={formData.discountPercentage} onChange={e => setFormData({ ...formData, discountPercentage: e.target.value })} />
+          <input className="input input-bordered" placeholder="Frequency" value={formData.frequency} onChange={e => setFormData({ ...formData, frequency: e.target.value })} />
+          <input className="input input-bordered" placeholder="Plan Category" value={formData.planCategory} onChange={e => setFormData({ ...formData, planCategory: e.target.value })} />
+          <input className="input input-bordered" placeholder="CTA Button Text" value={formData.cta} onChange={e => setFormData({ ...formData, cta: e.target.value })} />
         </div>
 
-        <div className="mt-4">
+        <div className="mt-6">
           <h4 className="font-semibold mb-2">Add Feature</h4>
           <div className="flex gap-2">
-            <input className="input input-bordered border border-base-300 w-full" placeholder="Feature" value={newFeature} onChange={e => setNewFeature(e.target.value)} />
-            <button className="btn btn-sm btn-accent" onClick={handleAddFeature}>Add</button>
+            <input className="input input-bordered w-full" placeholder="Feature" value={newFeature} onChange={e => setNewFeature(e.target.value)} />
+            <button className="btn btn-accent text-white" onClick={handleAddFeature}>Add</button>
           </div>
 
           <ul className="mt-4 space-y-2">
             {formData.features.map((feature, i) => (
               <li key={i} className="flex gap-2 items-center">
                 <input
-                  className="input input-sm input-bordered border border-base-300 w-full"
+                  className="input input-sm input-bordered w-full"
                   value={feature}
                   onChange={(e) => handleFeatureChange(i, e.target.value)}
                 />
@@ -133,16 +140,28 @@ const AdminPricingCardManager = () => {
           </ul>
         </div>
 
-        <div className="flex gap-3 mt-4">
-          <button className="btn btn-primary text-white" onClick={handleSave}>{editingPlan ? 'Update Plan' : 'Add Plan'}</button>
-          {editingPlan && <button className="btn btn-outline border-red-400 text-red-500 hover:bg-red-100" onClick={() => { setEditingPlan(null); setFormData({ category: '', title: '', price: '', frequency: '', planCategory: '', features: [], cta: '' }); }}>Cancel</button>}
+        <div className="flex gap-3 mt-6">
+          <button className="btn bg-primary hover:bg-primary text-white" onClick={handleSave}>
+            {editingPlan ? 'Update Plan' : 'Add Plan'}
+          </button>
+          {editingPlan && (
+            <button
+              className="btn btn-outline border-red-400 text-red-500 hover:bg-red-100"
+              onClick={() => {
+                setEditingPlan(null);
+                setFormData({ category: '', title: '', price: '', frequency: '', planCategory: '', features: [], cta: '' });
+              }}
+            >
+              Cancel
+            </button>
+          )}
         </div>
       </div>
 
       <h3 className="text-2xl font-semibold mb-4">All Plans</h3>
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto bg-white rounded-lg shadow border border-base-200">
         <table className="table w-full">
-          <thead>
+          <thead className="bg-gray-100 text-gray-800">
             <tr>
               <th>Title</th>
               <th>Category</th>
@@ -154,15 +173,15 @@ const AdminPricingCardManager = () => {
           </thead>
           <tbody>
             {plans.map(plan => (
-              <tr key={plan._id}>
+              <tr key={plan._id} className="hover:bg-gray-50">
                 <td>{plan.title}</td>
                 <td>{plan.category}</td>
                 <td>{plan.price}</td>
                 <td>{plan.frequency}</td>
                 <td>{plan.planCategory}</td>
-                <td className="flex gap-2">
+                <td className="flex flex-wrap gap-2 mt-2">
                   <button onClick={() => handleEdit(plan)} className="btn btn-sm btn-outline">Edit</button>
-                  <button onClick={() => handleDelete(plan._id)} className="btn btn-sm btn-error text-white">Delete</button>
+                  <button onClick={() => handleDelete(plan._id)} className="btn btn-sm btn-error text-red-400">Delete</button>
                 </td>
               </tr>
             ))}

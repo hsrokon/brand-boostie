@@ -62,6 +62,15 @@ const Payment = () => {
     setLoading(true);
 
     const formData = new FormData(form.current);
+    const phoneNo = formData.get("phoneNo");
+    if (phoneNo.length !== 11) {
+      Swal.fire({
+          title: "Invalid Phone No!",
+          text: "Phone no must be 11 digit!",
+          icon: "error",
+        });
+        return;
+    }
 
     const claimData = {
       name: user?.displayName || "Anonymous",
@@ -69,7 +78,7 @@ const Payment = () => {
       service: selectedService.service,
       plan: formData.get("plan"),
       paymentMethod: formData.get("paymentMethod"),
-      phoneNo: formData.get("phoneNo"),
+      phoneNo,
       transactionID: formData.get("transactionID"),
       price: getPlanPrice(),
     };
