@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import PricingTable from '../components/PricingTable';
 import PricingCard from '../components/pricing/PricingCard';
 
@@ -8,12 +8,29 @@ const Pricing = () => {
 
   const [pricingData, setPricingData] = useState([]);
   const comparisonRef = useRef(null);
+  const location = useLocation();
 
   useEffect(() => {
   fetch("https://brand-boostie-server.vercel.app/pricingPlans")
     .then(res => res.json())
     .then(data => setPricingData(data));
   }, []);
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const targetService = params.get("service");
+
+    console.log("Query service:", targetService);
+    console.log("Available service names:", pricingData.map(d => d.service));
+
+    if (targetService && pricingData.length > 0) {
+      const id = `pricing-${targetService.replace(/\s+/g, "-").toLowerCase()}`;
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+  }, [location.search, pricingData]);
 
   const scrollToComparison = ()=> {
     comparisonRef.current?.scrollIntoView({behavior : 'smooth'})
@@ -83,13 +100,18 @@ const Pricing = () => {
       <div 
       className="grid gap-10 md:gap-12 xl:gap-16 grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 max-w-6xl mx-auto">
         {pricingData.map((item, idx) => (
-          <PricingCard
-          key={idx}
-          service={item.service}
-          features={item.features}
-          starterPrice={item.starterPrice}
-          professionalPrice={item.professionalPrice}
-        />
+          <div
+            id={`pricing-${item.service.replace(/\s+/g, "-").toLowerCase()}`} // ← unique ID
+            key={idx}
+            className='scroll-mt-24'
+          >
+            <PricingCard
+              service={item.service}
+              features={item.features}
+              starterPrice={item.starterPrice}
+              professionalPrice={item.professionalPrice}
+            />
+          </div>
         ))}
       </div>
     </div>

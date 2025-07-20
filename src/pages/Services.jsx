@@ -112,7 +112,7 @@ const Services = () => {
             className="relative 
             banner-height 
             sm:h-[30vh] 
-            md:h-[25vh] 
+            md:h-[32vh] 
             lg:h-[30rem] 
             xl:h-[30rem] 
             bg-cover bg-center bg-no-repeat 
@@ -195,7 +195,7 @@ const Services = () => {
             >
                 <div className="relative">
                     <h1 className={ `text-2xl lg:text-4xl my-2 font-semibold text-primary`}>
-                        Ads Campaign
+                       Facebook Ads Campaign
                     </h1>
 
                     <h5 className={`text-sm md:text-base lg:text-xl my-2 text-gray-600 flex items-center gap-3
@@ -216,11 +216,13 @@ const Services = () => {
                     </div>
 
                     <div className={``}>
-                        <button className={`px-6 py-2 font-medium bg-primary text-white w-fit transition-all 
-                            shadow-[3px_3px_0px_black] hover:shadow-none 
-                            hover:translate-x-[3px] hover:translate-y-[3px]
-                            cursor-pointer`}>Visit Plan
-                        </button>
+                       <Link to={`/pricing?service=Facebook%20Ads%20Campaign`}>
+                            <button className={`px-6 py-2 font-medium bg-primary text-white w-fit transition-all 
+                                shadow-[3px_3px_0px_black] hover:shadow-none 
+                                hover:translate-x-[3px] hover:translate-y-[3px]
+                                cursor-pointer`}>Visit Plan
+                            </button>
+                        </Link>
                     </div>
                     
                 </div>
@@ -253,11 +255,13 @@ const Services = () => {
                     </div>
 
                     <div className={`flex justify-end`}>
-                        <button className={`px-6 py-2 font-medium bg-primary text-white w-fit transition-all 
-                            shadow-[3px_3px_0px_black] hover:shadow-none 
-                            hover:translate-x-[3px] hover:translate-y-[3px]
-                            cursor-pointer`}>Visit Plan
-                        </button>
+                        <Link to={`/pricing?service=Full%20Local%20SEO`}>
+                            <button className={`px-6 py-2 font-medium bg-primary text-white w-fit transition-all 
+                                shadow-[3px_3px_0px_black] hover:shadow-none 
+                                hover:translate-x-[3px] hover:translate-y-[3px]
+                                cursor-pointer`}>Visit Plan
+                            </button>
+                        </Link>
                     </div>
                     
                 </div>
@@ -291,11 +295,13 @@ const Services = () => {
                     </div>
 
                     <div className={``}>
-                        <button className={`px-6 py-2 font-medium bg-primary text-white w-fit transition-all 
-                            shadow-[3px_3px_0px_black] hover:shadow-none 
-                            hover:translate-x-[3px] hover:translate-y-[3px]
-                            cursor-pointer`}>Visit Plan
-                        </button>
+                        <Link to={`/pricing?service=Email%20Marketing`}>
+                            <button className={`px-6 py-2 font-medium bg-primary text-white w-fit transition-all 
+                                shadow-[3px_3px_0px_black] hover:shadow-none 
+                                hover:translate-x-[3px] hover:translate-y-[3px]
+                                cursor-pointer`}>Visit Plan
+                            </button>
+                        </Link>
                     </div>
                     
                 </div>
@@ -328,11 +334,13 @@ const Services = () => {
                     </div>
 
                     <div className={`flex justify-end`}>
-                        <button className={`px-6 py-2 font-medium bg-primary text-white w-fit transition-all 
-                            shadow-[3px_3px_0px_black] hover:shadow-none 
-                            hover:translate-x-[3px] hover:translate-y-[3px]
-                            cursor-pointer`}>Visit Plan
-                        </button>
+                        <Link to={`/pricing?service=Website`}>
+                            <button className={`px-6 py-2 font-medium bg-primary text-white w-fit transition-all 
+                                shadow-[3px_3px_0px_black] hover:shadow-none 
+                                hover:translate-x-[3px] hover:translate-y-[3px]
+                                cursor-pointer`}>Visit Plan
+                            </button>
+                        </Link>
                     </div>
                     
                 </div>

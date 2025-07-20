@@ -21,7 +21,7 @@ const About = () => {
             className="relative 
             banner-height 
             sm:h-[30vh] 
-            md:h-[30vh] 
+            md:h-[35vh] 
             lg:h-[26rem] 
             xl:h-[29rem] 
             bg-cover bg-center md:bg-top bg-no-repeat 
