@@ -7,48 +7,65 @@ import { IoIosArrowDown } from "react-icons/io";
 import { MdOutlineContentPasteSearch, MdWeb, MdOutlineMarkEmailRead } from "react-icons/md";
 import { Link } from "react-router-dom";
 import FAQ from "../components/FAQ";
-
+import { useLocation } from "react-router-dom";
 
 const Services = () => {
+
+  const location = useLocation();
+
+  useEffect(() => {
+    Aos.init({ duration: 800, once: true });
+
+    // Scroll to matching service section
+    const pathParts = location.pathname.split("/");
+    const slug = pathParts[pathParts.length - 1]; // 'ads-campaign', etc.
+    const target = document.getElementById(slug);
+    if (target) {
+        setTimeout(() => {
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 300); // slight delay to wait for DOM
+        }
+    }, [location]);
+
 
     useEffect(()=> {
         Aos.init({duration: 800, once: true})
     },[])
 
-    const services = [
-        {
-            id: 1,
-            title: "Ads Campaign",
-            icon: <HiRocketLaunch />,
-            short: "Targeted advertising to boost your brand’s reach and engagement",
-            description:
-            "Our Ads Campaign service helps you reach the right people through targeted ads on platforms like Google, Facebook, and Instagram. We create eye-catching visuals, engaging messages, and optimize campaigns to meet your business goals — whether that’s increasing traffic, generating leads, or boosting sales. With regular monitoring and data-driven improvements, we make sure your investment performs at its best.",
-        },
-        {
-            id: 2,
-            title: "Full Local SEO",
-            icon: <MdOutlineContentPasteSearch />,
-            short: "Improve your local search ranking and drive nearby traffic",
-            description:
-            "Our Full Local SEO service is built to increase your visibility in local searches. We optimize your Google Business Profile, manage local listings, and target location-specific keywords to help nearby customers find your business. Whether you're a shop, restaurant, or service provider, we ensure you show up when it matters most — in front of people searching near you.",
-        },
-        {
-            id: 3,
-            title: "Website",
-            icon: <MdWeb />,
-            short: "Modern, responsive websites tailored to your brand",
-            description:
-            "We design and build websites that reflect your brand, work on all devices, and convert visitors into customers. From clean layouts to fast loading and mobile optimization, every detail is crafted to give users a smooth experience. Whether you need a business landing page or a full e-commerce site, we create digital spaces that support your growth.",
-        },
-        {
-            id: 4,
-            title: "Email Marketing",
-            icon: <MdOutlineMarkEmailRead />,
-            short: "Convert leads through strategic and automated email flows",
-            description:
-            "Our Email Marketing service helps you stay connected with your audience through smart, automated campaigns. From welcome sequences to product promotions, we design personalized emails that drive engagement and increase conversions. Using tools like Mailchimp or Klaviyo, we build flows that nurture leads and bring customers back — all while saving you time.",
-        },
-        ];
+    // const services = [
+    //     {
+    //         id: 1,
+    //         title: "Ads Campaign",
+    //         icon: <HiRocketLaunch />,
+    //         short: "Targeted advertising to boost your brand’s reach and engagement",
+    //         description:
+    //         "Our Ads Campaign service helps you reach the right people through targeted ads on platforms like Google, Facebook, and Instagram. We create eye-catching visuals, engaging messages, and optimize campaigns to meet your business goals — whether that’s increasing traffic, generating leads, or boosting sales. With regular monitoring and data-driven improvements, we make sure your investment performs at its best.",
+    //     },
+    //     {
+    //         id: 2,
+    //         title: "Full Local SEO",
+    //         icon: <MdOutlineContentPasteSearch />,
+    //         short: "Improve your local search ranking and drive nearby traffic",
+    //         description:
+    //         "Our Full Local SEO service is built to increase your visibility in local searches. We optimize your Google Business Profile, manage local listings, and target location-specific keywords to help nearby customers find your business. Whether you're a shop, restaurant, or service provider, we ensure you show up when it matters most — in front of people searching near you.",
+    //     },
+    //     {
+    //         id: 3,
+    //         title: "Website",
+    //         icon: <MdWeb />,
+    //         short: "Modern, responsive websites tailored to your brand",
+    //         description:
+    //         "We design and build websites that reflect your brand, work on all devices, and convert visitors into customers. From clean layouts to fast loading and mobile optimization, every detail is crafted to give users a smooth experience. Whether you need a business landing page or a full e-commerce site, we create digital spaces that support your growth.",
+    //     },
+    //     {
+    //         id: 4,
+    //         title: "Email Marketing",
+    //         icon: <MdOutlineMarkEmailRead />,
+    //         short: "Convert leads through strategic and automated email flows",
+    //         description:
+    //         "Our Email Marketing service helps you stay connected with your audience through smart, automated campaigns. From welcome sequences to product promotions, we design personalized emails that drive engagement and increase conversions. Using tools like Mailchimp or Klaviyo, we build flows that nurture leads and bring customers back — all while saving you time.",
+    //     },
+    //     ];
 
     const bulletPoints = [
         {
@@ -129,7 +146,7 @@ const Services = () => {
             {/* Services */}
             <h1 className="text-center text-2xl md:text-3xl lg:text-5xl text-accent my-6 md:my-8 lg:my-10" data-aos="fade-left">Explore Services</h1>
 
-            {
+            {/* {
             services.map(service =>
                 <section 
                 key={service.id}
@@ -169,7 +186,157 @@ const Services = () => {
                     </div>
                 </section>
             )
-            }
+            } */}
+
+            <section 
+                id="ads-campaign"
+                className="w-11/12 md:w-10/12 lg:w-8/12 mx-auto my-14 lg:my-24 scroll-mt-24"
+                data-aos='fade-right'
+            >
+                <div className="relative">
+                    <h1 className={ `text-2xl lg:text-4xl my-2 font-semibold text-primary`}>
+                        Ads Campaign
+                    </h1>
+
+                    <h5 className={`text-sm md:text-base lg:text-xl my-2 text-gray-600 flex items-center gap-3
+                    `}> 
+                        <div className="text-secondary">
+                            <HiRocketLaunch />
+                        </div>
+                        Targeted advertising to boost your brand's reach and engagement
+                    </h5>
+
+                    <p className={`text-base-content text-sm lg:text-lg my-4`}
+                    >
+                        Our Ads Campaign service helps you reach the right people through targeted ads on platforms like Google, Facebook, and Instagram. We create eye-catching visuals, engaging messages, and optimize campaigns to meet your business goals — whether that's increasing traffic, generating leads, or boosting sales. With regular monitoring and data-driven improvements, we make sure your investment performs at its best.
+                    </p>
+
+                    <div className={`absolute -top-3 md:top-0 text-accent/40 text-5xl md:text-7xl right-0 md:right-10`}>
+                        <HiRocketLaunch />
+                    </div>
+
+                    <div className={``}>
+                        <button className={`px-6 py-2 font-medium bg-primary text-white w-fit transition-all 
+                            shadow-[3px_3px_0px_black] hover:shadow-none 
+                            hover:translate-x-[3px] hover:translate-y-[3px]
+                            cursor-pointer`}>Visit Plan
+                        </button>
+                    </div>
+                    
+                </div>
+            </section>
+            
+            <section 
+                id="full-local-seo"
+                className="w-11/12 md:w-10/12 lg:w-8/12 mx-auto my-14 lg:my-24 scroll-mt-24"
+                data-aos='fade-left'
+            >
+                <div className="relative">
+                    <h1 className={ `text-2xl lg:text-4xl my-2 font-semibold text-primary text-right`}>
+                        Full Local SEO
+                    </h1>
+
+                    <h5 className={`text-sm md:text-base lg:text-xl my-2 text-gray-600 flex items-center gap-3 flex-row-reverse text-right md:text-inherit`}> 
+                        <div className="text-secondary">
+                            <MdOutlineContentPasteSearch />
+                        </div>
+                        Improve your local search ranking and drive nearby traffic"
+                    </h5>
+
+                    <p className={`text-base-content text-sm lg:text-lg my-4 text-right`}
+                    >
+                        Our Full Local SEO service is built to increase your visibility in local searches. We optimize your Google Business Profile, manage local listings, and target location-specific keywords to help nearby customers find your business. Whether you're a shop, restaurant, or service provider, we ensure you show up when it matters most — in front of people searching near you.
+                    </p>
+
+                    <div className={`absolute -top-3 md:top-0 text-accent/40 text-5xl md:text-7xl left-0 md:left-10`}>
+                        <MdOutlineContentPasteSearch />
+                    </div>
+
+                    <div className={`flex justify-end`}>
+                        <button className={`px-6 py-2 font-medium bg-primary text-white w-fit transition-all 
+                            shadow-[3px_3px_0px_black] hover:shadow-none 
+                            hover:translate-x-[3px] hover:translate-y-[3px]
+                            cursor-pointer`}>Visit Plan
+                        </button>
+                    </div>
+                    
+                </div>
+            </section>
+
+            <section 
+                id="email-marketing"
+                className="w-11/12 md:w-10/12 lg:w-8/12 mx-auto my-14  lg:my-24 scroll-mt-24"
+                data-aos='fade-right'
+            >
+                <div className="relative">
+                    <h1 className={ `text-2xl lg:text-4xl my-2 font-semibold text-primary`}>
+                        Email Marketing
+                    </h1>
+
+                    <h5 className={`text-sm md:text-base lg:text-xl my-2 text-gray-600 flex items-center gap-3
+                    `}> 
+                        <div className="text-secondary">
+                            <MdOutlineMarkEmailRead />
+                        </div>
+                        Convert leads through strategic and automated email flows
+                    </h5>
+
+                    <p className={`text-base-content text-sm lg:text-lg my-4`}
+                    >
+                        Our Email Marketing service helps you stay connected with your audience through smart, automated campaigns. From welcome sequences to product promotions, we design personalized emails that drive engagement and increase conversions. Using tools like Mailchimp or Klaviyo, we build flows that nurture leads and bring customers back — all while saving you time.
+                    </p>
+
+                    <div className={`absolute -top-3 md:top-0 text-accent/40 text-5xl md:text-7xl right-0 md:right-10`}>
+                       <MdOutlineMarkEmailRead />
+                    </div>
+
+                    <div className={``}>
+                        <button className={`px-6 py-2 font-medium bg-primary text-white w-fit transition-all 
+                            shadow-[3px_3px_0px_black] hover:shadow-none 
+                            hover:translate-x-[3px] hover:translate-y-[3px]
+                            cursor-pointer`}>Visit Plan
+                        </button>
+                    </div>
+                    
+                </div>
+            </section>
+
+            <section 
+                id="website"
+                className="w-11/12 md:w-10/12 lg:w-8/12 mx-auto my-14  lg:my-24 scroll-mt-24"
+                data-aos='fade-left'
+            >
+                <div className="relative">
+                    <h1 className={ `text-2xl lg:text-4xl my-2 font-semibold text-primary text-right`}>
+                        Website
+                    </h1>
+
+                    <h5 className={`text-sm md:text-base lg:text-xl my-2 text-gray-600 flex items-center gap-3 flex-row-reverse text-right md:text-inherit`}> 
+                        <div className="text-secondary">
+                            <MdWeb />
+                        </div>
+                        Modern, responsive websites tailored to your brand
+                    </h5>
+
+                    <p className={`text-base-content text-sm lg:text-lg my-4 text-right`}
+                    >
+                        We design and build websites that reflect your brand, work on all devices, and convert visitors into customers. From clean layouts to fast loading and mobile optimization, every detail is crafted to give users a smooth experience. Whether you need a business landing page or a full e-commerce site, we create digital spaces that support your growth.
+                    </p>
+
+                    <div className={`absolute -top-3 md:top-0 text-accent/40 text-5xl md:text-7xl left-0 md:left-10`}>
+                        <MdWeb />
+                    </div>
+
+                    <div className={`flex justify-end`}>
+                        <button className={`px-6 py-2 font-medium bg-primary text-white w-fit transition-all 
+                            shadow-[3px_3px_0px_black] hover:shadow-none 
+                            hover:translate-x-[3px] hover:translate-y-[3px]
+                            cursor-pointer`}>Visit Plan
+                        </button>
+                    </div>
+                    
+                </div>
+            </section>
 
             <section 
             className="w-7/12 mx-auto flex flex-col items-center"

@@ -18,7 +18,7 @@ const MiniServices = () => {
         </h2>
       </div>
 
-      {/* Image section */}
+      {/* cards section */}
       <div className="w-full" data-aos="fade-up">
         <MiniServicesCards></MiniServicesCards>
       </div>

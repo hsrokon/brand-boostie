@@ -41,6 +41,10 @@ const router = createBrowserRouter([
                 element: <Services></Services>
             },
             {
+                path: '/services/:serviceSlug',
+                element: <Services />
+            },
+            {
                 path: '/pricing',
                 element: <Pricing></Pricing>
             },
