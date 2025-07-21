@@ -36,7 +36,7 @@ const About = () => {
             text-white"
 
             style={{
-                backgroundImage: "url('https://i.ibb.co/pB0x8HZC/team.jpg')",
+                backgroundImage: "url('https://i.ibb.co/Vrx2WPL/team.webp')",
             }}
             >
             <div className="absolute inset-0 bg-black/30 backdrop-blur-sm z-0"></div>
