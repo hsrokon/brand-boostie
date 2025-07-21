@@ -32,7 +32,7 @@ const Contact = () => {
                     <div>
                         <img
                             className="w-full rounded-md"
-                            src="https://i.ibb.co/DgDWQmtq/edited-contact-reduced.png"
+                            src="https://i.ibb.co/prhsWjVJ/edited-contact.webp"
                             alt="Contact"
                         />
                     </div>

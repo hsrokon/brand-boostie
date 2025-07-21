@@ -49,7 +49,7 @@ const Footer = () => {
         {/* Brand Info */}
         <div>
           <div className="flex items-center gap-2 mb-4">
-            <img src="https://i.ibb.co/ynsqxBgL/logo.png" alt="Logo" className="w-6 h-6" />
+            <img src="https://i.ibb.co/PHnxxqt/b-cropped.webp" alt="Logo" className="w-6 h-6" />
             <span className="text-xl text-primary font-semibold">BrandBoostie</span>
           </div>
           <p className="text-sm text-gray-600 mb-6">

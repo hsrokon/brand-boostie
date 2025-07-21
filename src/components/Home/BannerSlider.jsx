@@ -6,13 +6,13 @@ import { Link } from 'react-router-dom';
 
 const BannerSlider = () => {
   const banners = [
-    'https://i.ibb.co/W498HgJr/1-reduced.png',
-    'https://i.ibb.co/twNFzKCb/2-reduced.png',
-    'https://i.ibb.co/R46N8sJt/3-reduced.png',
-    'https://i.ibb.co/pBjFmshP/4-reduced.png',
-    'https://i.ibb.co/7xY2Dxk4/5.png',
-    'https://i.ibb.co/0dMpqyk/6-reduced.png',
-    'https://i.ibb.co/qF3R2CMm/7-reduced.png',
+    'https://i.ibb.co/4R931WtB/1.webp',
+    'https://i.ibb.co/LXBnLGRh/2.webp',
+    'https://i.ibb.co/W4fgkqn5/3.webp',
+    'https://i.ibb.co/wFjV1hy9/4.webp',
+    'https://i.ibb.co/Z1cQK9js/5.webp',
+    'https://i.ibb.co/xqLyXxWN/6.webp',
+    'https://i.ibb.co/d418NZQs/7.webp',
   ];
 
   return (

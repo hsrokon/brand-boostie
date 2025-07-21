@@ -6,17 +6,17 @@ const teamMembers = [
   {
     name: "Esrat Jahan Mimmi",
     role: "Head of SEO team",
-    image: "https://i.ibb.co/SD7NzZRQ/member-1.jpg",
+    image: "https://i.ibb.co/YFShKd6g/member-1.webp",
   },
   {
     name: "Md Galib Al Zidan",
     role: "Founder & CEO, Ads & Email Expert",
-    image: "https://i.ibb.co/Kp6CPJLC/member-2.jpg",
+    image: "https://i.ibb.co/YBN7vJNz/member-2.webp",
   },
   {
     name: "Hussain Shahriar Rokon",
     role: "Web Developer",
-    image: "https://i.ibb.co/C5Dr1yGz/member-3.png",
+    image: "https://i.ibb.co/BHd5nMNR/member-3.webp",
   },
 ];
 

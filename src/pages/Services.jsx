@@ -122,7 +122,7 @@ const Services = () => {
             mb-10 md:mb-16 lg:mb-24 
             text-white"
 
-            style={{ backgroundImage: "url('https://i.ibb.co/RG6Ng5VJ/service-cover-bg.jpg')" }}
+            style={{ backgroundImage: "url('https://i.ibb.co/5XKMbGKr/service-cover-bg.webp')" }}
             >
                 <div className="absolute inset-0 bg-black/15 backdrop-blur-sm z-0"></div>
 

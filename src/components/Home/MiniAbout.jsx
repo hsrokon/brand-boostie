@@ -29,7 +29,7 @@ const MiniAbout = () => {
       {/* Image section */}
       <div className="relative w-full md:w-1/2" data-aos="fade-left">
         <img
-          src="https://i.ibb.co/8Lz6fRr1/mini-about-reduced.png"
+          src="https://i.ibb.co/F4nrd0N6/mini-about.webp"
           alt="digital marketing representational image"
           className="w-full h-auto object-cover rounded-lg"
         />

@@ -50,7 +50,7 @@ const Pricing = () => {
         text-white"
 
         style={{
-          backgroundImage: "url('https://i.ibb.co/vxMB0hHk/pricing.jpg')",
+          backgroundImage: "url('https://i.ibb.co/hR7FdJ2k/pricing-original.webp')",
         }}
       >
         <div className="absolute inset-0 backdrop-blur-xs z-0" />

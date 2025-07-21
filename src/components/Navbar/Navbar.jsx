@@ -51,7 +51,7 @@ const Navbar = () => {
     <nav className="bg-white border-gray-200 font-poppins">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
-          <img src={'https://i.ibb.co/QjJ55qVd/tr-reduced.png'} className="h-11" alt="Logo" />
+          <img src={'https://i.ibb.co/JW4bwMjN/tr.webp'} className="h-11" alt="Logo" />
         </a>
 
         <div className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
