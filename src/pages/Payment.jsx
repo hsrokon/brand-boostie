@@ -21,6 +21,7 @@ const Payment = () => {
   const [voucherDiscount, setVoucherDiscount] = useState(0);
   const [voucherCode, setVoucherCode] = useState("");
   const [voucherDetails, setVoucherDetails] = useState(null);
+  const [ isVoucherClaimed, setIsVoucherClaimed ] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -60,6 +61,7 @@ const Payment = () => {
       if (res.ok && data.valid) {
         setVoucherDiscount(data.discount);
         setVoucherDetails(data);
+        setIsVoucherClaimed(true);
         return true;
       } else {
         setVoucherDiscount(0);
@@ -178,7 +180,7 @@ const Payment = () => {
           <div className="max-w-md mx-auto text-center space-y-1">
             <h4 className="text-center font-semibold text-xl">Pay According to Plan</h4>
             <p>
-              You've to <span className="font-semibold">"Send Money"</span> on
+              You've to <span className="font-semibold">"Send Money"</span> on {' '}
               <button
                 type="button"
                 onClick={() => {
@@ -189,7 +191,7 @@ const Payment = () => {
               >
                 <BsCopy className="text-base relative -top-[1px]" /> 01717506963
               </button>
-              and attach the transaction ID.
+              {' '}and attach the transaction ID.
             </p>
           </div>
 
@@ -241,6 +243,10 @@ const Payment = () => {
                 type="button"
                 className="btn btn-outline btn-accent"
                 onClick={async () => {
+                  if (isVoucherClaimed) {
+                    Swal.fire("No more!", "You can only apply voucher once.", "warning");
+                    return;
+                  }
                   const isValid = await validateVoucher(voucherCode);
                   if (isValid) {
                     Swal.fire("Voucher Applied!", `You've received a discount.`, "success");
@@ -267,9 +273,13 @@ const Payment = () => {
           </div>
 
           <div className="space-y-2">
-            <button type="submit" className="btn btn-primary text-white w-full" disabled={loading}>
+            <button 
+            type="submit" 
+            className="btn btn-primary text-white w-full" 
+            disabled={loading}>
               {loading ? "Claiming..." : "Claim Purchase"}
             </button>
+
             <button
               type="button"
               className="btn btn-primary w-full text-white"

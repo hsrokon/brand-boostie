@@ -66,6 +66,35 @@ const PaymentClaimsSection = () => {
     }
   };
 
+  const handleDelete = async (id) => {
+      const confirm = await Swal.fire({
+        title: "Are you sure?",
+        text: "This claim will be permanently deleted.",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Yes, delete it!",
+      });
+
+      if (!confirm.isConfirmed) return;
+
+      try {
+        const res = await fetch(`https://brand-boostie-server.vercel.app/paymentClaims/${id}`, {
+          method: "DELETE",
+        });
+
+        if (res.ok) {
+          Swal.fire("Deleted!", "The claim has been removed.", "success");
+          setClaims((prev) => prev.filter((c) => c._id !== id));
+        } else {
+          throw new Error("Deletion failed");
+        }
+      } catch (error) {
+        console.error(error);
+        Swal.fire("Error", "Could not delete claim.", "error");
+      }
+    };
+
+
   if (loading) return <p>Loading payment claims...</p>;
 
   return (
@@ -96,6 +125,8 @@ const PaymentClaimsSection = () => {
               <p><strong>Payment:</strong> ৳{claim.price} via {claim.paymentMethod}</p>
               <p><strong>Phone:</strong> {claim.phoneNo}</p>
               <p><strong>Txn ID:</strong> {claim.transactionID}</p>
+              <p><strong>Voucher Code:</strong> {claim.voucherCode || "—"}</p>
+              <p><strong>Discount Applied:</strong> {claim.voucherDiscount ? `${claim.voucherDiscount}%` : "—"}</p>
               <p><strong>Status:</strong> <span className="text-primary">{claim.status}</span></p>
               <p><strong>Verified:</strong> {claim.isVerified ? " Yes" : " No"}</p>
 
@@ -125,6 +156,14 @@ const PaymentClaimsSection = () => {
                     Mark Completed
                   </button>
                 )}
+
+                <button
+                  onClick={() => handleDelete(claim._id)}
+                  className="btn btn-outline btn-error btn-sm"
+                >
+                  Delete
+                </button>
+
               </div>
             </div>
           ))}
