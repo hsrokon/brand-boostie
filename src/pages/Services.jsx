@@ -8,6 +8,7 @@ import { MdOutlineContentPasteSearch, MdWeb, MdOutlineMarkEmailRead } from "reac
 import { Link } from "react-router-dom";
 import FAQ from "../components/FAQ";
 import { useLocation } from "react-router-dom";
+import TrustedClients from "../components/services/TrustedClients";
 
 const Services = () => {
 
@@ -145,48 +146,6 @@ const Services = () => {
 
             {/* Services */}
             <h1 className="text-center text-2xl md:text-3xl lg:text-5xl text-accent my-6 md:my-8 lg:my-10" data-aos="fade-left">Explore Services</h1>
-
-            {/* {
-            services.map(service =>
-                <section 
-                key={service.id}
-                className="w-11/12 md:w-10/12 lg:w-8/12 mx-auto my-14  lg:my-24"
-                data-aos={`${service.id%2===0 ? 'fade-left' : 'fade-right'}`}
-                >
-                    <div className="relative">
-                        <h1 className={ `text-2xl lg:text-4xl my-2 font-semibold text-primary ${service.id%2===0 ? 'text-right' : ''}`}>
-                            {service.title}
-                        </h1>
-
-                        <h5 className={`text-sm md:text-base lg:text-xl my-2 text-gray-600 flex items-center gap-3
-                        ${service.id%2===0 ? 'flex-row-reverse text-right md:text-inherit' : ''}`}> 
-                            <div className="text-secondary">
-                                {service.icon}
-                            </div>
-                        {service.short}
-                        </h5>
-
-                        <p className={`text-base-content text-sm lg:text-lg my-4 ${service.id%2===0 ? 'text-right' : ''}`}
-                        >
-                            {service.description}
-                        </p>
-
-                        <div className={`absolute -top-3 md:top-0 text-accent/40 text-5xl md:text-7xl ${service.id%2===0 ? 'left-0 md:left-10' : 'right-0 md:right-10'}`}>
-                        {service.icon}
-                        </div>
-
-                        <div className={`flex ${service.id%2===0 ? 'justify-end' : ''}`}>
-                            <button className={`px-6 py-2 font-medium bg-primary text-white w-fit transition-all 
-                                shadow-[3px_3px_0px_black] hover:shadow-none 
-                                hover:translate-x-[3px] hover:translate-y-[3px]
-                                cursor-pointer`}>Visit Plan
-                            </button>
-                        </div>
-                        
-                    </div>
-                </section>
-            )
-            } */}
 
             <section 
                 id="facebook-ads-campaign"
@@ -392,17 +351,8 @@ const Services = () => {
                 <FAQ></FAQ>
             </section>
 
-            <section className="py-32 px-6 bg-base-100 text-center" data-aos="fade-up">
-                <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4">Trusted by Businesses Like Yours</h2>
-                <p className="text-sm md:text-lg mb-6 max-w-2xl mx-auto text-base-content">
-                    From startups to local shops, our clients love the results we deliver.
-                </p>
-                <div className="flex justify-center flex-wrap gap-6">
-                    <img src="https://i.ibb.co/fYqK9psP/omar.jpg" alt="Client 1" className="h-8 md:h-10 rounded-full cursor-pointer" />
-                    <img src="https://i.ibb.co/D0XrWnc/Imran.jpg" alt="Client 2" className="h-8 md:h-10 rounded-full cursor-pointer" />
-                    <img src="https://i.ibb.co/whk3qJ3j/nusrat.jpg" alt="Client 3" className="h-8 md:h-10 rounded-full cursor-pointer" />
-                    {/* Replace with your real client logos */}
-                </div>
+            <section>
+                <TrustedClients></TrustedClients>
             </section>
         </div>
     );
