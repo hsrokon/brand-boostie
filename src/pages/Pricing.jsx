@@ -2,17 +2,22 @@ import React, { useRef } from 'react';
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import PricingCard from '../components/pricing/PricingCard';
+import Loading from '../components/Loading';
 
 const Pricing = () => {
 
   const [pricingData, setPricingData] = useState([]);
+  const [ loading, setLoading ] = useState(true);
   const comparisonRef = useRef(null);
   const location = useLocation();
 
   useEffect(() => {
   fetch("https://brand-boostie-server.vercel.app/pricingPlans")
     .then(res => res.json())
-    .then(data => setPricingData(data));
+    .then(data => {
+      setPricingData(data);
+      setLoading(false);
+    });
   }, []);
 
   useEffect(() => {
@@ -72,7 +77,9 @@ const Pricing = () => {
         </div>
       </section>
 
-      <section>
+      {
+        loading ? <Loading /> : 
+        <section>
         <div className="min-h-screen bg-base-100 px-4 md:px-8 pt-12 pb-22">
           <h1 
           ref={comparisonRef}
@@ -99,6 +106,7 @@ const Pricing = () => {
           </div>
         </div>
       </section>
+      }
     </div>
   );
 };

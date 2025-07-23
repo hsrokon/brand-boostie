@@ -1,9 +1,22 @@
+import Lottie from "lottie-react";
+import { useEffect, useState } from "react";
+
 const Loading = () => {
-    return (
-        <div className="flex justify-center items-center min-h-screen -mt-20">
-            <span className="loading loading-ring w-20"></span>
-        </div>
-    );
+  const [animationData, setAnimationData] = useState(null);
+
+  useEffect(() => {
+    fetch("loading.json")
+      .then((res) => res.json())
+      .then((data) => setAnimationData(data));
+  }, []);
+
+  return (
+    <div className="flex justify-center items-center min-h-screen -mt-20">
+      {animationData && (
+        <Lottie animationData={animationData} loop autoplay style={{ width: 200, height: 200 }} />
+      )}
+    </div>
+  );
 };
 
 export default Loading;
