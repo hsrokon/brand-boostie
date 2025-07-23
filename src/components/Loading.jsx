@@ -13,7 +13,7 @@ const Loading = () => {
   return (
     <div className="flex justify-center items-center min-h-screen -mt-20">
       {animationData && (
-        <Lottie animationData={animationData} loop autoplay style={{ width: 200, height: 200 }} />
+        <Lottie animationData={animationData} loop={true} autoplay={true} style={{ width: 200, height: 200 }} />
       )}
     </div>
   );
