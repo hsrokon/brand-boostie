@@ -4,10 +4,12 @@ import ScrollToTopButton from '../components/ScrollToTopButton';
 import Footer from '../components/Footer';
 import ScrollToTop from '../components/ScrollToTop';
 import WhatsAppButton from '../components/WhatsappButton';
+import GTMTracking from '../components/GTMTracking';
 
 const Layout = () => {
     return (
         <div className='min-h-screen w-full mx-auto'>
+             <GTMTracking /> {/* gtm tracking component  */}
             <ScrollToTop></ScrollToTop>
             <header className='sticky top-0 z-50 bg-white'>
                 <Navbar></Navbar>
