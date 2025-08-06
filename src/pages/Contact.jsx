@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import MessageSection from '../components/MessageSection';
 import Aos from 'aos';
+import ConnectSection from '../components/ConnectSection';
 
 const Contact = () => {
 
@@ -43,23 +44,8 @@ const Contact = () => {
                 <MessageSection></MessageSection>
             </section>
 
-            <section className='md:max-w-2xl -mt-10 mb-40 flex flex-col justify-center items-center space-y-6 mx-auto' data-aos="fade-up">
-                <h3 className='text-2xl md:text-3xl font-mono text-primary font-semibold'>Connect with us</h3>
-                <div className="flex gap-4">
-                    {["facebook", "twitter", "youtube", "linkedin"].map((platform) => (
-                    <a
-                        key={platform}
-                        href="#"
-                        className="w-9 h-9 rounded-sm bg-secondary/20 shadow flex items-center justify-center hover:bg-accent/40 transition"
-                    >
-                        <img
-                        src={`https://cdn.jsdelivr.net/npm/simple-icons/icons/${platform}.svg`}
-                        alt={platform}
-                        className="w-4 h-4 opacity-70"
-                        />
-                    </a>
-                    ))}
-                </div>
+            <section>
+                <ConnectSection></ConnectSection>
             </section>
         </div>
     );
