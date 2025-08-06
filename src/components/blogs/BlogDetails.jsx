@@ -1,5 +1,6 @@
 import { MdArrowBack } from "react-icons/md";
 import { useLoaderData, Link } from "react-router-dom";
+import ConnectSection from "../ConnectSection";
 
 const BlogDetails = () => {
   const blog = useLoaderData(); // ✅ Use loader data directly
@@ -54,13 +55,15 @@ const BlogDetails = () => {
         )}
       </div>
 
+
       {/* Back Button */}
       <Link
         to="/blogs"
         className="mt-6 btn py-1 border-primary text-primary hover:bg-primary hover:text-white inline-flex items-center gap-1"
-      >
+        >
         <MdArrowBack /> Back to Blogs
       </Link>
+        <ConnectSection></ConnectSection>
     </article>
   );
 };

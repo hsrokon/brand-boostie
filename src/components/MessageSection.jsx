@@ -48,7 +48,7 @@ const MessageSection = () => {
 
 
   return (
-    <section className="bg-base-200 py-14 lg:py-20 px-6 mb-30 text-center" id="contact" data-aos="fade-up">
+    <section className="bg-base-200 py-14 lg:py-20 px-6 mb-24 text-center" id="contact" data-aos="fade-up">
       <div className="md:max-w-2xl lg:max-w-3xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}

@@ -1,6 +1,7 @@
 import { Link, useLoaderData } from "react-router-dom";
 import { MdArrowBack } from "react-icons/md";
 import { PiListMagnifyingGlassThin } from "react-icons/pi";
+import ConnectSection from "../ConnectSection";
 
 const CaseStudyDetails = () => {
   const caseStudy = useLoaderData();
@@ -86,6 +87,9 @@ const CaseStudyDetails = () => {
       >
         <MdArrowBack /> Back to Case Studies
       </Link>
+
+        <ConnectSection></ConnectSection>
+
     </article>
   );
 };

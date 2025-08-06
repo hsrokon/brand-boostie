@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 const socialLinks = [
   {
     platform: "facebook",
-    url: "https://facebook.com/brandboostie",
+    url: "https://www.facebook.com/brandboostie",
     icon: "https://img.icons8.com/color/48/000000/facebook-new.png",
   },
   {
@@ -14,7 +14,7 @@ const socialLinks = [
   },
   {
     platform: "instagram",
-    url: "https://instagram.com/yourhandle",
+    url: "https://instagram.com/brandboostie",
     icon: "https://img.icons8.com/fluency/48/instagram-new.png",
   },
   {
@@ -24,7 +24,7 @@ const socialLinks = [
   },
   {
     platform: "website",
-    url: "https://yourwebsite.com",
+    url: "https://brandboostie.com/pricing?service=Facebook%20Ads%20Campaign",
     icon: "https://img.icons8.com/pulsar-gradient/48/globe.png",
   },
   {
@@ -58,7 +58,7 @@ const ConnectSection = () => {
 
   return (
     <section
-      className="md:max-w-2xl -mt-10 mb-40 flex flex-col justify-center items-center space-y-6 mx-auto"
+      className="md:max-w-2xl mt-10 mb-32 flex flex-col justify-center items-center space-y-6 mx-auto"
       data-aos="fade-up"
     >
       <h3 className="text-2xl md:text-3xl font-mono text-primary font-semibold">
