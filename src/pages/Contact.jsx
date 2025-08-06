@@ -20,7 +20,7 @@ const Contact = () => {
                     </p>
                     <div className="space-y-2">
                         <p><strong>Email:</strong> contact@brandboostie.com</p>
-                        <p><strong>Phone:</strong> +88 01518-989695</p>
+                        <p><strong>WhatsApp:</strong> +88 01518-989695</p>
                         <p><strong>Location:</strong> Vatara, Dhaka 1212, Bangladesh.</p>
                         <p className='italic font-thin text-sm'>
                         <span className='text-red-600'>Things you should know:</span>

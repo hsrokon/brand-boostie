@@ -29,7 +29,7 @@ const Card = ({ plan }) => {
       whileHover="hover"
       transition={{ duration: 1, ease: "backInOut" }}
       variants={{ hover: { scale: 1.05 } }}
-      className={`relative w-full h-full min-h-[24.5rem] md:h-[28rem] max-w-[16rem] md:max-w-[18rem] lg:md:max-w-[19.5rem] xl:max-w-sm mx-auto 
+      className={`relative w-full h-full min-h-[26.5rem] md:h-[28rem] max-w-[16rem] md:max-w-[18rem] lg:md:max-w-[19.5rem] xl:max-w-sm mx-auto 
       overflow-hidden rounded-xl 
       ${planCategory === 'Professional' ? 'bg-accent' : 'bg-primary'} 
       p-6 sm:p-8 shadow-lg`}

@@ -29,6 +29,10 @@ const Blogs = () => {
       {loading ? (
         <Loading />
       ) : (
+        blogs.length === 0 ? 
+        <div className="flex justify-center items-center min-h-screen">
+          <h3 className="text-2xl -mt-20 text-gray-400">No Blogs Available!</h3>
+        </div> :
         <section className="max-w-6xl mx-auto px-4 py-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {blogs.map(blog => (
             <BlogCard key={blog._id} blog={blog} />

@@ -29,6 +29,10 @@ const CaseStudies = () => {
       {loading ? (
         <Loading /> // Show spinner
       ) : (
+        caseStudies.length === 0 ? 
+        <div className="flex justify-center items-center min-h-screen">
+          <h3 className="text-2xl -mt-20 text-gray-400">No Case Studies Available!</h3>
+        </div> : 
         <section className="w-full xl:w-10/12 mx-auto py-12 px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {caseStudies.map(cs => (
             <CaseStudyCard key={cs._id} caseStudy={cs} />
