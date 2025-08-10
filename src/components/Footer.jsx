@@ -132,6 +132,7 @@ const Footer = () => {
           <Link to={"/blogs"}>Blogs</Link>
           <Link to={"/contact"}>Contact</Link>
           <Link to={"/admin/dashboard"}>Admin</Link>
+          <a href="https://github.com/hsrokon" target="_blank" rel="noopener noreferrer">Developer</a>
         </ul>
         <div className="flex gap-4">
             <div className="w-14 h-6">     
