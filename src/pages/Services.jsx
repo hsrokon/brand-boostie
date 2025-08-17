@@ -1,7 +1,7 @@
 // import TestMotion from '../components/TestMotion';
 import Aos from "aos";
 import 'aos/dist/aos.css'
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { HiRocketLaunch } from "react-icons/hi2";
 import { IoIosArrowDown } from "react-icons/io";
 import { MdOutlineContentPasteSearch, MdWeb, MdOutlineMarkEmailRead } from "react-icons/md";
@@ -107,6 +107,17 @@ const Services = () => {
         },
     ]
 
+    const [ expanded1, setExpanded1 ] = useState(false);
+    const [ expanded2, setExpanded2 ] = useState(false);
+    const [ expanded3, setExpanded3 ] = useState(false);
+    const [ expanded4, setExpanded4 ] = useState(false);
+    const text1 = `Our Ads Campaign service helps you reach the right people through targeted ads on platforms like Google, Facebook, and Instagram. We create eye-catching visuals, engaging messages, and optimize campaigns to meet your business goals — whether that's increasing traffic, generating leads, or boosting sales. With regular monitoring and data-driven improvements, we make sure your investment performs at its best.`;
+    const text2 = `Our Full Local SEO service is built to increase your visibility in local searches. We optimize your Google Business Profile, manage local listings, and target location-specific keywords to help nearby customers find your business. Whether you're a shop, restaurant, or service provider, we ensure you show up when it matters most — in front of people searching near you.`;
+    const text3 = `Our Email Marketing service helps you stay connected with your audience through smart, automated campaigns. From welcome sequences to product promotions, we design personalized emails that drive engagement and increase conversions. Using tools like Mailchimp or Klaviyo, we build flows that nurture leads and bring customers back — all while saving you time.`;
+    const text4 = `We design and build websites that reflect your brand, work on all devices, and convert visitors into customers. From clean layouts to fast loading and mobile optimization, every detail is crafted to give users a smooth experience. Whether you need a business landing page or a full e-commerce site, we create digital spaces that support your growth.`;
+    
+    const previewLimit = 250;
+
     return (
         <div className='min-h-screen '>
             <section
@@ -167,7 +178,18 @@ const Services = () => {
 
                     <p className={`text-base-content text-sm lg:text-lg my-4`}
                     >
-                        Our Ads Campaign service helps you reach the right people through targeted ads on platforms like Google, Facebook, and Instagram. We create eye-catching visuals, engaging messages, and optimize campaigns to meet your business goals — whether that's increasing traffic, generating leads, or boosting sales. With regular monitoring and data-driven improvements, we make sure your investment performs at its best.
+                        {expanded1 ? text1 : text1.slice(0, previewLimit) + (text1.length > previewLimit ? "..." : "")}
+                        {" "}
+                        {
+                            text1.length > previewLimit && (
+                                <button
+                                onClick={()=> setExpanded1(!expanded1)}
+                                className="text-primary font-medium underline cursor-pointer"
+                                >
+                                    {expanded1 ? "Show Less ▲" : "Read More ▼"}
+                                </button>
+                            )
+                        }
                     </p>
 
                     <div className={`absolute -top-3 md:top-0 text-accent/40 text-5xl md:text-7xl right-0 md:right-10`}>
@@ -206,7 +228,18 @@ const Services = () => {
 
                     <p className={`text-base-content text-sm lg:text-lg my-4 text-right`}
                     >
-                        Our Full Local SEO service is built to increase your visibility in local searches. We optimize your Google Business Profile, manage local listings, and target location-specific keywords to help nearby customers find your business. Whether you're a shop, restaurant, or service provider, we ensure you show up when it matters most — in front of people searching near you.
+                        {expanded2 ? text2 : text2.slice(0, previewLimit) + (text2.length > previewLimit ? "..." : "")}
+                        {" "}
+                        {
+                            text2.length > previewLimit && (
+                                <button
+                                onClick={()=> setExpanded2(!expanded2)}
+                                className="text-primary font-medium underline cursor-pointer"
+                                >
+                                    {expanded2 ? "Show Less ▲" : "Read More ▼"}
+                                </button>
+                            )
+                        }
                     </p>
 
                     <div className={`absolute -top-3 md:top-0 text-accent/40 text-5xl md:text-7xl left-0 md:left-10`}>
@@ -246,7 +279,18 @@ const Services = () => {
 
                     <p className={`text-base-content text-sm lg:text-lg my-4`}
                     >
-                        Our Email Marketing service helps you stay connected with your audience through smart, automated campaigns. From welcome sequences to product promotions, we design personalized emails that drive engagement and increase conversions. Using tools like Mailchimp or Klaviyo, we build flows that nurture leads and bring customers back — all while saving you time.
+                        {expanded3 ? text3 : text3.slice(0, previewLimit) + (text3.length > previewLimit ? "..." : "")}
+                        {" "}
+                        {
+                            text3.length > previewLimit && (
+                                <button
+                                onClick={()=> setExpanded3(!expanded3)}
+                                className="text-primary font-medium underline cursor-pointer"
+                                >
+                                    {expanded3 ? "Show Less ▲" : "Read More ▼"}
+                                </button>
+                            )
+                        }
                     </p>
 
                     <div className={`absolute -top-3 md:top-0 text-accent/40 text-5xl md:text-7xl right-0 md:right-10`}>
@@ -285,7 +329,18 @@ const Services = () => {
 
                     <p className={`text-base-content text-sm lg:text-lg my-4 text-right`}
                     >
-                        We design and build websites that reflect your brand, work on all devices, and convert visitors into customers. From clean layouts to fast loading and mobile optimization, every detail is crafted to give users a smooth experience. Whether you need a business landing page or a full e-commerce site, we create digital spaces that support your growth.
+                        {expanded4 ? text4 : text4.slice(0, previewLimit) + (text4.length > previewLimit ? "..." : "")}
+                        {" "}
+                        {
+                            text4.length > previewLimit && (
+                                <button
+                                onClick={()=> setExpanded4(!expanded4)}
+                                className="text-primary font-medium underline cursor-pointer"
+                                >
+                                    {expanded4 ? "Show Less ▲" : "Read More ▼"}
+                                </button>
+                            )
+                        }
                     </p>
 
                     <div className={`absolute -top-3 md:top-0 text-accent/40 text-5xl md:text-7xl left-0 md:left-10`}>
