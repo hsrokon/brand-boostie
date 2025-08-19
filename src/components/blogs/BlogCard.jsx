@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 const BlogCard = ({ blog }) => {
   const { _id, title, coverImage, category, content, author, photoURL, createdAt } = blog;
 
-  // Format publish date nicely
+  // formatting publish date properly
   const publishDate = new Date(createdAt).toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",
     day: "numeric",
   });
 
-  // Short preview for content
+  // short preview
   const preview = content.length > 150 ? `${content.slice(0, 150)}...` : content;
 
   return (

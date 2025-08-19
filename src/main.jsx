@@ -6,7 +6,7 @@ import router from './routes/router.jsx'
 import AuthProvider from './providers/AuthProvider.jsx'
 import TagManager from 'react-gtm-module'//gtm module
 
-//Initializing GTM before app renders
+//Initializing GTM before app renders --
 TagManager.initialize({
   gtmId: 'GTM-MLJGV8LN' // GTM ID
 });

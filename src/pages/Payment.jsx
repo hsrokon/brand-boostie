@@ -1,5 +1,3 @@
-// ✅ FULLY UPDATED Payment.jsx with voucher usage tracking integration
-
 import { useLocation, useNavigate } from "react-router-dom";
 import { useContext, useEffect, useRef, useState } from "react";
 import { AuthContext } from "../providers/AuthProvider";

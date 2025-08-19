@@ -50,7 +50,7 @@ const ConnectSection = () => {
         });
       })
       .catch(() => {
-        // fallback silent
+        // fallback 
       });
 
     window.location.href = `mailto:${email}`;

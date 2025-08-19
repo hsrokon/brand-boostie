@@ -11,11 +11,11 @@ const Blogs = () => {
       .then(res => res.json())
       .then(data => {
         setBlogs(data);
-        setLoading(false); // ✅ only stop loading after data is set
+        setLoading(false); //only stop loading after data is set
       })
       .catch(err => {
         console.error("Failed to load blogs:", err);
-        setLoading(false); // still stop loading to prevent infinite spinner
+        setLoading(false);
       });
   }, []);
 

@@ -17,7 +17,7 @@ const Services = () => {
   useEffect(() => {
     Aos.init({ duration: 800, once: true });
 
-    // Scroll to matching service section
+    // scroll to matching service section
     const pathParts = location.pathname.split("/");
     const slug = pathParts[pathParts.length - 1]; // 'ads-campaign', etc.
     const target = document.getElementById(slug);

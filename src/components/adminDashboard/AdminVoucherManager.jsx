@@ -15,7 +15,7 @@ const AdminVoucherManager = ({ adminEmail }) => {
 
   const navigate = useNavigate();
 
-  // Track editable voucher values per voucher _id
+  // tracking editable voucher values per voucher _id
   const [editValues, setEditValues] = useState({});
 
   const fetchVouchers = async () => {
@@ -25,7 +25,7 @@ const AdminVoucherManager = ({ adminEmail }) => {
       const data = await res.json();
       setVouchers(data);
 
-      // Initialize editValues state from fetched vouchers
+      // initializing editValues from fetched vouchers
       const initialEditValues = {};
       data.forEach((v) => {
         initialEditValues[v._id] = {
@@ -132,7 +132,7 @@ const AdminVoucherManager = ({ adminEmail }) => {
   const handleUpdateVoucher = async (id) => {
     const { code, discountPercentage, usageLimit } = editValues[id];
 
-    // Validation
+    // validation
     if (!code.trim()) {
       Swal.fire("Error", "Code cannot be empty", "error");
       return;
@@ -180,7 +180,7 @@ const AdminVoucherManager = ({ adminEmail }) => {
     <div className="max-w-4xl my-6 mx-auto p-6 bg-white rounded shadow">
         <h2 className="text-2xl font-bold mb-4">Manage Vouchers</h2>
 
-        {/* Add voucher form */}
+        {/* add voucher form */}
         <form onSubmit={handleAddVoucher} className="mb-6 flex flex-col sm:flex-row gap-3 items-center">
             <input
             type="text"
@@ -217,7 +217,7 @@ const AdminVoucherManager = ({ adminEmail }) => {
             </button>
         </form>
 
-        {/* Vouchers Table */}
+        {/* vouchers table */}
         {loading ? (
             <p>Loading vouchers...</p>
         ) : vouchers.length === 0 ? (

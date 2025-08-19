@@ -36,7 +36,7 @@ const Login = () => {
         return;
       }
 
-      // Prepare user info to save
+      // preparing user info to save
       const logInInfo = {
         email,
         displayName: user.displayName,
@@ -75,7 +75,7 @@ const Login = () => {
   };
 
   const handleGoogleLogIn = async () => {
-    setErrorMes({}); // Clear previous error
+    setErrorMes({}); // clearing previous error
 
     try {
       const credential = await logInWithGoogle();
